@@ -126,60 +126,12 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="server">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="panel panel-default">
-                                        <div class="panel-body">
-                                            <div class="list-group stat-list" id="server">
-                                                <div class="list-group-item">
-                                                    <div class="row-action-primary">
-                                                        <i class="material-icons">developer_board</i>
-                                                    </div>
-                                                    <div class="row-content">
-                                                        <h4 class="list-group-item-heading">CPU</h4>
-
-                                                        <p class="list-group-item-text large">33%</p>
-                                                    </div>
-                                                </div>
-                                                <div class="list-group-separator"></div>
-                                                <div class="list-group-item">
-                                                    <div class="row-action-primary">
-                                                        <i class="material-icons">memory</i>
-                                                    </div>
-                                                    <div class="row-content">
-                                                        <h4 class="list-group-item-heading">Memory</h4>
-                                                        <div class="progress progress-striped active">
-                                                            <div class="progress-bar" style="width: 20%"></div>
-                                                        </div>
-                                                        <p class="list-group-item-text pull-right">2 GB / 8 GB</p>
-                                                    </div>
-                                                </div>
-                                                <div class="list-group-separator"></div>
-                                                <div class="list-group-item">
-                                                    <div class="row-action-primary">
-                                                        <i class="material-icons">move_to_inbox</i>
-                                                    </div>
-                                                    <div class="row-content">
-                                                        <h4 class="list-group-item-heading">Storage</h4>
-                                                        <div class="progress progress-striped active">
-                                                            <div class="progress-bar" style="width: 50%"></div>
-                                                        </div>
-                                                        <p class="list-group-item-text pull-right">1 TB / 2TB</p>
-                                                    </div>
-                                                </div>
-                                                <div class="list-group-separator"></div>
-                                            </div>
-                                        </div>
-                                        <a class="text-default" href="#">
-                                            <div class="panel-footer">
-                                                <span class="pull-left">Server 1</span>
-                                                <span class="pull-right"><i class="fa fa-circle"></i></span>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="row" id="serverList">
+                                
+                            
+							
+							
+							</div>
                         </div>
                         <div role="tabpanel" class="tab-pane" id="camera">Camera</div>
                         <div role="tabpanel" class="tab-pane" id="encoder">Encoder</div>
@@ -191,7 +143,60 @@
         </div>
     </div>
 
+<div id='serverTemplate' style='display:none'>
+	<div class="col-md-3">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="list-group stat-list" id="server">
+					<div class="list-group-item">
+						<div class="row-action-primary">
+							<i class="material-icons">developer_board</i>
+						</div>
+						<div class="row-content">
+							<h4 class="list-group-item-heading">CPU</h4>
 
+							<p class="list-group-item-text large">33%</p>
+						</div>
+					</div>
+					<div class="list-group-separator"></div>
+					<div class="list-group-item">
+						<div class="row-action-primary">
+							<i class="material-icons">memory</i>
+						</div>
+						<div class="row-content">
+							<h4 class="list-group-item-heading">Memory</h4>
+							<div class="progress progress-striped active">
+								<div class="progress-bar" style="width: 20%"></div>
+							</div>
+							<p class="list-group-item-text pull-right">2 GB / 8 GB</p>
+						</div>
+					</div>
+					<div class="list-group-separator"></div>
+					<div class="list-group-item">
+						<div class="row-action-primary">
+							<i class="material-icons">move_to_inbox</i>
+						</div>
+						<div class="row-content">
+							<h4 class="list-group-item-heading">Storage</h4>
+							<div class="progress progress-striped active">
+								<div class="progress-bar" style="width: 50%"></div>
+							</div>
+							<p class="list-group-item-text pull-right">1 TB / 2TB</p>
+						</div>
+					</div>
+					<div class="list-group-separator"></div>
+				</div>
+			</div>
+			<a class="text-default" href="#">
+				<div class="panel-footer">
+					<span class="pull-left">{0}</span>
+					<span class="pull-right"><i class="fa fa-circle"></i></span>
+					<div class="clearfix"></div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>
 
     <!--jquery JS  -->
     <script src="../../bower_components/jquery/dist/jquery.min.js"></script>

@@ -8,6 +8,24 @@ var utils = (function() {
 	document.cookie = "CSRF_TOKEN="+CSRF_TOKEN+"; expires=Thu, 18 Dec 2018 12:00:00 UTC; path=/";
     document.cookie = "JSESSIONID="+JSESSIONID+"; expires=Thu, 18 Dec 2018 12:00:00 UTC; path=/";
     
+	String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
+	function () {
+		"use strict";
+		var str = this.toString();
+		if (arguments.length) {
+			var t = typeof arguments[0];
+			var key;
+			var args = ("string" === t || "number" === t) ?
+				Array.prototype.slice.call(arguments)
+				: arguments[0];
+
+			for (key in args) {
+				str = str.replace(new RegExp("\\{" + key + "\\}", "gi"), args[key]);
+			}
+		}
+
+		return str;
+	};
 	/**
      * load mustache templates using AJAX
      * @param {any} templatePath 
@@ -100,7 +118,7 @@ var utils = (function() {
 		}
 		if(typeof onError == 'undefined'){
 			onError = function(jqXHR, textStatus, errorThrown  ) {
-				console.error('Server Error');
+				window.open(baseUrl, 'CDAF', "height=400,width=400");
 			}
 		}
 		
