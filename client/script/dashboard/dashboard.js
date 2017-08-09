@@ -179,3 +179,6 @@ updateCameraList();
 $("#logOutBtn").click(function() {
 	utils.logOut();
 });
+$("#logOutBtn1").click(function() {
+	utils.logOut();
+});
