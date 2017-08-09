@@ -7,10 +7,10 @@ $('#serverTab a').click(function(e) {
     $(this).tab('show')
 });
 
-utils.verifySession(false);
+//utils.verifySession(false);
 
 
 
 $("#logOutBtn").click(function() {
-	utils.logOut();
+    utils.logOut();
 });
