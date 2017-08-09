@@ -31,7 +31,7 @@ var utils = (function() {
      *initialize material design. 
      */
     function initializeMaterialDesign() {
-       // $.material.init();
+        $.material.init();
     }
 
     function initializeMenu(selectorId, options) {
