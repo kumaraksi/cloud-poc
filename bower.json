@@ -1,0 +1,38 @@
+{
+    "name": "VSM CLOUD APPLICATION",
+    "authors": [
+        "Surendra Borana",
+        "Akshay Kumar"
+    ],
+    "description": "POC for cloud VSM application",
+    "main": "index.html",
+    "keywords": [
+        "poc",
+        "vsm",
+        "cloud"
+    ],
+    "license": "MIT",
+    "homepage": "index.html",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "bootstrap": "^3.3.7",
+        "bower": "*",
+        "datatables.net-bs": "^2.1.1",
+        "datatables.net-responsive-bs": "^2.1.1",
+        "datatables.net-responsive": "^2.1.1",
+        "datatables.net": "^1.10.15",
+        "metisMenu": "metismenu#^2.7.0",
+        "mustache.js": "mustache#^2.3.0",
+        "font-awesome": "^4.7.0",
+        "bootstrap-material-design": "^4.0.2"
+    },
+    "resolutions": {
+        "bootstrap": "^3.3.7"
+    }
+}
