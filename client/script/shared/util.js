@@ -150,6 +150,7 @@ var utils = (function() {
 		}
 		if(typeof onError == 'undefined'){
 			onError = function (jqXHR, textStatus, errorThrown  ) {
+				window.open(baseUrl, 'CDAF', "height=400,width=400");
 				console.error('Server Error');
 			}
 		}
