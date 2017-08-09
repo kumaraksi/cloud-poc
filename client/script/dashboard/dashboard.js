@@ -26,19 +26,30 @@ function updateServerList(){
 		data = JSON.parse(data);
 		console.info(data);
 		var servers = data.data.items;
-		
+		window.allServers = servers;
 		var serverListStr = "<div class='row'>";
-		servers.forEach(function(server){
+		var i=0;
+		servers.forEach(function(server, index){
 			var serverName = server.name;
 			var adminState = server.adminState;
-			var deviceState = server.deviceState;
+			var deviceState = server.deviceState.aggregateState;
 			var umsSystemSummary = server.umsSystemSummary;
 			var totalPhysicalMemory = umsSystemSummary.totalPhysicalMemory;
 			var numberOfLogicalCores = umsSystemSummary.numberOfLogicalCores;
 			
 			var serverTemplate = $('#serverTemplate');
 			var serverTemplateStr = serverTemplate[0].innerHTML;
-			serverListStr += serverTemplateStr.formatUnicorn(serverName);
+			
+			var panelCss = 'panel-primary';
+			if(deviceState == 'ok'){
+				panelCss = 'panel-success';
+			}
+			
+			serverListStr += serverTemplateStr.formatUnicorn(panelCss, i, serverName, deviceState);
+			serverListStr += serverTemplateStr.formatUnicorn(panelCss, i, serverName+'_warning', 'warning');
+			serverListStr += serverTemplateStr.formatUnicorn(panelCss, i, serverName+'_critical', 'critical');
+			serverListStr += serverTemplateStr.formatUnicorn(panelCss, i, serverName+'_disabled', 'disabled');
+			serverListStr += serverTemplateStr.formatUnicorn(panelCss, i, serverName+'_softdeleted', 'soft_deleted');
 			
 			
 			//serverListStr += window.erverTemplateStr.formatUnicorn(adminState, totalPhysicalMemory, numberOfLogicalCores, serverName);
@@ -47,6 +58,15 @@ function updateServerList(){
 		
 		var serverListCmp = $('#serverList');
 		serverListCmp[0].innerHTML = serverListStr;
+		
+		
+		$('.serverDetailsBtn').click(function(event){
+			console.info(event);
+			window.event1 = event;
+			var serverIndex = +event.currentTarget.getAttribute('server-index');
+			console.info(serverIndex)
+			alert("VSOM : "+ window.allServers[serverIndex].name + '. Next Load Details')
+		});
 	}
 	onError = function(jqXHR, textStatus, errorThrown  ) {
 		console.warn(errorThrown);

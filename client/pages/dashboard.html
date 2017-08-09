@@ -35,6 +35,7 @@
 </head>
 
 <body>
+<!-- Modal -->
     <!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a class="text-default" href="#">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
@@ -126,14 +127,16 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="server">
-                            <div class="row" id="serverList">
+                            <div class="row server-list" id="serverList">
                                 
                             
 							
 							
 							</div>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="camera">Camera</div>
+                        <div role="tabpanel" class="tab-pane" id="camera">Camera
+						<!-- Button to trigger modal -->
+						</div>
                         <div role="tabpanel" class="tab-pane" id="encoder">Encoder</div>
                         <div role="tabpanel" class="tab-pane" id="events">Events</div>
                     </div>
@@ -145,7 +148,7 @@
 
 <div id='serverTemplate' style='display:none'>
 	<div class="col-md-3">
-		<div class="panel panel-default">
+		<div class="panel {0}">
 			<div class="panel-body">
 				<div class="list-group stat-list" id="server">
 					<div class="list-group-item">
@@ -187,16 +190,18 @@
 					<div class="list-group-separator"></div>
 				</div>
 			</div>
-			<a class="text-default" href="#">
+			<a server-index="{1}" class="text-default serverDetailsBtn" href="#">
 				<div class="panel-footer">
-					<span class="pull-left">{0}</span>
-					<span class="pull-right"><i class="fa fa-circle"></i></span>
-					<div class="clearfix"></div>
+						<span class="pull-left">{2}</span>
+						<span class="pull-right server-status {3}"><i class="fa fa-circle"></i></span>
+						<div class="clearfix"></div>
 				</div>
 			</a>
+			
 		</div>
 	</div>
 </div>
+
 
     <!--jquery JS  -->
     <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
