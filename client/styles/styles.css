@@ -116,22 +116,40 @@ body {
     color: #37474F;
 }
 
-.row.server-list{
+.row.server-list,
+.row.camera-list,
+{
 	margin : 0px !important;
 }
 
-.row.server-list .server-status.ok .fa.fa-circle{
+.row.server-list .status-icon.ok .fa.fa-circle,
+.row.camera-list .status-icon.ok .fa.fa-circle
+{
 	color : green;
 }
-.row.server-list .server-status.soft_deleted .fa.fa-circle{
+
+.row.server-list .status-icon.soft_deleted .fa.fa-circle,
+.row.camera-list .status-icon.soft_deleted .fa.fa-circle
+{
 	color : black;
 }
-.row.server-list .server-status.disabled .fa.fa-circle{
+
+.row.server-list .status-icon.disabled .fa.fa-circle,
+.row.camera-list .status-icon.disabled .fa.fa-circle,
+.row.camera-list .status-icon.pre_provisioned .fa.fa-circle
+{
 	color : grey;
 }
-.row.server-list .server-status.warning .fa.fa-circle{
+
+.row.server-list .status-icon.warning .fa.fa-circle,
+.row.camera-list .status-icon.warning .fa.fa-circle
+{
 	color : orange;
 }
-.row.server-list .server-status.critical .fa.fa-circle{
+.row.server-list .status-icon.critical .fa.fa-circle,
+.row.camera-list .status-icon.critical .fa.fa-circle
+{
 	color : red;
 }
+
+

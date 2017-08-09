@@ -26,9 +26,14 @@ function updateServerList(){
 		data = JSON.parse(data);
 		console.info(data);
 		var servers = data.data.items;
+		servers.push(servers[0]);
+		servers.push(servers[0]);
+		servers.push(servers[0]);
+		servers.push(servers[0]);
+		
 		window.allServers = servers;
-		var serverListStr = "<div class='row'>";
-		var i=0;
+		
+		var serverListStr = '';
 		servers.forEach(function(server, index){
 			var serverName = server.name;
 			var adminState = server.adminState;
@@ -44,21 +49,39 @@ function updateServerList(){
 			if(deviceState == 'ok'){
 				panelCss = 'panel-success';
 			}
+			//Fake Data
+			switch(index){
+				case 1:
+					serverName = serverName+'_warning';
+					deviceState = 'warning';
+					break;
+				case 2:
+					serverName = serverName+'_critical';
+					deviceState = 'critical';
+					break;
+				case 3:
+					serverName = serverName+'_disabled';
+					deviceState = 'disabled';
+					break;
+				case 4:
+					serverName = serverName+'_softdeleted';
+					deviceState = 'soft_deleted';
+					break;
+			}
 			
-			serverListStr += serverTemplateStr.formatUnicorn(panelCss, i, serverName, deviceState);
-			serverListStr += serverTemplateStr.formatUnicorn(panelCss, i, serverName+'_warning', 'warning');
-			serverListStr += serverTemplateStr.formatUnicorn(panelCss, i, serverName+'_critical', 'critical');
-			serverListStr += serverTemplateStr.formatUnicorn(panelCss, i, serverName+'_disabled', 'disabled');
-			serverListStr += serverTemplateStr.formatUnicorn(panelCss, i, serverName+'_softdeleted', 'soft_deleted');
+			
+			
+			serverListStr += serverTemplateStr.formatUnicorn(panelCss, index, serverName, deviceState);
 			
 			
 			//serverListStr += window.erverTemplateStr.formatUnicorn(adminState, totalPhysicalMemory, numberOfLogicalCores, serverName);
 		});
-		serverListStr = serverListStr + '</div>';
 		
 		var serverListCmp = $('#serverList');
 		serverListCmp[0].innerHTML = serverListStr;
 		
+		
+		$('#serverCountBadge').text(allServers.length);
 		
 		$('.serverDetailsBtn').click(function(event){
 			console.info(event);
@@ -75,15 +98,84 @@ function updateServerList(){
 	
 }
 
-$('#serverTab a').click(function(e) {
+
+
+function updateCameraList(){
+	var url = utils.getBaseUrl() + '/camera/getCameras';
+	var filterData = {
+		"filter": {
+			"pageInfo": {
+				"start": 0,
+				"limit": 100
+			},
+			"sortCriteria": {
+				"name": "name",
+				"sortOrder": "ASC"
+			},
+			//"byLocationUids": ["40000000-0000-0000-0000-000000000005"],
+			//"includeSubLocations": false,
+			//"byVsomUid": "09bebf28-dcc6-4d2c-aabc-d16700d4c756"
+		}
+	};
+	
+	onSuccess = function(data, textStatus, jqXHR ) {
+		data = JSON.parse(data);
+		console.info(data);
+		var cameras = data.data.items;
+		window.allCameras = cameras;
+		var cameraListStr = "";
+		var i=0;
+		cameras.forEach(function(camera, index){
+			var cameraName = camera.name;
+			var adminState = camera.adminState;
+			var deviceState = camera.deviceState.aggregateState;
+			
+			var cameraTemplate = $('#serverTemplate');
+			var cameraTemplateStr = cameraTemplate[0].innerHTML;
+			
+			var panelCss = 'panel-primary';
+			if(deviceState == 'ok'){
+				panelCss = 'panel-success';
+			}
+			
+			
+			cameraListStr += cameraTemplateStr.formatUnicorn(panelCss, i, cameraName, deviceState);
+			
+		});
+		
+		var cameraListCmp = $('#cameraList');
+		cameraListCmp[0].innerHTML = cameraListStr;
+		
+		$('#cameraCountBadge').text(allCameras.length);
+		
+		$('.serverDetailsBtn').click(function(event){
+			console.info(event);
+			window.event1 = event;
+			var serverIndex = +event.currentTarget.getAttribute('server-index');
+			console.info(serverIndex)
+			alert("VSOM : "+ window.allServers[serverIndex].name + '. Next Load Details')
+		});
+	}
+	onError = function(jqXHR, textStatus, errorThrown  ) {
+		console.warn(errorThrown);
+	}
+	utils.sendPost(url, filterData, onSuccess, onError);
+	
+}
+
+
+
+
+$('#tabList a').click(function(e) {
     e.preventDefault()
     $(this).tab('show')
 });
 
+
 utils.verifySession(false);
 
 updateServerList();
-
+updateCameraList();
 $("#logOutBtn").click(function() {
 	utils.logOut();
 });

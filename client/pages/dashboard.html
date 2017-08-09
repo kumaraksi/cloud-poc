@@ -115,10 +115,10 @@
                 <div class="col-lg-12">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist" id="serverTab">
-                        <li role="presentation" class="active"><a href="#server" aria-controls="server" role="tab" data-toggle="tab">Server <span class="badge">42</span></a></li>
-                        <li role="presentation"><a href="#camera" aria-controls="camera" role="tab" data-toggle="tab">Camera <span class="badge">42</span></a></a>
+                        <li role="presentation" class="active"><a href="#server" aria-controls="server" role="tab" data-toggle="tab">Server <span id="serverCountBadge" class="badge">--</span></a></li>
+                        <li role="presentation"><a href="#camera" aria-controls="camera" role="tab" data-toggle="tab">Camera <span id="cameraCountBadge" class="badge">--</span></a></a>
                         </li>
-                        <li role="presentation"><a href="#encoder" aria-controls="encoder" role="tab" data-toggle="tab">Encoder <span class="badge">42</span></a></a>
+                        <li role="presentation"><a href="#encoder" aria-controls="encoder" role="tab" data-toggle="tab">Encoder <span class="badge">2</span></a></a>
                         </li>
                         <li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events <span class="badge">42</span></a></a>
                         </li>
@@ -128,14 +128,14 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="server">
                             <div class="row server-list" id="serverList">
-                                
-                            
-							
-							
+                          
 							</div>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="camera">Camera
-						<!-- Button to trigger modal -->
+                        <div role="tabpanel" class="tab-pane" id="camera">
+							<div class="row camera-list" id="cameraList">
+                            
+							</div>
+						
 						</div>
                         <div role="tabpanel" class="tab-pane" id="encoder">Encoder</div>
                         <div role="tabpanel" class="tab-pane" id="events">Events</div>
@@ -193,7 +193,7 @@
 			<a server-index="{1}" class="text-default serverDetailsBtn" href="#">
 				<div class="panel-footer">
 						<span class="pull-left">{2}</span>
-						<span class="pull-right server-status {3}"><i class="fa fa-circle"></i></span>
+						<span class="pull-right status-icon {3}"><i class="fa fa-circle"></i></span>
 						<div class="clearfix"></div>
 				</div>
 			</a>
