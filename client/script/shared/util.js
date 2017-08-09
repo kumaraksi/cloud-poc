@@ -91,6 +91,10 @@ var utils = (function() {
 				if(data.status.errorType != 'SUCCESS'){
 					utils.clearBaseUrl();
 					window.location = window.LOGIN_PAGE;
+				}else{
+					if(isLoginPage){
+						window.location = window.DASHBOARD_PAGE;
+					}
 				}
 			}
 		}
