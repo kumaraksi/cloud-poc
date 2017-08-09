@@ -7,7 +7,7 @@ $('#serverTab a').click(function(e) {
     $(this).tab('show')
 });
 
-//utils.verifySession(false);
+utils.verifySession(false);
 
 
 
