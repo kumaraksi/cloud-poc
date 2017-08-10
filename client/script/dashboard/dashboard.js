@@ -164,7 +164,96 @@ function updateCameraList(){
 }
 
 
+function fixLocationData(locationTree){
 
+
+		//Ignore First Level
+		//locationTree = locationTree.childGroups[0];
+		var locationTreeHtml = '<div class="sidebar-nav navbar-collapse" ><ul class="nav in" id="side-menu"><li>';
+		
+		var rootLocation = locationTree.childGroups[0];
+		
+		locationTreeHtml += '<a uid="'+rootLocation.uid+'" href="#" class="text-default selected"><i class="fa fa-sitemap fa-fw"></i>'+rootLocation.localName+'<span class="fa arrow"></span></a>';
+		
+			if(rootLocation.hasChildGroups){
+				var secondLevelLocation = rootLocation.childGroups;
+				locationTreeHtml+= '<ul class="nav nav-second-level">';
+				
+				secondLevelLocation.forEach(function(sl){
+					if(sl.hasChildGroups){
+						locationTreeHtml+='<li>';
+						locationTreeHtml+='<a uid="'+rootLocation.uid+'" class="text-default" href="#">'+sl.localName+' <span class="fa arrow"></span></a>';
+						locationTreeHtml+='<ul class="nav nav-third-level">';
+						
+						var thirdLevelLocation = sl.childGroups;
+						thirdLevelLocation.forEach(function(tl){
+							locationTreeHtml+= '<li><a uid="'+rootLocation.uid+'" class="text-default" href="#">'+tl.localName+'</a></li>';
+						});
+						
+						
+						locationTreeHtml+='</ul>';
+						locationTreeHtml+='</li>';
+					}else{
+						locationTreeHtml+= '<li><a uid="'+rootLocation.uid+'" class="text-default" href="#">'+sl.localName+'</a></li>';
+					}
+				});
+				
+				
+				
+				
+				locationTreeHtml+='</ul>';
+			}
+		
+		locationTreeHtml+='</ul></div>';
+		
+		return locationTreeHtml;
+}
+
+
+
+function updateLocationTree(){
+	
+	var url = utils.getBaseUrl() + 'location/getLocationTree';
+	var filterData = {
+		"treeFilter": {
+			"getLocalTreeOnly": true,
+			"objectTypes": [],
+			"depth": 4,
+		}
+	};
+	
+	
+	onSuccess = function(data, textStatus, jqXHR ) {
+		data = JSON.parse(data);
+		console.info(data);
+		var locationTree = data.data;
+		window.locationTree = locationTree;
+		var locationTreeTemplate = $('#locationTreeTemplate');
+		var locationTreeTemplateStr = locationTreeTemplate.html();
+		var locationSidebar = $('#location-sidebar');
+		//locationSidebar.html(locationTreeTemplateStr);
+		
+		
+		var locationTreeHtml = fixLocationData(locationTree);
+		locationSidebar.html(locationTreeHtml);
+		
+		 $('#location-sidebar a').on('click', function(event){
+			console.info(event);
+			var currentTarget = $(event.currentTarget);
+			$('#location-sidebar a').removeClass('selected');
+			currentTarget.addClass('selected');
+			
+		 });
+		
+	}
+	onError = function(jqXHR, textStatus, errorThrown  ) {
+		console.warn(errorThrown);
+	}
+	utils.sendPost(url, filterData, onSuccess, onError);
+	
+}
+
+updateLocationTree();
 
 $('#tabList a').click(function(e) {
     e.preventDefault()

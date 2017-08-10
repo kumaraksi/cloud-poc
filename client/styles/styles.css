@@ -153,3 +153,6 @@ body {
 }
 
 
+#location-sidebar a.selected{
+	background-color: white;
+}
