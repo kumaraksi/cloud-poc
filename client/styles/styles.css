@@ -154,13 +154,13 @@ body {
 
 
 .nav-tabs{
-	background: #03a9f4 !important;
+	background: #4fc0e9 !important;
 }
 
 
 
 #location-sidebar a.selected{
-	background-color: white;
+	background-color: #4fc0e9;
 }
 
 
@@ -189,4 +189,10 @@ body {
 	font-size: 14px !important;
 }
 
+.nav.nav-tabs > li > a{
+	padding : 12px 45px;
+}
 
+.nav.sidebar > li > a{
+	padding : 13px 15px;
+}

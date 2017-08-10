@@ -42,6 +42,12 @@ function updateServerList(){
 		servers.push(servers[0]);
 		servers.push(servers[0]);
 		servers.push(servers[0]);
+		servers.push(servers[0]);
+		servers.push(servers[0]);
+		servers.push(servers[0]);
+		servers.push(servers[0]);
+		servers.push(servers[0]);
+		servers.push(servers[0]);
 		
 		window.allServers = servers;
 		
@@ -150,6 +156,17 @@ function updateCameraList(){
 		
 		
 		var cameras = data.data.items;
+		cameras.push(cameras[0]);
+		cameras.push(cameras[1]);
+		cameras.push(cameras[0]);
+		cameras.push(cameras[1]);
+		cameras.push(cameras[0]);
+		cameras.push(cameras[1]);
+		cameras.push(cameras[0]);
+		cameras.push(cameras[1]);
+		cameras.push(cameras[0]);
+		cameras.push(cameras[1]);
+		
 		window.allCameras = cameras;
 		var cameraListStr = "";
 		var i=0;
