@@ -153,14 +153,21 @@ body {
 }
 
 
+.nav-tabs{
+	background: #03a9f4 !important;
+}
+
+
+
 #location-sidebar a.selected{
 	background-color: white;
 }
 
 
 .camera-list .material-icons{
-	background-color: #008ab1 !important;
+	background-color: lightseagreen  !important;
 }
+
 .camera-list .list-group-item-heading{
 	font-size: 11px !important;
 }
@@ -169,19 +176,17 @@ body {
 	font-size: 14px !important;
 }
 
+
 .server-list .material-icons{
-	background-color: #008ab1 !important;
+	background-color: lightseagreen !important;
 }
+
 .server-list .list-group-item-heading{
 	font-size: 11px !important;
 }
 .server-list .list-group-item-text.large{
 	font-weight: 400;
 	font-size: 14px !important;
-}
-
-.server-list .material-icons{
-	background-color: #008ab1 !important;
 }
 
 
