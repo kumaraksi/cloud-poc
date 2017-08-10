@@ -161,6 +161,7 @@ body {
 
 #location-sidebar a.selected{
 	background-color: #4fc0e9;
+	color: white;
 }
 
 
@@ -195,4 +196,8 @@ body {
 
 .nav.sidebar > li > a{
 	padding : 13px 15px;
+}
+
+.sidebar-nav .fa.fa-sitemap.fa-fw{
+	    margin-right: 5px;
 }
