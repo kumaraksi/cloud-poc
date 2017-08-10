@@ -157,15 +157,18 @@ function updateCameraList(){
 		
 		var cameras = data.data.items;
 		cameras.push(cameras[0]);
-		cameras.push(cameras[1]);
 		cameras.push(cameras[0]);
-		cameras.push(cameras[1]);
 		cameras.push(cameras[0]);
-		cameras.push(cameras[1]);
 		cameras.push(cameras[0]);
-		cameras.push(cameras[1]);
 		cameras.push(cameras[0]);
-		cameras.push(cameras[1]);
+		cameras.push(cameras[0]);
+		cameras.push(cameras[0]);
+		cameras.push(cameras[0]);
+		cameras.push(cameras[0]);
+		cameras.push(cameras[0]);
+		cameras.push(cameras[0]);
+		cameras.push(cameras[0]);
+		cameras.push(cameras[0]);
 		
 		window.allCameras = cameras;
 		var cameraListStr = "";
