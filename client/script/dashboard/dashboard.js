@@ -16,8 +16,8 @@ function updateServerList(){
 				"name": "name",
 				"sortOrder": "ASC"
 			},
-			//"byLocationUids": ["40000000-0000-0000-0000-000000000005"],
-			//"includeSubLocations": false,
+			"byLocationUids": [window.currentSelectedLocationUID],
+			"includeSubLocations": false,
 			//"byVsomUid": "09bebf28-dcc6-4d2c-aabc-d16700d4c756"
 		}
 	};
@@ -25,6 +25,18 @@ function updateServerList(){
 	onSuccess = function(data, textStatus, jqXHR ) {
 		data = JSON.parse(data);
 		console.info(data);
+		if(data.data.totalRows == 0 ){
+			var emptyDeviceDiv = $('#emptyDeviceDiv');
+			var emptyDeviceDivHTML = emptyDeviceDiv[0].innerHTML;
+			
+			emptyDeviceDivHTML = emptyDeviceDivHTML.formatUnicorn('No Servers Under Current Location');
+			
+			var serverListCmp = $('#serverList');
+			serverListCmp[0].innerHTML = emptyDeviceDivHTML;
+			
+			$('#serverCountBadge').text('0');
+			return;
+		}
 		var servers = data.data.items;
 		servers.push(servers[0]);
 		servers.push(servers[0]);
@@ -112,8 +124,8 @@ function updateCameraList(){
 				"name": "name",
 				"sortOrder": "ASC"
 			},
-			//"byLocationUids": ["40000000-0000-0000-0000-000000000005"],
-			//"includeSubLocations": false,
+			"byLocationUids": [window.currentSelectedLocationUID],
+			"includeSubLocations": false,
 			//"byVsomUid": "09bebf28-dcc6-4d2c-aabc-d16700d4c756"
 		}
 	};
@@ -121,6 +133,22 @@ function updateCameraList(){
 	onSuccess = function(data, textStatus, jqXHR ) {
 		data = JSON.parse(data);
 		console.info(data);
+		
+		if(data.data.totalRows == 0 ){
+			var emptyDeviceDiv = $('#emptyDeviceDiv');
+			var emptyDeviceDivHTML = emptyDeviceDiv[0].innerHTML;
+			
+			emptyDeviceDivHTML = emptyDeviceDivHTML.formatUnicorn('No Cameras Under Current Location');
+			
+			var cameraListCmp = $('#cameraList');
+			cameraListCmp[0].innerHTML = emptyDeviceDivHTML;
+			
+			$('#cameraCountBadge').text('0');
+			return;
+		}
+		
+		
+		
 		var cameras = data.data.items;
 		window.allCameras = cameras;
 		var cameraListStr = "";
@@ -174,7 +202,7 @@ function fixLocationData(locationTree){
 		var rootLocation = locationTree.childGroups[0];
 		
 		locationTreeHtml += '<a uid="'+rootLocation.uid+'" href="#" class="text-default selected"><i class="fa fa-sitemap fa-fw"></i>'+rootLocation.localName+'<span class="fa arrow"></span></a>';
-		
+		window.currentSelectedLocationUID = rootLocation.uid;
 			if(rootLocation.hasChildGroups){
 				var secondLevelLocation = rootLocation.childGroups;
 				locationTreeHtml+= '<ul class="nav nav-second-level">';
@@ -182,19 +210,19 @@ function fixLocationData(locationTree){
 				secondLevelLocation.forEach(function(sl){
 					if(sl.hasChildGroups){
 						locationTreeHtml+='<li>';
-						locationTreeHtml+='<a uid="'+rootLocation.uid+'" class="text-default" href="#">'+sl.localName+' <span class="fa arrow"></span></a>';
+						locationTreeHtml+='<a uid="'+sl.uid+'" class="text-default" href="#">'+sl.localName+' <span class="fa arrow"></span></a>';
 						locationTreeHtml+='<ul class="nav nav-third-level">';
 						
 						var thirdLevelLocation = sl.childGroups;
 						thirdLevelLocation.forEach(function(tl){
-							locationTreeHtml+= '<li><a uid="'+rootLocation.uid+'" class="text-default" href="#">'+tl.localName+'</a></li>';
+							locationTreeHtml+= '<li><a uid="'+tl.uid+'" class="text-default" href="#">'+tl.localName+'</a></li>';
 						});
 						
 						
 						locationTreeHtml+='</ul>';
 						locationTreeHtml+='</li>';
 					}else{
-						locationTreeHtml+= '<li><a uid="'+rootLocation.uid+'" class="text-default" href="#">'+sl.localName+'</a></li>';
+						locationTreeHtml+= '<li><a uid="'+sl.uid+'" class="text-default" href="#">'+sl.localName+'</a></li>';
 					}
 				});
 				
@@ -237,12 +265,22 @@ function updateLocationTree(){
 		var locationTreeHtml = fixLocationData(locationTree);
 		locationSidebar.html(locationTreeHtml);
 		
-		 $('#location-sidebar a').on('click', function(event){
+		
+		
+		updateServerList();
+		updateCameraList();
+		
+		$('#location-sidebar a').on('click', function(event){
 			console.info(event);
 			var currentTarget = $(event.currentTarget);
 			$('#location-sidebar a').removeClass('selected');
 			currentTarget.addClass('selected');
 			
+			var selectedLocationUID = event.currentTarget.getAttribute('uid');
+			window.currentSelectedLocationUID = selectedLocationUID;
+			updateServerList();
+			updateCameraList();
+			//Set Location UID And Refersh Everything
 		 });
 		
 	}
@@ -253,7 +291,6 @@ function updateLocationTree(){
 	
 }
 
-updateLocationTree();
 
 $('#tabList a').click(function(e) {
     e.preventDefault()
@@ -263,8 +300,11 @@ $('#tabList a').click(function(e) {
 
 utils.verifySession(false);
 
-updateServerList();
-updateCameraList();
+
+
+updateLocationTree();
+//updateServerList();
+//updateCameraList();
 $("#logOutBtn").click(function() {
 	utils.logOut();
 });
