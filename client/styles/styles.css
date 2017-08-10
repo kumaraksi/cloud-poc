@@ -201,3 +201,7 @@ body {
 .sidebar-nav .fa.fa-sitemap.fa-fw{
 	    margin-right: 5px;
 }
+
+.device-card-name{
+	font-weight: 500 !important;
+}
