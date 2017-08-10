@@ -83,7 +83,7 @@ function updateServerList(){
 		
 		$('#serverCountBadge').text(allServers.length);
 		
-		$('.serverDetailsBtn').click(function(event){
+		$('.serverDetailsBtn').on('click',function(event){
 			console.info(event);
 			window.event1 = event;
 			var serverIndex = +event.currentTarget.getAttribute('server-index');
@@ -130,7 +130,7 @@ function updateCameraList(){
 			var adminState = camera.adminState;
 			var deviceState = camera.deviceState.aggregateState;
 			
-			var cameraTemplate = $('#serverTemplate');
+			var cameraTemplate = $('#cameraTemplate');
 			var cameraTemplateStr = cameraTemplate[0].innerHTML;
 			
 			var panelCss = 'panel-primary';
@@ -148,12 +148,12 @@ function updateCameraList(){
 		
 		$('#cameraCountBadge').text(allCameras.length);
 		
-		$('.serverDetailsBtn').click(function(event){
+		$('.cameraDetailsBtn').on('click',function(event){
 			console.info(event);
 			window.event1 = event;
-			var serverIndex = +event.currentTarget.getAttribute('server-index');
-			console.info(serverIndex)
-			alert("VSOM : "+ window.allServers[serverIndex].name + '. Next Load Details')
+			var cameraIndex = +event.currentTarget.getAttribute('camera-index');
+			console.info(cameraIndex)
+			alert("Camera  : "+ window.allCameras[cameraIndex].name + '. Next Load Details')
 		});
 	}
 	onError = function(jqXHR, textStatus, errorThrown  ) {

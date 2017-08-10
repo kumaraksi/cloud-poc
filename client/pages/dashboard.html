@@ -93,7 +93,7 @@
                         <li role="presentation" class="active"><a href="#server" aria-controls="server" role="tab" data-toggle="tab">Server <span id="serverCountBadge" class="badge">--</span></a></li>
                         <li role="presentation"><a href="#camera" aria-controls="camera" role="tab" data-toggle="tab">Camera <span id="cameraCountBadge" class="badge">--</span></a></a>
                         </li>
-                        <li role="presentation"><a href="#encoder" aria-controls="encoder" role="tab" data-toggle="tab">Encoder <span class="badge">2</span></a></a>
+                        <li role="presentation"><a href="#encoder" aria-controls="encoder" role="tab" data-toggle="tab">Encoder <span class="badge">0</span></a></a>
                         </li>
                         <li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events <span class="badge">42</span></a></a>
                         </li>
@@ -129,8 +129,23 @@
 							</div>
 						
 						</div>
-                        <div role="tabpanel" class="tab-pane" id="encoder">Encoder</div>
-                        <div role="tabpanel" class="tab-pane" id="events">Events</div>
+                        <div role="tabpanel" class="tab-pane" id="encoder">
+						
+						
+						<div class="col-md-12">
+							
+								
+									<div class="bs-component">
+									  <div class="well well-lg">
+										No Encoders
+									  </div>
+									<div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
+								
+							
+						</div>
+                        <div role="tabpanel" class="tab-pane" id="events">
+						
+						</div>
                     </div>
 
                 </div>
@@ -183,6 +198,62 @@
 				</div>
 			</div>
 			<a server-index="{1}" class="text-default serverDetailsBtn" href="#">
+				<div class="panel-footer">
+						<span class="pull-left">{2}</span>
+						<span class="pull-right status-icon {3}"><i class="fa fa-circle"></i></span>
+						<div class="clearfix"></div>
+				</div>
+			</a>
+			
+		</div>
+	</div>
+</div>
+
+<div id='cameraTemplate' style='display:none'>
+	<div class="col-md-3">
+		<div class="panel {0}">
+			<div class="panel-body">
+				<div class="list-group stat-list" id="server">
+					<div class="list-group-item">
+						<div class="row-action-primary">
+							<i class="material-icons">developer_board</i>
+						</div>
+						<div class="row-content">
+							<h4 class="list-group-item-heading">CPU</h4>
+
+							<p class="list-group-item-text large">33%</p>
+						</div>
+					</div>
+					<div class="list-group-separator"></div>
+					<div class="list-group-item">
+						<div class="row-action-primary">
+							<i class="material-icons">memory</i>
+						</div>
+						<div class="row-content">
+							<h4 class="list-group-item-heading">Memory</h4>
+							<div class="progress progress-striped active">
+								<div class="progress-bar" style="width: 20%"></div>
+							</div>
+							<p class="list-group-item-text pull-right">2 GB / 8 GB</p>
+						</div>
+					</div>
+					<div class="list-group-separator"></div>
+					<div class="list-group-item">
+						<div class="row-action-primary">
+							<i class="material-icons">move_to_inbox</i>
+						</div>
+						<div class="row-content">
+							<h4 class="list-group-item-heading">Storage</h4>
+							<div class="progress progress-striped active">
+								<div class="progress-bar" style="width: 50%"></div>
+							</div>
+							<p class="list-group-item-text pull-right">1 TB / 2TB</p>
+						</div>
+					</div>
+					<div class="list-group-separator"></div>
+				</div>
+			</div>
+			<a camera-index="{1}" class="text-default cameraDetailsBtn" href="#">
 				<div class="panel-footer">
 						<span class="pull-left">{2}</span>
 						<span class="pull-right status-icon {3}"><i class="fa fa-circle"></i></span>
