@@ -157,7 +157,9 @@ function updateCameraList(){
 			var cameraName = camera.name;
 			var adminState = camera.adminState;
 			var deviceState = camera.deviceState.aggregateState;
-			
+			var model = camera.model;
+			var managedBy = camera.managedByRef.refName;
+			var ip = camera.deviceAccess.hostname_ip;
 			var cameraTemplate = $('#cameraTemplate');
 			var cameraTemplateStr = cameraTemplate[0].innerHTML;
 			
@@ -167,7 +169,7 @@ function updateCameraList(){
 			}
 			
 			
-			cameraListStr += cameraTemplateStr.formatUnicorn(panelCss, i, cameraName, deviceState);
+			cameraListStr += cameraTemplateStr.formatUnicorn(panelCss, i, cameraName, deviceState, ip, model, managedBy);
 			
 		});
 		
@@ -265,8 +267,8 @@ function updateLocationTree(){
 		var locationTreeHtml = fixLocationData(locationTree);
 		locationSidebar.html(locationTreeHtml);
 		
-		
-		
+		//utils.initializeMenu();
+		utils.initializeMenu('side-menu');
 		updateServerList();
 		updateCameraList();
 		
