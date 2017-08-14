@@ -218,7 +218,7 @@ body {
 }
 
 .camera-list .well{
-	padding: 0px
+	padding: 0px !important;
 }
 
 .server-list .well{
