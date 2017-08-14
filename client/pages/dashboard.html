@@ -35,11 +35,16 @@
 </head>
 
 <body>
+
+
 <!-- Modal -->
     <!--[if lt IE 7]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a class="text-default" href="#">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
-    <div id="container">
+		
+		
+		
+    <div id="container" class="container">
 			<nav class="navbar navbar-info navbar-static-top" role="navigation" style="margin-bottom: 0; min-height:0px !important; height:0px;">
 				
             <!-- /.navbar-header -->
@@ -107,7 +112,7 @@
 										<div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div></div>
 							</div>
                         <div role="tabpanel" class="tab-pane" id="events">
-						
+							
 						</div>
                     </div>
 
@@ -118,56 +123,58 @@
 
 <div id='serverTemplate' style='display:none'>
 	<div class="col-md-3">
-		<div class="panel {0}">
-			<div class="panel-body">
-				<div class="list-group stat-list" id="server">
-					<div class="list-group-item">
-						<div class="row-action-primary">
-							<i class="material-icons">developer_board</i>
-						</div>
-						<div class="row-content">
-							<h4 class="list-group-item-heading">CPU</h4>
+		<div class="well">
+			<div class="panel {0}">
+				<div class="panel-body">
+					<div class="list-group stat-list" id="server">
+						<div class="list-group-item">
+							<div class="row-action-primary">
+								<i class="material-icons">developer_board</i>
+							</div>
+							<div class="row-content">
+								<h4 class="list-group-item-heading">CPU</h4>
 
-							<p class="list-group-item-text large">33%</p>
-						</div>
-					</div>
-					<div class="list-group-separator"></div>
-					<div class="list-group-item">
-						<div class="row-action-primary">
-							<i class="material-icons">memory</i>
-						</div>
-						<div class="row-content">
-							<h4 class="list-group-item-heading">Memory</h4>
-							<div class="progress progress-striped active">
-								<div class="progress-bar" style="width: 20%"></div>
+								<p class="list-group-item-text large">33%</p>
 							</div>
-							<p class="list-group-item-text pull-right">2 GB / 8 GB</p>
 						</div>
-					</div>
-					<div class="list-group-separator"></div>
-					<div class="list-group-item">
-						<div class="row-action-primary">
-							<i class="material-icons">storage</i>
-						</div>
-						<div class="row-content">
-							<h4 class="list-group-item-heading">Storage</h4>
-							<div class="progress progress-striped active">
-								<div class="progress-bar" style="width: 50%"></div>
+						<div class="list-group-separator"></div>
+						<div class="list-group-item">
+							<div class="row-action-primary">
+								<i class="material-icons">memory</i>
 							</div>
-							<p class="list-group-item-text pull-right">1 TB / 2TB</p>
+							<div class="row-content">
+								<h4 class="list-group-item-heading">Memory</h4>
+								<div class="progress progress-striped active">
+									<div class="progress-bar" style="width: 20%"></div>
+								</div>
+								<p class="list-group-item-text pull-right">2 GB / 8 GB</p>
+							</div>
 						</div>
+						<div class="list-group-separator"></div>
+						<div class="list-group-item">
+							<div class="row-action-primary">
+								<i class="material-icons">storage</i>
+							</div>
+							<div class="row-content">
+								<h4 class="list-group-item-heading">Storage</h4>
+								<div class="progress progress-striped active">
+									<div class="progress-bar" style="width: 50%"></div>
+								</div>
+								<p class="list-group-item-text pull-right">1 TB / 2TB</p>
+							</div>
+						</div>
+						<div class="list-group-separator"></div>
 					</div>
-					<div class="list-group-separator"></div>
 				</div>
+				<a server-index="{1}" class="text-default serverDetailsBtn" href="#">
+					<div class="panel-footer">
+							<span class="pull-left device-card-name" >{2}</span>
+							<span class="pull-right status-icon {3}"><i class="fa fa-circle"></i></span>
+							<div class="clearfix"></div>
+					</div>
+				</a>
+				
 			</div>
-			<a server-index="{1}" class="text-default serverDetailsBtn" href="#">
-				<div class="panel-footer">
-						<span class="pull-left device-card-name" >{2}</span>
-						<span class="pull-right status-icon {3}"><i class="fa fa-circle"></i></span>
-						<div class="clearfix"></div>
-				</div>
-			</a>
-			
 		</div>
 	</div>
 </div>
@@ -267,7 +274,7 @@
 </div>
 
 
-<div id="emptyDeviceDiv">
+<div id="emptyDeviceDiv" style="display:none">
 	<div class="col-md-12">
 		<div class="bs-component">
 		  <div class="well well-lg">
