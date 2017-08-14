@@ -291,7 +291,7 @@ function updateLocationTree(){
 		utils.initializeMenu('side-menu');
 		updateServerList();
 		updateCameraList();
-		
+		updateEvents();
 		$('#location-sidebar a').on('click', function(event){
 			console.info(event);
 			var currentTarget = $(event.currentTarget);
@@ -302,6 +302,7 @@ function updateLocationTree(){
 			window.currentSelectedLocationUID = selectedLocationUID;
 			updateServerList();
 			updateCameraList();
+			updateEvents();
 			//Set Location UID And Refersh Everything
 		 });
 		
