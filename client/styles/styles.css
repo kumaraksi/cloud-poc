@@ -205,3 +205,31 @@ body {
 .device-card-name{
 	font-weight: 300 !important;
 }
+
+
+@media (min-width: 1300px) {
+  .container {
+    width: 100% !important;
+  }
+}
+
+.container{
+	Padding: 0px !important;
+}
+
+.camera-list .well{
+	padding: 0px !important;
+}
+
+.server-list .well{
+	padding: 0px !important;
+}
+
+.server-list .well{
+	-webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
+	box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
+}
+.camera-list .well{
+	-webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
+	box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
+}
