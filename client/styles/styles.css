@@ -28,7 +28,7 @@ body {
     max-height: 82vh;
 }
 
-.nav li.active a {
+#serverTab li.active a {
     color: #555 !important;
     cursor: default !important;
     background-color: #fff !important;
@@ -42,7 +42,166 @@ body {
     background: rgba(0, 0, 0, 0.25);
     border-radius: 100%;
     text-align: center;
-    line-height: 56px;
-    font-size: 20px;
+    line-height: 45px;
+    font-size: 22px;
     color: white;
+}
+
+.list-group.stat-list {
+    margin-bottom: 0px;
+}
+
+.list-group.stat-list .list-group-item {
+    padding: 0 10px;
+}
+
+.list-group.stat-list .list-group-separator {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.list-group.stat-list .list-group-item .row-action-primary i.material-icons {
+    width: 45px;
+    height: 45px;
+}
+
+.list-group.stat-list .list-group-item .row-content {
+    min-height: 45px;
+    width: -webkit-calc(100% - 75px);
+    width: calc(100% - 75px);
+}
+
+.list-group.stat-list .list-group-item .row-content h4.list-group-item-heading {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: normal;
+    color: #777;
+}
+
+.list-group.stat-list .list-group-item .row-content p.list-group-item-text {
+    font-size: 10px;
+    color: #3e3e3e;
+}
+
+.list-group.stat-list .list-group-item .row-content p.list-group-item-text.large {
+    font-size: 12px;
+}
+
+.list-group.stat-list .list-group-separator:before {
+    content: "";
+    width: -webkit-calc(100% - 90px);
+    width: calc(100% - 75px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    float: right;
+}
+
+.list-group.stat-list .row-content .progress {
+    margin-bottom: 5px;
+}
+
+.list-group.stat-list .progress .progress-bar,
+.list-group.stat-list .progress .progress-bar.progress-bar-default {
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+.list-group.stat-list .progress {
+    background: #607D8B;
+}
+
+.text-default,
+.text-default:hover,
+.text-default:active,
+.text-default:focus {
+    color: #37474F;
+}
+
+.row.server-list,
+.row.camera-list,
+{
+	margin : 0px !important;
+}
+
+.row.server-list .status-icon.ok .fa.fa-circle,
+.row.camera-list .status-icon.ok .fa.fa-circle
+{
+	color : green;
+}
+
+.row.server-list .status-icon.soft_deleted .fa.fa-circle,
+.row.camera-list .status-icon.soft_deleted .fa.fa-circle
+{
+	color : black;
+}
+
+.row.server-list .status-icon.disabled .fa.fa-circle,
+.row.camera-list .status-icon.disabled .fa.fa-circle,
+.row.camera-list .status-icon.pre_provisioned .fa.fa-circle
+{
+	color : grey;
+}
+
+.row.server-list .status-icon.warning .fa.fa-circle,
+.row.camera-list .status-icon.warning .fa.fa-circle
+{
+	color : orange;
+}
+.row.server-list .status-icon.critical .fa.fa-circle,
+.row.camera-list .status-icon.critical .fa.fa-circle
+{
+	color : red;
+}
+
+
+.nav-tabs{
+	background: #4fc0e9 !important;
+}
+
+
+
+#location-sidebar a.selected{
+	background-color: #4fc0e9;
+	color: white;
+}
+
+
+.camera-list .material-icons{
+	background-color: lightseagreen  !important;
+}
+
+.camera-list .list-group-item-heading{
+	font-size: 11px !important;
+}
+.camera-list .list-group-item-text.large{
+	font-weight: 400;
+	font-size: 14px !important;
+}
+
+
+.server-list .material-icons{
+	background-color: lightseagreen !important;
+}
+
+.server-list .list-group-item-heading{
+	font-size: 11px !important;
+}
+.server-list .list-group-item-text.large{
+	font-weight: 400;
+	font-size: 14px !important;
+}
+
+.nav.nav-tabs > li > a{
+	padding : 12px 45px;
+}
+
+.nav.sidebar > li > a{
+	padding : 13px 15px;
+}
+
+.sidebar-nav .fa.fa-sitemap.fa-fw{
+	    margin-right: 5px;
+}
+
+.device-card-name{
+	font-weight: 300 !important;
 }
