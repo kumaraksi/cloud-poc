@@ -106,7 +106,38 @@ function updateServerList(){
 			window.event1 = event;
 			var serverIndex = +event.currentTarget.getAttribute('server-index');
 			console.info(serverIndex)
-			alert("VSOM : "+ window.allServers[serverIndex].name + '. Next Load Details')
+			$('#serverDetails').modal({
+				show:true,
+				backdrop:'static'
+			});
+			var serverDetailTemplateStr = $('#serverDetails')[0].innerHTML;
+
+			$('#serverDetails').on('shown.bs.modal', function () {
+				var server = window.allServers[serverIndex];
+				console.log(window.allServers[serverIndex]);
+				var serverDetailsJSON = {
+					serverName: server.name,
+					serverType : server.umsService.umsRedundancyConfig.serverRoleType, 
+					serverModel : server.model, 
+					cpuNum : server.umsSystemSummary.numberOfCPUs,
+					totalMemory : server.umsSystemSummary.totalPhysicalMemory, 
+					raidControllers: server.umsSystemSummary.raidControllerDetail, 
+					os : server.umsSystemSummary.osType,
+					storage : server.umsSystemSummary.totalSwapMemory,
+					vsfVersion: server.vsfService.softwareVersion,
+					vsfActive: server.vsfService.serviceActivationState,					
+					umsVersion: server.umsService.softwareVersion,
+					umsActive: server.umsService.serviceActivationState,					
+					mapServerVersion: server.mapService.softwareVersion,
+					mapServerActive: server.mapService.serviceActivationState,					
+					metadataServerVersion: server.motionMetadataService.softwareVersion,
+					metadataServerActive: server.motionMetadataService.serviceActivationState,					
+					vsomVersion: server.vsomService.softwareVersion,
+					vsomActive: server.vsomService.serviceActivationState
+				};
+				serverDetailTemplateStr = serverDetailTemplateStr.formatUnicorn(serverDetailsJSON);
+					this.innerHTML = serverDetailTemplateStr;
+			});
 		});
 	}
 	onError = function(jqXHR, textStatus, errorThrown  ) {

@@ -683,6 +683,125 @@
 		</div>
 	</div>
 
+	<div class="modal" id="serverDetails">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title">{serverName}</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-8">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<span class="pull-left device-card-name" >Configuration</span>
+									<div class="clearfix"></div>
+								</div>
+								<div class="panel-body">
+									<table class="table table-hover ">
+										<tbody>
+											<tr>
+												<td>Type</td>
+												<td>{serverType}</td>
+											</tr>
+											<tr>
+												<td>Model</td>
+												<td>{serverModel}</td>
+											</tr>
+											<tr>
+												<td>Number of CPUs</td>
+												<td>{cpuNum}</td>
+											</tr>
+											<tr>
+												<td>Total Memory</td>
+												<td>{totalMemory}</td>
+											</tr>
+											<tr>
+												<td>Raid Controller</td>
+												<td>{raidControllers}</td>
+											</tr>
+											<tr>
+												<td>Operating System</td>
+												<td>{os}</td>
+											</tr>
+											<tr>
+												<td>Storage</td>
+												<td>{storage}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<span class="pull-left device-card-name" >Services</span>
+									<div class="clearfix"></div>
+								</div>
+								<div class="panel-body">
+									<table class="table table-hover server-table">
+										<thead>
+											<td>Name</td>
+											<td>Version</td>
+											<td>Active</td>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Video Surveillance Federator</td>
+												<td>{vsfVersion}</td>
+												<td>
+													<span class="status-icon {vsfActive}"><i class="fa fa-circle"></i></span>
+												</td>
+											</tr>
+
+											<tr>
+												<td>Maps Server</td>
+												<td>{mapServerVersion}</td>
+												<td>
+													<span class="status-icon {mapServerActive}"><i class="fa fa-circle"></i></span>
+												</td>
+											</tr>
+											<tr>
+												<td>Metadata Server</td>
+												<td>{metadataServerVersion}</td>
+												<td>
+													<span class="status-icon {metadataServerActive}"><i class="fa fa-circle"></i></span>
+												</td>
+											</tr>
+											<tr>
+												<td>Media Server</td>
+												<td>{umsVersion}</td>
+												<td>
+													<span class="status-icon {umsActive}"><i class="fa fa-circle"></i></span>
+												</td>
+											</tr>
+											<tr>
+												<td>Video Surveillance Operations Manager</td>
+												<td>{vsomVersion}</td>
+												<td>
+													<span class="status-icon {vsomActive}"><i class="fa fa-circle"></i></span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4"></div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!--jquery JS  -->
 	<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 

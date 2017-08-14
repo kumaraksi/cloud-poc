@@ -233,3 +233,15 @@ body {
 	-webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
 	box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
 }
+
+table.server-table .status-icon.activated .fa.fa-circle,
+table.camera-table .status-icon.activated .fa.fa-circle
+{
+    color : green;
+}
+
+table.server-table .status-icon.deactivated,
+table.camera-table .status-icon.deactivated
+{
+    display: none;
+}

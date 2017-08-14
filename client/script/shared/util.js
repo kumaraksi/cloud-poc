@@ -3,8 +3,8 @@ var utils = (function() {
 	window.LOGIN_PAGE = '/client/pages/login.html';
 	window.DASHBOARD_PAGE = '/client/pages/dashboard.html';
 	
-	window.CSRF_TOKEN = 'Mvl4GpiA6oF5wXJhC+0IRr61lEq9g3NVz5YbrqByROI';
-	window.JSESSIONID = 'C7113DDD33C6FF594BBD865E7EB1D41B+0IRr61lEq9g3NVz5YbrqByROI';
+	window.CSRF_TOKEN = 'TY3P5SEs6QM21ba/MKZEUuXOPoghuudSWmZUA2qppdQ';
+	window.JSESSIONID = 'B2AEEC252A236958CC8EF1A524300120';
 	document.cookie = "CSRF_TOKEN="+CSRF_TOKEN+"; expires=Thu, 18 Dec 2018 12:00:00 UTC; path=/";
     document.cookie = "JSESSIONID="+JSESSIONID+"; expires=Thu, 18 Dec 2018 12:00:00 UTC; path=/";
     
@@ -26,6 +26,7 @@ var utils = (function() {
 
 		return str;
 	};
+
 	/**
      * load mustache templates using AJAX
      * @param {any} templatePath 
