@@ -235,7 +235,8 @@ body {
 }
 
 table.server-table .status-icon.activated .fa.fa-circle,
-table.camera-table .status-icon.activated .fa.fa-circle
+table.camera-table .status-icon.activated .fa.fa-circle,
+.status-icon.server-status.ok .fa.fa-circle
 {
     color : green;
 }
@@ -244,4 +245,45 @@ table.server-table .status-icon.deactivated,
 table.camera-table .status-icon.deactivated
 {
     display: none;
+}
+
+table.table-small{
+    font-size: 12px !important;
+}
+.table.no-border > thead > tr > th, .table.no-border > tbody > tr > th, .table.no-border > tfoot > tr > th, .table.no-border > thead > tr > td, .table.no-border > tbody > tr > td, .table.no-border > tfoot > tr > td
+{
+    border-top:1px solid transparent;
+}
+
+td.table-label
+{
+    font-weight: 400;
+}
+
+.status-table td span.warning {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background-color: #f0ad4e;
+}
+
+.status-table td span.critical {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background-color: #f44336;
 }

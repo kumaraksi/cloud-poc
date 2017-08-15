@@ -699,34 +699,34 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="panel-body">
-									<table class="table table-hover ">
+									<table class="table table-hover table-condensed no-border table-small">
 										<tbody>
 											<tr>
-												<td>Type</td>
+												<td class="table-label">Type</td>
 												<td>{serverType}</td>
 											</tr>
 											<tr>
-												<td>Model</td>
+												<td class="table-label">Model</td>
 												<td>{serverModel}</td>
 											</tr>
 											<tr>
-												<td>Number of CPUs</td>
+												<td class="table-label">Number of CPUs</td>
 												<td>{cpuNum}</td>
 											</tr>
 											<tr>
-												<td>Total Memory</td>
+												<td class="table-label">Total Memory</td>
 												<td>{totalMemory}</td>
 											</tr>
 											<tr>
-												<td>Raid Controller</td>
+												<td class="table-label">Raid Controller</td>
 												<td>{raidControllers}</td>
 											</tr>
 											<tr>
-												<td>Operating System</td>
+												<td class="table-label">Operating System</td>
 												<td>{os}</td>
 											</tr>
 											<tr>
-												<td>Storage</td>
+												<td class="table-label">Storage</td>
 												<td>{storage}</td>
 											</tr>
 										</tbody>
@@ -735,56 +735,56 @@
 							</div>
 						</div>
 						<div class="col-md-4">
-							<div class="panel panel-default">
+							<div class="panel panel-default" id="serverStatusTemplate">
 								<div class="panel-heading">
 									<span class="pull-left device-card-name">Server Status</span>
 									<span class="pull-right status-icon server-status {aggregateState}"><i class="fa fa-circle"></i></span>
 									<div class="clearfix"></div>
 								</div>
 								<div class="panel-body">
-									<table class="table table-hover status-table" id="statusTable">
+									<table class="table table-hover status-table table-small">
 										<tbody>
 											<tr>
 												<td>Reachability</td>
 												<td>
-													{reachabilityState}
+													<span class="{reachabilityState}">{reachabilityState}</span> 
 												</td>
 											</tr>
 
 											<tr>
 												<td>Streaming</td>
 												<td>
-													{streamingstate}
+													<span class="{streamingstate}">{streamingstate}</span>
 												</td>
 											</tr>
 											<tr>
 												<td>Recording</td>
 												<td>
-													{recordingState}
+													<span class="{recordingState}">{recordingState}</span>
 												</td>
 											</tr>
 											<tr>
 												<td>Configuration</td>
 												<td>
-													{configState}
+													<span class="{configState}">{configState}</span>
 												</td>
 											</tr>
 											<tr>
 												<td>Hardware</td>
 												<td>
-													{hardwareState}
+													<span class="{hardwareState}">{hardwareState}</span>
 												</td>
 											</tr>
 											<tr>
 												<td>Software</td>
 												<td>
-													{softwareState}
+													<span class="{softwareState}">{softwareState}</span>
 												</td>
 											</tr>
 										</tbody>
 									</table>
 								</div>
-							</div>							
+							</div>		
 						</div>
 					</div>
 					<div class="row">
@@ -795,11 +795,11 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="panel-body">
-									<table class="table table-hover server-table">
+									<table class="table table-hover status-table table-condensed table-small">
 										<thead>
-											<td>Name</td>
-											<td>Version</td>
-											<td>Active</td>
+											<th>Name</th>
+											<th>Version</th>
+											<th>Active</th>
 										</thead>
 										<tbody>
 											<tr>

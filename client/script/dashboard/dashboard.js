@@ -335,10 +335,10 @@ function getDeviceStatus(){
 				show:true,
 				backdrop:'static'
 			});
-			var statustableTemplate = $('#statusTable');
-			var statusTableTemplateStr = statustableTemplate.html();		
-			statusTableTemplateStr = statusTableTemplateStr.formatUnicorn(data.data);
-			$('#statusTable')[0].innerHTML = statusTableTemplateStr;
+			var serverStatusTemplate = $('#serverStatusTemplate');
+			var serverStatusTemplateStr = serverStatusTemplate.html();		
+			serverStatusTemplateStr = serverStatusTemplateStr.formatUnicorn(data.data);
+			$('#serverStatusTemplate')[0].innerHTML = serverStatusTemplateStr;
 		}
 	}
 
