@@ -734,7 +734,58 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<span class="pull-left device-card-name">Server Status</span>
+									<span class="pull-right status-icon server-status {aggregateState}"><i class="fa fa-circle"></i></span>
+									<div class="clearfix"></div>
+								</div>
+								<div class="panel-body">
+									<table class="table table-hover status-table" id="statusTable">
+										<tbody>
+											<tr>
+												<td>Reachability</td>
+												<td>
+													{reachabilityState}
+												</td>
+											</tr>
+
+											<tr>
+												<td>Streaming</td>
+												<td>
+													{streamingstate}
+												</td>
+											</tr>
+											<tr>
+												<td>Recording</td>
+												<td>
+													{recordingState}
+												</td>
+											</tr>
+											<tr>
+												<td>Configuration</td>
+												<td>
+													{configState}
+												</td>
+											</tr>
+											<tr>
+												<td>Hardware</td>
+												<td>
+													{hardwareState}
+												</td>
+											</tr>
+											<tr>
+												<td>Software</td>
+												<td>
+													{softwareState}
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>							
+						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-8">

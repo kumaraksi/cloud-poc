@@ -105,39 +105,8 @@ function updateServerList(){
 			console.info(event);
 			window.event1 = event;
 			var serverIndex = +event.currentTarget.getAttribute('server-index');
-			console.info(serverIndex)
-			$('#serverDetails').modal({
-				show:true,
-				backdrop:'static'
-			});
-			var serverDetailTemplateStr = $('#serverDetails')[0].innerHTML;
-
-			$('#serverDetails').on('shown.bs.modal', function () {
-				var server = window.allServers[serverIndex];
-				console.log(window.allServers[serverIndex]);
-				var serverDetailsJSON = {
-					serverName: server.name,
-					serverType : server.umsService.umsRedundancyConfig.serverRoleType, 
-					serverModel : server.model, 
-					cpuNum : server.umsSystemSummary.numberOfCPUs,
-					totalMemory : server.umsSystemSummary.totalPhysicalMemory, 
-					raidControllers: server.umsSystemSummary.raidControllerDetail, 
-					os : server.umsSystemSummary.osType,
-					storage : server.umsSystemSummary.totalSwapMemory,
-					vsfVersion: server.vsfService.softwareVersion,
-					vsfActive: server.vsfService.serviceActivationState,					
-					umsVersion: server.umsService.softwareVersion,
-					umsActive: server.umsService.serviceActivationState,					
-					mapServerVersion: server.mapService.softwareVersion,
-					mapServerActive: server.mapService.serviceActivationState,					
-					metadataServerVersion: server.motionMetadataService.softwareVersion,
-					metadataServerActive: server.motionMetadataService.serviceActivationState,					
-					vsomVersion: server.vsomService.softwareVersion,
-					vsomActive: server.vsomService.serviceActivationState
-				};
-				serverDetailTemplateStr = serverDetailTemplateStr.formatUnicorn(serverDetailsJSON);
-					this.innerHTML = serverDetailTemplateStr;
-			});
+			window.selectedDevice = window.allServers[serverIndex];
+			getDeviceStatus();
 		});
 	}
 	onError = function(jqXHR, textStatus, errorThrown  ) {
@@ -345,10 +314,71 @@ function updateLocationTree(){
 	
 }
 
+function getDeviceStatus(){
+	var server = window.selectedDevice;
+	var url = utils.getBaseUrl() + 'devicehealth/getDeviceDetailState';
+	var filterData = {
+		"deviceRef": {
+			"refName": "VsomServer_1",
+			"refObjectType": "device_vs_server",
+			"refUid": "09bebf28-dcc6-4d2c-aabc-d16700d4c756",
+			"refVsomUid": "09bebf28-dcc6-4d2c-aabc-d16700d4c756"
+		}
+	};
+	
+	onSuccess = function(data, textStatus, jqXHR ) {
+		data = JSON.parse(data);
+		console.info(data);
+		
+		if(data.data.totalRows != 0 ){
+			$('#serverDetails').modal({
+				show:true,
+				backdrop:'static'
+			});
+			var statustableTemplate = $('#statusTable');
+			var statusTableTemplateStr = statustableTemplate.html();		
+			statusTableTemplateStr = statusTableTemplateStr.formatUnicorn(data.data);
+			$('#statusTable')[0].innerHTML = statusTableTemplateStr;
+		}
+	}
+
+	onError = function(jqXHR, textStatus, errorThrown  ) {
+		console.warn(errorThrown);
+	}
+	utils.sendPost(url, filterData, onSuccess, onError);
+}
+
 
 $('#tabList a').click(function(e) {
     e.preventDefault()
     $(this).tab('show')
+});
+
+$('#serverDetails').on('shown.bs.modal', function () {
+	var server = window.selectedDevice;
+	var serverDetailTemplateStr = $('#serverDetails')[0].innerHTML;
+	var serverDetailsJSON = {
+		serverName: server.name,
+		serverType : server.umsService.umsRedundancyConfig.serverRoleType, 
+		serverModel : server.model, 
+		cpuNum : server.umsSystemSummary.numberOfCPUs,
+		totalMemory : server.umsSystemSummary.totalPhysicalMemory, 
+		raidControllers: server.umsSystemSummary.raidControllerDetail, 
+		os : server.umsSystemSummary.osType,
+		storage : server.umsSystemSummary.totalSwapMemory,
+		vsfVersion: server.vsfService.softwareVersion,
+		vsfActive: server.vsfService.serviceActivationState,					
+		umsVersion: server.umsService.softwareVersion,
+		umsActive: server.umsService.serviceActivationState,					
+		mapServerVersion: server.mapService.softwareVersion,
+		mapServerActive: server.mapService.serviceActivationState,					
+		metadataServerVersion: server.motionMetadataService.softwareVersion,
+		metadataServerActive: server.motionMetadataService.serviceActivationState,					
+		vsomVersion: server.vsomService.softwareVersion,
+		vsomActive: server.vsomService.serviceActivationState
+	};
+	serverDetailTemplateStr = serverDetailTemplateStr.formatUnicorn(serverDetailsJSON);
+		this.innerHTML = serverDetailTemplateStr;
 });
 
 
