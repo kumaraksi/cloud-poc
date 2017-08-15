@@ -235,6 +235,7 @@ body {
 }
 
 table.server-table .status-icon.activated .fa.fa-circle,
+table.service-table .status-icon.activated .fa.fa-circle,
 table.camera-table .status-icon.activated .fa.fa-circle,
 .status-icon.server-status.ok .fa.fa-circle
 {
@@ -242,6 +243,7 @@ table.camera-table .status-icon.activated .fa.fa-circle,
 }
 
 table.server-table .status-icon.deactivated,
+table.service-table .status-icon.deactivated,
 table.camera-table .status-icon.deactivated
 {
     display: none;
