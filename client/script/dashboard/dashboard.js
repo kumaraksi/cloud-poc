@@ -22,19 +22,20 @@ function updateServerList() {
         }
     };
 
+	$('#serverEmptyList').hide();
+	$('#serverList').hide();
+	var loader = $('#loader');
+	var serverListCmp = $('#serverList');
+	serverListCmp[0].innerHTML = loader[0].innerHTML;
+	$('#serverList').fadeIn();
+	
     onSuccess = function(data, textStatus, jqXHR) {
         data = JSON.parse(data);
         console.info(data);
         if (data.data.totalRows == 0) {
-            var emptyDeviceDiv = $('#emptyDeviceDiv');
-            var emptyDeviceDivHTML = emptyDeviceDiv[0].innerHTML;
-
-            emptyDeviceDivHTML = emptyDeviceDivHTML.formatUnicorn('No Servers Under Current Location');
-
-            var serverListCmp = $('#serverList');
-            serverListCmp[0].innerHTML = emptyDeviceDivHTML;
-
-            $('#serverCountBadge').text('0');
+            $('#serverList').hide();
+			$('#serverEmptyList').fadeIn();
+			$('#serverCountBadge').text('0');
             return;
         }
         var servers = data.data.items;
@@ -95,8 +96,11 @@ function updateServerList() {
             //serverListStr += window.erverTemplateStr.formatUnicorn(adminState, totalPhysicalMemory, numberOfLogicalCores, serverName);
         });
 
+		$('#serverList').fadeIn();
+		$('#serverEmptyList').fadeOut();
+		
         var serverListCmp = $('#serverList');
-        serverListCmp[0].innerHTML = serverListStr;
+		serverListCmp[0].innerHTML = serverListStr;
 
 
         $('#serverCountBadge').text(allServers.length);
@@ -134,21 +138,24 @@ function updateCameraList() {
             //"byVsomUid": "09bebf28-dcc6-4d2c-aabc-d16700d4c756"
         }
     };
-
+	
+	$('#cameraList').hide();
+	$('#cameraEmptyList').hide();
+	var loader = $('#loader');
+	var serverListCmp = $('#cameraList');
+	serverListCmp[0].innerHTML = loader[0].innerHTML;
+	$('#cameraList').fadeIn();
+	
     onSuccess = function(data, textStatus, jqXHR) {
         data = JSON.parse(data);
         console.info(data);
 
         if (data.data.totalRows == 0) {
-            var emptyDeviceDiv = $('#emptyDeviceDiv');
-            var emptyDeviceDivHTML = emptyDeviceDiv[0].innerHTML;
-
-            emptyDeviceDivHTML = emptyDeviceDivHTML.formatUnicorn('No Cameras Under Current Location');
-
-            var cameraListCmp = $('#cameraList');
-            cameraListCmp[0].innerHTML = emptyDeviceDivHTML;
-
-            $('#cameraCountBadge').text('0');
+			$('#cameraList').hide();
+			$('#cameraEmptyList').fadeIn();
+			$('#cameraCountBadge').text('0');
+			
+            
             return;
         }
 
@@ -192,6 +199,9 @@ function updateCameraList() {
 
         });
 
+		$('#cameraList').show();
+		$('#cameraEmptyList').hide();
+			
         var cameraListCmp = $('#cameraList');
         cameraListCmp[0].innerHTML = cameraListStr;
 
@@ -268,7 +278,8 @@ function updateLocationTree() {
             "depth": 4,
         }
     };
-
+	
+	
 
     onSuccess = function(data, textStatus, jqXHR) {
         data = JSON.parse(data);
@@ -289,18 +300,22 @@ function updateLocationTree() {
         updateServerList();
         updateCameraList();
         updateEvents();
-        $('#location-sidebar a').on('click', function(event) {
-            console.info(event);
-            var currentTarget = $(event.currentTarget);
-            $('#location-sidebar a').removeClass('selected');
-            currentTarget.addClass('selected');
+		
+		$('#location-sidebar a').on('click', function(event) {
+            //console.info(event);
+			console.info(event.target.tagName);
+			if(event.target.tagName == 'A'){
+				var currentTarget = $(event.currentTarget);
+				$('#location-sidebar a').removeClass('selected');
+				currentTarget.addClass('selected');
 
-            var selectedLocationUID = event.currentTarget.getAttribute('uid');
-            window.currentSelectedLocationUID = selectedLocationUID;
-            updateServerList();
-            updateCameraList();
-            updateEvents();
-            //Set Location UID And Refersh Everything
+				var selectedLocationUID = event.currentTarget.getAttribute('uid');
+				window.currentSelectedLocationUID = selectedLocationUID;
+				updateServerList();
+				updateCameraList();
+				updateEvents();
+				//Set Location UID And Refersh Everything
+			}
         });
 
     }

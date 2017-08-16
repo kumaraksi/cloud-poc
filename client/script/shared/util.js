@@ -8,6 +8,7 @@ var utils = (function() {
 	document.cookie = "CSRF_TOKEN="+CSRF_TOKEN+"; expires=Thu, 18 Dec 2018 12:00:00 UTC; path=/";
     document.cookie = "JSESSIONID="+JSESSIONID+"; expires=Thu, 18 Dec 2018 12:00:00 UTC; path=/";
     
+	
 	String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
 	function () {
 		"use strict";

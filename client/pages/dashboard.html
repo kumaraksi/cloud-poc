@@ -50,7 +50,7 @@
             <!-- /.navbar-header -->
 
 
-            <div class="navbar-default sidebar" role="navigation" id="location-sidebar" style="margin-top:10px;">
+            <div class="navbar-default sidebar" role="navigation" id="location-sidebar" style="margin-top:0px;">
 
                 <!-- /.sidebar-collapse -->
             </div>
@@ -62,11 +62,20 @@
                 <div class="col-lg-12">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist" id="serverTab">
-                        <li role="presentation" class="active"><a href="#server" aria-controls="server" role="tab" data-toggle="tab">Server <span id="serverCountBadge" class="badge">--</span></a></li>
-                        <li role="presentation"><a href="#camera" aria-controls="camera" role="tab" data-toggle="tab">Camera <span id="cameraCountBadge" class="badge">--</span></a></li>
-                        <li role="presentation"><a href="#encoder" aria-controls="encoder" role="tab" data-toggle="tab">Encoder <span class="badge">0</span></a></li>
-                        <li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events <span class="badge">42</span></a></li>
-                        <li class="dropdown" style="float:right">
+                        <li role="presentation" class="active">
+							<a href="#server" aria-controls="server" role="tab" data-toggle="tab" style="width:175px">Server <span id="serverCountBadge" class="badge">0</span></a>
+						</li>
+                        <li role="presentation">
+							<a href="#camera" aria-controls="camera" role="tab" data-toggle="tab" style="width:175px">Camera <span id="cameraCountBadge" class="badge">0</span></a>
+							</li>
+                        <li role="presentation">
+							<a href="#encoder" aria-controls="encoder" role="tab" data-toggle="tab" style="width:175px">Encoder <span class="badge">0</span></a>
+						</li>
+                        <li role="presentation">
+							<a href="#events" aria-controls="events" role="tab" data-toggle="tab" style="width:175px">Events <span class="badge">42</span></a>
+						</li>
+                        
+						<li class="dropdown" style="float:right">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-target="#" aria-expanded="false">Admin <span class="caret"></span><div class="ripple-container"></div></a>
                             <ul class="dropdown-menu dropdown-user" style="margin-left: -55px;">
                                 <li><a class="text-default" href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -81,19 +90,38 @@
                     </ul>
 
                     <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="server">
+                    <div class="tab-content" id="tabContent">
+                        <div role="tabpanel" class="tab-pane active fade in" id="server">
                             <div class="row server-list" id="serverList">
 
                             </div>
+							<div id="serverEmptyList" style="display:none">
+								<div class="col-md-12">
+                                <div class="bs-component">
+                                    <div class="well well-lg">
+                                        No Servers Under Current Location
+                                    </div>
+                                    <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+                                </div>
+                            </div>
+                            </div>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="camera">
+                        <div role="tabpanel" class="tab-pane fade" id="camera">
                             <div class="row camera-list" id="cameraList">
 
                             </div>
-
+							<div id="cameraEmptyList" style="display:none">
+								<div class="col-md-12">
+									<div class="bs-component">
+										<div class="well well-lg">
+											No Cameras Under Current Location
+										</div>
+										<div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+									</div>
+								</div>
+                            </div>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="encoder">
+                        <div role="tabpanel" class="tab-pane fade" id="encoder">
                             <div class="col-md-12">
                                 <div class="bs-component">
                                     <div class="well well-lg">
@@ -103,7 +131,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div role="tabpanel" class="tab-pane" id="events">
+                        <div role="tabpanel" class="tab-pane fade" id="events">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
@@ -673,15 +701,16 @@
     </div>
 
 
-    <div id="emptyDeviceDiv" style="display:none">
-        <div class="col-md-12">
-            <div class="bs-component">
-                <div class="well well-lg">
-                    {0}
-                </div>
-                <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
-            </div>
-        </div>
+    <div id="loader" style="display:none">
+        <div class="col-md-12" style="height:573px">
+			<div class="showbox">
+			  <div class="loader">
+				<svg class="circular" viewBox="25 25 50 50">
+				  <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+				</svg>
+			  </div>
+			</div>
+		</div>
     </div>
 
     <div class="modal" id="serverDetails">
