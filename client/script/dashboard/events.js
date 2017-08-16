@@ -2,7 +2,9 @@ function updateEvents(){
 	
 	console.info('Events Updated');
 	
-	$('#dataTables-example').DataTable({
+	if(typeof window.eventsTable == 'undefined'){
+	window.eventsTable = $('#dataTables-example').DataTable({
             responsive: true
         });
+	}
 }

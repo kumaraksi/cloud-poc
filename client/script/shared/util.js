@@ -1,7 +1,7 @@
 var utils = (function() {
 	
-	window.LOGIN_PAGE = '/client/pages/login.html';
-	window.DASHBOARD_PAGE = '/client/pages/dashboard.html';
+	window.LOGIN_PAGE = '/cloud-poc/client/pages/login.html';
+	window.DASHBOARD_PAGE = '/cloud-poc/client/pages/dashboard.html';
 	
 	window.CSRF_TOKEN = 'TY3P5SEs6QM21ba/MKZEUuXOPoghuudSWmZUA2qppdQ';
 	window.JSESSIONID = 'B2AEEC252A236958CC8EF1A524300120';
