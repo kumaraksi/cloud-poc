@@ -289,3 +289,9 @@ td.table-label
     border-radius: .25em;
     background-color: #f44336;
 }
+
+.jumbotron.jumbotron-sm {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+ }
