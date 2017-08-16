@@ -1,10 +1,10 @@
 var utils = (function() {
 	
-	window.LOGIN_PAGE = '/cloud-poc/client/pages/login.html';
-	window.DASHBOARD_PAGE = '/cloud-poc/client/pages/dashboard.html';
+	window.LOGIN_PAGE = "/"+extractFolderFromPath(1)+'/client/pages/login.html';
+	window.DASHBOARD_PAGE = "/"+extractFolderFromPath(1)+'/client/pages/dashboard.html';
 	
-	window.CSRF_TOKEN = 'TY3P5SEs6QM21ba/MKZEUuXOPoghuudSWmZUA2qppdQ';
-	window.JSESSIONID = 'B2AEEC252A236958CC8EF1A524300120';
+    window.CSRF_TOKEN = Math.random().toString(36);
+    window.JSESSIONID = Math.random().toString(36);
 	document.cookie = "CSRF_TOKEN="+CSRF_TOKEN+"; expires=Thu, 18 Dec 2018 12:00:00 UTC; path=/";
     document.cookie = "JSESSIONID="+JSESSIONID+"; expires=Thu, 18 Dec 2018 12:00:00 UTC; path=/";
     
@@ -45,6 +45,10 @@ var utils = (function() {
                 failureCb(e);
             }
         });
+    }
+
+    function extractFolderFromPath(index){
+    	return window.location.pathname.split('/')[index];
     }
 
     /**
