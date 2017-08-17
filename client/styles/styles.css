@@ -367,17 +367,37 @@ td.table-label
 }
 
 .status-table td span.warning {
-    display: inline;
+    /* display: inline; */
     padding: .2em .6em .3em;
-    font-size: 75%;
-    font-weight: bold;
+    font-size: 1.3rem;
+    /* font-weight: bold; */
     line-height: 1;
     color: #fff;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: .25em;
-    background-color: #f0ad4e;
+    background-color: #ff7300;
+    letter-spacing: 1.3px;
+    width: 75px;
+    display: inline-block;
+}
+
+.status-table td span.ok {
+    /* display: inline; */
+    padding: .2em .6em .3em;
+    font-size: 1.3rem;
+    /* font-weight: bold; */
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background-color: #6cc04a;
+    letter-spacing: 1.3px;
+    width: 75px;
+    display: inline-block;
 }
 
 .status-table td span.critical {
@@ -571,15 +591,15 @@ td.table-label
 
 
 .dataTable .label{
-	min-width: 80px;
+    min-width: 80px;
     display: inline-block;
 }
 
 .dataTable th.dt-center,
 .dataTable td.dt-center{
-	text-align: center !important;
+    text-align: center !important;
 }
-	
+    
 div#serverDetails.modal,
 div#cameraDetails.modal {
     background: rgba(0,0,0,0.5);
@@ -602,4 +622,42 @@ div#cameraDetails.modal {
 
 h3.modal-title {
     font-size: 2.5rem;
+}
+
+#serverStatusTemplate table.status-table {
+    width: 93%;
+    line-height: 2;
+    margin: 10px;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+}
+
+div#serverStatusTemplate,div#servicePanel {
+    padding: 0px;
+}
+
+div#serverStatusTemplate .panel__header,
+div#servicePanel .panel__header{
+    background: #03A9F4;
+    line-height: 3rem;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+div#serverStatusTemplate .panel__body,
+div#servicePanel .panel__body{
+    box-shadow: 0px -5px 0px 0px #03A9F4 inset;
+    background: #f5f5f5;
+    border: 1px solid #D0D0D0;
+    padding: 0px 0px;
+    box-sizing: border-box;
+}
+div#servicePanel table {
+    font-size: 12px;
+    line-height: 3;
+}
+div#servicePanel table tr td {
+    padding: 8px;
+}
+div#servicePanel .panel__body {
+    padding-bottom: 5px;
 }

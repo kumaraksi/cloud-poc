@@ -33,7 +33,7 @@
     <link href="./../styles/sb-admin-2.css" rel="stylesheet" type="text/css">
 
     <link href="./../css/cui-standard.min.css" rel="stylesheet" type="text/css">
-    
+
     <!-- Custom CSS -->
     <link href="./../styles/sb-admin-2.css" rel="stylesheet" type="text/css">
     <link href="./../styles/styles.css" rel="stylesheet" type="text/css">
@@ -411,15 +411,15 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="panel panel-default" id="serverStatusTemplate">
-                                <div class="panel-heading">
+                        <div class="col-md-4 cui">
+                            <div class="panel" id="serverStatusTemplate">
+                                <div class="panel__header">
                                     <span class="pull-left device-card-name">Server Status</span>
                                     <span class="pull-right status-icon server-status {aggregateState}"><i class="fa fa-circle"></i></span>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div class="panel-body">
-                                    <table class="table table-hover status-table table-small">
+                                <div class="panel__body">
+                                    <table class="table__nostripes status-table">
                                         <tbody>
                                             <tr>
                                                 <td>Reachability</td>
@@ -465,14 +465,14 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
+                        <div class="col-md-8 cui">
+                            <div class="panel" id="servicePanel">
+                                <div class="panel__header">
                                     <span class="pull-left device-card-name">Services</span>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div class="panel-body">
-                                    <table class="table table-hover service-table table-condensed table-small">
+                                <div class="panel__body">
+                                    <table class="table service-table">
                                         <thead>
                                             <th>Name</th>
                                             <th>Version</th>
@@ -687,7 +687,7 @@
     </div>
 
     <!--jquery JS  -->
-    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
 
     <!--bootstrap JS  -->
     <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -710,7 +710,7 @@
     <!--DataTable JS  -->
     <!--<script src="../../bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.min.js"></script>-->
     <script src="../../bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-	<script src="../../bower_components/dropdown.js/jquery.dropdown.js"></script>
+	<!-- <script src="../../bower_components/dropdown.js/jquery.dropdown.js"></script> -->
 
     <script src="../external-libs/bootstrap-material-design/dist/js/ripples.js"></script>
     <script src="../external-libs/bootstrap-material-design/dist/js/material.js"></script>
