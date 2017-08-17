@@ -56,6 +56,10 @@ $('#alertSearchFilter').on('keyup', function(event){
 
 function getRecentCriticalAlerts(){
 	var url = utils.getBaseUrl() + 'alert/getAlerts';
+	var ts = Math.round(new Date().getTime());
+	var tsYesterday = ts - (24 * 3600 * 1000);
+	
+
 	var filterData = {
 		"filter": {
 			"pageInfo": {
@@ -67,7 +71,7 @@ function getRecentCriticalAlerts(){
 				"name": "alertTime",
 				"sortOrder": "DESC"
 			},
-			"byAfterAlertTimeUTC" : window.alertFilter.time,
+			"byAfterAlertTimeUTC" : tsYesterday,
 			"bySeverity": ["CRITICAL"]
 			
 		}
