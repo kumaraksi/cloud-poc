@@ -28,14 +28,15 @@
     <!--Material Design CSS  -->
     <link href="../external-libs/bootstrap-material-design/dist/css/bootstrap-material-design.css" rel="stylesheet" type="text/css">
     <link href="../external-libs/bootstrap-material-design/dist/css/ripples.css" rel="stylesheet" type="text/css">
+	<link href="../../bower_components/dropdown.js/jquery.dropdown.css" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
     <link href="./../styles/sb-admin-2.css" rel="stylesheet" type="text/css">
     <link href="./../styles/styles.css" rel="stylesheet" type="text/css">
-
+	<link href="./../styles/styles2.css" rel="stylesheet" type="text/css">
 
     <link href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="../../bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="../../bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -75,10 +76,11 @@
 							<a href="#encoder" aria-controls="encoder" role="tab" data-toggle="tab" style="width:175px">Encoder <span class="badge">0</span></a>
 						</li>
                         <li role="presentation">
-							<a href="#alerts" aria-controls="alerts" role="tab" data-toggle="tab" style="width:175px">Alerts <span id="alertCountBadge" class="badge">0</span></a>
+							<a href="#alerts" aria-controls="alerts" role="tab" data-toggle="tab" style="width:175px">Alerts <span id="alertTableCountBadge" class="badge">0</span></a>
 
 						</li>
                         
+						
 						<li class="dropdown" style="float:right">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-target="#" aria-expanded="false">Admin <span class="caret"></span><div class="ripple-container"></div></a>
                             <ul class="dropdown-menu dropdown-user" style="margin-left: -55px;">
@@ -87,6 +89,23 @@
                                 </li>
                             </ul>
                         </li>
+						<li class="dropdown" id="alertCountBadge" style="float:right" >
+							<!--<a href="#alerts" aria-controls="alerts" role="tab" data-toggle="tab" style="width:175px">Alerts <span id="alertCountBadge" class="badge">0</span></a>-->
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="padding 12 0px !important;">
+								<span  class="badge">
+									<b>
+									<i class="fa fa-bell"></i>
+									<span class="alert-badge-count" id="alertCountBadgeCount">0</span>
+									</b>
+								
+								</span>
+								
+							</a>
+							<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								<i class="fa fa-bell"></i> <b class="caret"></b>
+							</a>-->
+							
+						</li>
                     </ul>
 
                     <!-- Tab panes -->
@@ -132,7 +151,46 @@
                             </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="alerts">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="alertsTable">
+							<div class="row table-filter" id="alertFilters">
+								<div class="col-sm-6">
+									<label for="alertSearchFilter">Search</label>
+									<div class="form-group label-placeholder  is-empty">
+										<label for="alertSearch" class="control-label">Enter Search Text Here</label>
+										<input type="text" class="form-control" id="alertSearchFilter">
+										<!--<span class="help-block">This is a hint as a <code>span.help-block.hint</code></span>-->
+									  </div>
+								</div>
+								<div class="col-sm-2">
+									
+								</div>
+								<div class="col-sm-2">
+									<label for="alertTimeFilter">Time</label>
+									<select class="select form-control" id="alertTimeFilter">
+										<option selected value="24">Last 24 Hours</option>
+										<option value="0">All</option>
+									</select>
+								</div>
+								<div class="col-sm-2">
+									<label for="alertSeverityFilter">Severity</label>
+									<select class="select form-control" id="alertSeverityFilter">
+										<option selected value="0">All</option>
+										<option value="CRITICAL">Critical</option>
+										<option value="WARNING">Warning</option>
+										<option value="INFO">Info</option>
+									</select>
+								</div>
+								<!--<div class="col-sm-3">
+									<label for="alertCurrentStatusFilter">Current Status</label>
+									<select class="select form-control" id="alertCurrentStatusFilter">
+										<option selected value="allHealth">All Health</option>
+										<option value="currentHealth">Affecting Current Status</option>
+									</select>
+								</div>
+								-->
+								
+								
+							</div>
+							<table width="100%" class="table table-striped table-bordered table-hover" id="alertsTable">
                                 
                             </table>
                         </div>
@@ -637,6 +695,7 @@
     <!--DataTable JS  -->
     <!--<script src="../../bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.min.js"></script>-->
     <script src="../../bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+	<script src="../../bower_components/dropdown.js/jquery.dropdown.js"></script>
 
     <script src="../external-libs/bootstrap-material-design/dist/js/ripples.js"></script>
     <script src="../external-libs/bootstrap-material-design/dist/js/material.js"></script>

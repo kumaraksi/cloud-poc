@@ -1,0 +1,27 @@
+.table-filter .form-group{
+	margin: 0px !important;
+}
+
+
+#alertCountBadge a{
+	float:right;
+	padding: 12px 0px !important;
+	color : #049fd9;
+}
+#alertCountBadge a i{
+	color : #049fd9;
+}
+.nav.nav-tabs #alertCountBadge .badge{
+	border-color: #049fd9; 
+}
+
+
+#alertCountBadge.critical #alertCountBadgeCount{
+	color : #cf2030;
+}
+#alertCountBadge.critical a i{
+	color : #cf2030;
+}
+.nav.nav-tabs #alertCountBadge.critical .badge{
+	border-color: #cf2030; 
+}
