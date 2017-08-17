@@ -207,17 +207,13 @@ h6,
 .row.server-list .status-icon.ok .fa.fa-circle,
 .row.camera-list .status-icon.ok .fa.fa-circle
 {
-    color : green;
-    border: 2px solid #fff;
-    border-radius: 50%;
+    color : #6cc04a;
 }
 
 .row.server-list .status-icon.soft_deleted .fa.fa-circle,
 .row.camera-list .status-icon.soft_deleted .fa.fa-circle
 {
     color : black;
-    border: 2px solid #fff;
-    border-radius: 50%;
 }
 
 .row.server-list .status-icon.disabled .fa.fa-circle,
@@ -225,23 +221,17 @@ h6,
 .row.camera-list .status-icon.pre_provisioned .fa.fa-circle
 {
     color : grey;
-    border: 2px solid #fff;
-    border-radius: 50%;
 }
 
 .row.server-list .status-icon.warning .fa.fa-circle,
 .row.camera-list .status-icon.warning .fa.fa-circle
 {
-    color : orange;
-    border: 2px solid #fff;
-    border-radius: 50%;
+    color : #ff7300;
 }
 .row.server-list .status-icon.critical .fa.fa-circle,
 .row.camera-list .status-icon.critical .fa.fa-circle
 {
-    color : red;
-    border: 2px solid #fff;
-    border-radius: 50%;
+    color : #cf2030;
 }
 
 
@@ -353,7 +343,7 @@ table.service-table .status-icon.activated .fa.fa-circle,
 table.camera-table .status-icon.activated .fa.fa-circle,
 .status-icon.server-status.ok .fa.fa-circle
 {
-    color : green;
+    color : #6cc04a;
 }
 
 table.server-table .status-icon.deactivated,
@@ -405,13 +395,18 @@ td.table-label
 }
 
 .jumbotron.jumbotron-sm {
-    padding-top: 5px;
-    padding-bottom: 10px;
-    padding-left: 10px;
+    /* padding-top: 5px; */
+    /* padding-bottom: 10px; */
+    padding: 15px 20px;
+    -webkit-box-shadow: 0.5rem 0 #049fd9 inset;
+    box-shadow: 0.5rem 0 #049fd9 inset;
  }
  
  
- 
+.cui .jumbotron.jumbotron-sm {
+    background: #e9e9e9;
+    border: 1px solid #d0d0d0;
+}
  
  
  
@@ -572,7 +567,6 @@ td.table-label
 }
 
 
-
 /* DataTable */
 
 
@@ -584,5 +578,28 @@ td.table-label
 .dataTable th.dt-center,
 .dataTable td.dt-center{
 	text-align: center !important;
+}
 	
+div#serverDetails.modal,
+div#cameraDetails.modal {
+    background: rgba(0,0,0,0.5);
+}
+
+.cui .jumbotron.jumbotron-sm table.table--nostripes {
+    font-size: 14px;
+    line-height: 2.5;
+    width: 100%;
+}
+
+.cui .jumbotron.jumbotron-sm .page__title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.text-cui-info {
+    color: #049fd9;
+}
+
+h3.modal-title {
+    font-size: 2.5rem;
 }

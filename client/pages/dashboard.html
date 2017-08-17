@@ -28,8 +28,12 @@
     <!--Material Design CSS  -->
     <link href="../external-libs/bootstrap-material-design/dist/css/bootstrap-material-design.css" rel="stylesheet" type="text/css">
     <link href="../external-libs/bootstrap-material-design/dist/css/ripples.css" rel="stylesheet" type="text/css">
-	<link href="../../bower_components/dropdown.js/jquery.dropdown.css" rel="stylesheet" type="text/css">
 
+	<link href="../../bower_components/dropdown.js/jquery.dropdown.css" rel="stylesheet" type="text/css">
+    <link href="./../styles/sb-admin-2.css" rel="stylesheet" type="text/css">
+
+    <link href="./../css/cui-standard.min.css" rel="stylesheet" type="text/css">
+    
     <!-- Custom CSS -->
     <link href="./../styles/sb-admin-2.css" rel="stylesheet" type="text/css">
     <link href="./../styles/styles.css" rel="stylesheet" type="text/css">
@@ -366,14 +370,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 class="modal-title text-info">{serverName}</h3>
+                    <h3 class="modal-title text-cui-info">{serverName}</h3>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-8 cui">
                             <div class="jumbotron jumbotron-sm">
-                                <h4>Configuration</h4>
-                                <table class="table table-hover table-condensed no-border table-small">
+                                <h4 class="page__title">Configuration</h4>
+                                <table class="table--nostripes">
                                     <tbody>
                                         <tr>
                                             <td class="table-label">Type</td>
@@ -531,18 +535,18 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title text-info">{cameraName}</h4>
+                    <h3 class="modal-title text-cui-info">{cameraName}</h3>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-8 cui">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <span class="pull-left device-card-name">Configuration</span>
+                                    <span class="pull-left device-card-name page__title">Configuration</span>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="panel-body">
-                                    <table class="table table-hover table-condensed no-border table-small">
+                                    <table class="table--nostripes">
                                         <tbody>
                                             <tr>
                                                 <td class="table-label">Vendor</td>
