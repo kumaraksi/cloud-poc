@@ -25,3 +25,13 @@
 .nav.nav-tabs #alertCountBadge.critical .badge{
 	border-color: #cf2030; 
 }
+
+
+#serverStatsHistory .label{
+	min-width: 50px !important; 
+	max-width: 50px !important; 
+}
+
+#serverStatsHistory tr td{
+	font-size : 10px;
+}

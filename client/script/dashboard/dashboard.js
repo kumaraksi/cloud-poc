@@ -403,6 +403,122 @@ $('#tabList a').click(function(e) {
     $(this).tab('show')
 });
 
+
+function getServerStatusAlertFilters(device){
+	var ts = Math.round(new Date().getTime());
+	var tsYesterday = ts - (24 * 3600 * 1000);
+	 var deviceRef = {
+		"refName": device.name,
+		"refObjectType": device.objectType,
+		"refUid": device.uid,
+		"refVsomUid": device.vsomUid
+	};
+	
+	var filterData = {
+		"filter": {
+			"pageInfo": {
+				"start": 0,
+				"limit": 10,
+				"skipTotalRowCount": true
+			},
+			"sortCriteria": {
+				"name": "alertTime",
+				"sortOrder": "DESC"
+			},
+			//"bySeverity" : ["CRITICAL"],
+			"byDeviceRefs": [deviceRef],
+			//"byAfterAlertTimeUTC": tsYesterday
+		}
+	};
+	
+	return filterData;
+}
+
+function updateServerStatusHistoryTable(){
+	var url = utils.getBaseUrl() + 'alert/getAlerts';
+	var filterData = getServerStatusAlertFilters(window.selectedDevice);
+	var onSuccess = function(data, textStatus, jqXHR) {
+        data = JSON.parse(data);
+        console.info(data);
+		var alertList = data.data.items;
+        
+		var alertDTData = [];
+		
+		
+		var totalAlerts = alertList.length;
+		
+		var alert, alertTime,alertDT;
+		for(var i=0; i < totalAlerts; i++){
+			alert = alertList[i];
+			alertTime = new Date(alert.alertTime);
+			alertDT = [alert.severity, alert.firstEventGenTime, alert.description];
+			alertDTData.push(alertDT);
+		}
+		$('#serverStatsHistory').DataTable( {
+				height : '450px',
+				data: alertDTData,
+				autoWidth : false,
+				"dom": '<"top"i>rt<"bottom"lp><"clear">',
+				"bInfo" : false,
+				"processing": true,
+				columns: [
+					{ 
+						title: "Severity", 
+						width: "8%",
+						className : 'dt-center',
+					},
+					{ 
+						title: "Time",
+						width: "30%"
+					},
+					{	
+						title: "Description",
+						width: "62%"
+					},
+				],
+				columnDefs: [
+					{
+						targets: 1,
+						render : function( data, type, row ) {
+							return (new Date(data)).toLocaleString();
+						},
+					},
+					{
+						targets: 2,
+						render : $.fn.dataTable.render.ellipsis(30)
+					},
+					{
+						targets: 0,
+						render : function(data, type, row){
+							return '<span class="label label-danger">CRITICAL</span>';
+						}
+					}
+				  ],
+				scrollY:        '130px',
+				scrollCollapse: true,
+				paging:         false
+			} );
+			
+			
+		
+		
+		$('#serverStatsHistory tbody td').each(function(index){
+			$this = $(this);
+			var titleVal = $this.text();
+			if (typeof titleVal === "string" && titleVal !== '') {
+			  $this.attr('title', titleVal);
+			}
+		});
+	};
+	
+	onError = function(jqXHR, textStatus, errorThrown) {
+		 console.warn(errorThrown);
+	};
+	
+	 utils.sendPost(url, filterData, onSuccess, onError);
+}
+
+
 $('#serverDetails').on('shown.bs.modal', function() {
     var server = window.selectedDevice;
     var serverDetailTemplateStr = $('#serverDetails')[0].innerHTML;
@@ -428,6 +544,8 @@ $('#serverDetails').on('shown.bs.modal', function() {
     };
     serverDetailTemplateStr = serverDetailTemplateStr.formatUnicorn(serverDetailsJSON);
     this.innerHTML = serverDetailTemplateStr;
+	
+	updateServerStatusHistoryTable();
 });
 
 $('#cameraDetails').on('shown.bs.modal', function() {
