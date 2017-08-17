@@ -230,7 +230,7 @@ function fixLocationData(locationTree) {
 
     var rootLocation = locationTree.childGroups[0];
 
-    locationTreeHtml += '<a uid="' + rootLocation.uid + '" href="#" class="text-default selected"><i class="fa fa-sitemap fa-fw"></i>' + rootLocation.localName + '<span class="fa arrow"></span></a>';
+    locationTreeHtml += '<a uid="' + rootLocation.uid + '" href="#" class="selected"><i class="fa fa-sitemap fa-fw"></i>' + rootLocation.localName + '<span class="fa arrow"></span></a>';
     window.currentSelectedLocationUID = rootLocation.uid;
     if (rootLocation.hasChildGroups) {
         var secondLevelLocation = rootLocation.childGroups;
@@ -239,19 +239,19 @@ function fixLocationData(locationTree) {
         secondLevelLocation.forEach(function(sl) {
             if (sl.hasChildGroups) {
                 locationTreeHtml += '<li>';
-                locationTreeHtml += '<a uid="' + sl.uid + '" class="text-default" href="#">' + sl.localName + ' <span class="fa arrow"></span></a>';
+                locationTreeHtml += '<a uid="' + sl.uid + '" class="" href="#">' + sl.localName + ' <span class="fa arrow"></span></a>';
                 locationTreeHtml += '<ul class="nav nav-third-level">';
 
                 var thirdLevelLocation = sl.childGroups;
                 thirdLevelLocation.forEach(function(tl) {
-                    locationTreeHtml += '<li><a uid="' + tl.uid + '" class="text-default" href="#">' + tl.localName + '</a></li>';
+                    locationTreeHtml += '<li><a uid="' + tl.uid + '" class="" href="#">' + tl.localName + '</a></li>';
                 });
 
 
                 locationTreeHtml += '</ul>';
                 locationTreeHtml += '</li>';
             } else {
-                locationTreeHtml += '<li><a uid="' + sl.uid + '" class="text-default" href="#">' + sl.localName + '</a></li>';
+                locationTreeHtml += '<li><a uid="' + sl.uid + '" href="#">' + sl.localName + '</a></li>';
             }
         });
 

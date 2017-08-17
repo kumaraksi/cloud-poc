@@ -1,6 +1,60 @@
+@font-face {
+  font-family: 'CiscoSans';
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/CiscoSans/CiscoSansTTExtraLight.eot");
+  src: url("../fonts/CiscoSans/CiscoSansTTExtraLight.eot?#iefix") format("embedded-opentype"), url("../fonts/CiscoSans/CiscoSansTTExtraLight.woff2") format("woff2"), url("../fonts/CiscoSans/CiscoSansTTExtraLight.woff") format("woff"), url("../fonts/CiscoSans/CiscoSansTTExtraLight.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+@font-face {
+  font-family: 'CiscoSans';
+  font-style: oblique;
+  font-weight: 100;
+  src: url("../fonts/CiscoSans/CiscoSansTTExtraLightOblique.eot");
+  src: url("../fonts/CiscoSans/CiscoSansTTExtraLightOblique.eot?#iefix") format("embedded-opentype"), url("../fonts/CiscoSans/CiscoSansTTExtraLightOblique.woff2") format("woff2"), url("../fonts/CiscoSans/CiscoSansTTExtraLightOblique.woff") format("woff"), url("../fonts/CiscoSans/CiscoSansTTExtraLightOblique.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+@font-face {
+  font-family: 'CiscoSans';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/CiscoSans/CiscoSansTTLight.eot");
+  src: url("../fonts/CiscoSans/CiscoSansTTLight.eot?#iefix") format("embedded-opentype"), url("../fonts/CiscoSans/CiscoSansTTLight.woff2") format("woff2"), url("../fonts/CiscoSans/CiscoSansTTLight.woff") format("woff"), url("../fonts/CiscoSans/CiscoSansTTLight.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+@font-face {
+  font-family: 'CiscoSans';
+  font-style: oblique;
+  font-weight: 300;
+  src: url("../fonts/CiscoSans/CiscoSansTTLightOblique.eot");
+  src: url("../fonts/CiscoSans/CiscoSansTTLightOblique.eot?#iefix") format("embedded-opentype"), url("../fonts/CiscoSans/CiscoSansTTLightOblique.woff2") format("woff2"), url("../fonts/CiscoSans/CiscoSansTTLightOblique.woff") format("woff"), url("../fonts/CiscoSans/CiscoSansTTLightOblique.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+@font-face {
+  font-family: 'CiscoSans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/CiscoSans/CiscoSansTTRegular.eot");
+  src: url("../fonts/CiscoSans/CiscoSansTTRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/CiscoSans/CiscoSansTTRegular.woff2") format("woff2"), url("../fonts/CiscoSans/CiscoSansTTRegular.woff") format("woff"), url("../fonts/CiscoSans/CiscoSansTTRegular.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+
 body {
     overflow: hidden;
-	
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4 {
+    font-family: "CiscoSans", "Arial", sans-serif !important; 
+    font-weight: 300;
 }
 
 .login-card-header {
@@ -10,7 +64,7 @@ body {
 
 #location-sidebar {
     min-height: 97vh;
-    background: #efefef;
+    background: #049fd9;
 }
 
 #settingsDropdown {
@@ -29,14 +83,40 @@ body {
 }
 
 
+.sidebar h2.page-title {
+    text-align: center;
+    color: #ddd;
+    width:90%;
+    margin:20px 0px;
+}
+.navbar-default.sidebar {
+    background: #34adde;
+}
 
+.page-title h2 {
+    color: #fff;
+    font-size: 22px;
+    letter-spacing: 0px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.sidebar div.page-title {
+    background: #34adde;
+    width: 90%;
+    text-align: center;
+    padding: 10px;
+    /* word-spacing: 5px; */
+}
 #serverTab li.active a {
-    color: #555 !important;
     cursor: default !important;
-    background-color: #fff !important;
-    border: 1px solid #ddd !important;
     border-bottom-color: transparent !important;
     border-radius: 0px !important;
+    /* background: #34adde !important; */
+    -webkit-box-shadow: 0 -5px 0 #ffffff inset;
+    box-shadow: 0 -5px 0 #34adde  inset;
+    text-decoration: none;
+    color: unset;
 }
 
 .list-group .list-group-item .row-picture i,
@@ -121,106 +201,120 @@ body {
 .row.server-list,
 .row.camera-list,
 {
-	margin : 0px !important;
+    margin : 0px !important;
 }
 
 .row.server-list .status-icon.ok .fa.fa-circle,
 .row.camera-list .status-icon.ok .fa.fa-circle
 {
-	color : green;
+    color : green;
+    border: 2px solid #fff;
+    border-radius: 50%;
 }
 
 .row.server-list .status-icon.soft_deleted .fa.fa-circle,
 .row.camera-list .status-icon.soft_deleted .fa.fa-circle
 {
-	color : black;
+    color : black;
+    border: 2px solid #fff;
+    border-radius: 50%;
 }
 
 .row.server-list .status-icon.disabled .fa.fa-circle,
 .row.camera-list .status-icon.disabled .fa.fa-circle,
 .row.camera-list .status-icon.pre_provisioned .fa.fa-circle
 {
-	color : grey;
+    color : grey;
+    border: 2px solid #fff;
+    border-radius: 50%;
 }
 
 .row.server-list .status-icon.warning .fa.fa-circle,
 .row.camera-list .status-icon.warning .fa.fa-circle
 {
-	color : orange;
+    color : orange;
+    border: 2px solid #fff;
+    border-radius: 50%;
 }
 .row.server-list .status-icon.critical .fa.fa-circle,
 .row.camera-list .status-icon.critical .fa.fa-circle
 {
-	color : red;
+    color : red;
+    border: 2px solid #fff;
+    border-radius: 50%;
 }
 
 
 .nav-tabs{
-	background: #049fd9 !important;
+    background: #fff!important;
 }
 
 
 
 #location-sidebar a.selected{
-	background-color: #049fd9;
-	color: white;
+    background-color: #fff;
+    color: #049fd9;
+}
+.sidebar .nav > li > a {
+    color: #fff;
 }
 
-
 .camera-list .material-icons{
-	background-color: lightseagreen  !important;
+    background-color: #64bbe3 !important;
 }
 
 .camera-list .list-group-item-heading{
-	font-size: 11px !important;
+    font-size: 11px !important;
 }
 .camera-list .list-group-item-text.large{
-	font-weight: 400;
-	font-size: 14px !important;
+    font-weight: 400;
+    font-size: 14px !important;
 }
 
 
 .server-list .material-icons{
-	background-color: lightseagreen !important;
+    background-color: #64bbe3 !important;
 }
 
 .server-list .list-group-item-heading{
-	font-size: 11px !important;
+    font-size: 11px !important;
 }
 .server-list .list-group-item-text.large{
-	font-weight: 400;
-	font-size: 14px !important;
+    font-weight: 400;
+    font-size: 14px !important;
 }
 
 .nav.nav-tabs > li > a{
-	padding : 12px 45px;
+    padding: 12px 40px;
+    color: #34adde !important;
 }
 
 .nav.sidebar > li > a{
-	padding : 13px 15px;
+    padding : 13px 15px;
 }
 
 .sidebar-nav .fa.fa-sitemap.fa-fw{
-	margin-left: -10px;
-	margin-right: 5px;
+    margin-left: -10px;
+    margin-right: 5px;
 }
 
 .sidebar-nav a.selected .fa.arrow{
-	padding: 3px;
-    border: 1px white;
+    padding: 3px;
+    border: 1px #f2f2f2;
     border-style: double;
     border-radius: 5px;
 }
 
 .sidebar-nav a .fa.arrow{
-	padding: 3px;
-    border: 1px black;
+    padding: 3px;
+    border: 1px #f2f2f2;
     border-style: double;
     border-radius: 5px;
 }
 
 .device-card-name{
-	font-weight: 300 !important;
+    font-weight: 300 !important;
+    color: #fff;
 }
 
 
@@ -231,27 +325,27 @@ body {
 }
 
 .container{
-	Padding: 0px !important;
+    Padding: 0px !important;
 }
 
 .camera-list .well{
-	padding: 0px !important;
+    padding: 0px !important;
 }
 
 .server-list .well{
-	padding: 0px !important;
+    padding: 0px !important;
 }
 .well{
-	-webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
-	box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
+    -webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
+    box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
 }
 .server-list .well{
-	-webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
-	box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
+    -webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
+    box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
 }
 .camera-list .well{
-	-webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
-	box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
+    -webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
+    box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
 }
 
 table.server-table .status-icon.activated .fa.fa-circle,
@@ -447,8 +541,32 @@ td.table-label
   -webkit-border-radius: 100px;
 }
 
-background: linear-gradient(45deg, white, silver);
-min-height: 100%;
-
 
 /* Clean Scrollbar*/
+
+.sidebar .nav-second-level li a {
+    color: #fff;
+}
+
+.sidebar .nav-second-level li a:hover {
+    color: #049fd9;
+    background-color:#e9e9e9
+    
+}
+.sidebar li.active a {
+    color: #fff;
+}
+.sidebar li.active a:hover {
+    color: #049fd9;
+}
+
+.nav.nav-tabs .badge {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #777;
+    float: right;
+}
+
+#tabContent .panel-footer {
+    background: #585858;
+}
