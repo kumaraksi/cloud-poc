@@ -97,7 +97,7 @@ function getRecentCriticalAlerts(){
 }
 getRecentCriticalAlerts();
 var updateAlertBadge = setInterval(getRecentCriticalAlerts, 10000);
-$('#alertCountBadgeCount').on('click', function(){
+$('#alertCountBadge').on('click', function(){
 	$('.nav-tabs a[href="#alerts"]').tab('show');
 });
 
