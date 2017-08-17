@@ -491,7 +491,7 @@ function updateServerStatusHistoryTable(){
 						{
 							targets: 0,
 							render : function(data, type, row){
-								return '<span class="label label-danger">CRITICAL</span>';
+								return '<span class="label label--danger label--tiny">CRITICAL</span>';
 							}
 						}
 					  ],

@@ -3435,10 +3435,11 @@ h6, .h6 {
     -webkit-box-shadow: inset 0 0 0 1px #049fd9;
             box-shadow: inset 0 0 0 1px #049fd9; }
     .cui .btn--primary-ghost:hover, .cui .btn--primary-ghost:focus {
-      -webkit-box-shadow: 0 0 0 0 transparent;
-              box-shadow: 0 0 0 0 transparent;
-      background-color: #049fd9;
-      color: #ffffff; }
+      -webkit-box-shadow: 0 0 0 0 transparent !important;
+      box-shadow: 0 0 0 0 transparent;
+      background-color: #049fd9 !important;
+      color: #ffffff;
+      }
     .cui .btn--primary-ghost:active {
       -webkit-box-shadow: 0 0 0 0 transparent;
               box-shadow: 0 0 0 0 transparent;
