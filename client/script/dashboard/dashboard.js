@@ -494,7 +494,7 @@ function updateServerStatusHistoryTable(){
 						}
 					}
 				  ],
-				scrollY:        '130px',
+				scrollY:        '140px',
 				scrollCollapse: true,
 				paging:         false
 			} );
