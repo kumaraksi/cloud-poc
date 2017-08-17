@@ -454,61 +454,66 @@ function updateServerStatusHistoryTable(){
 			alertDT = [alert.severity, alert.firstEventGenTime, alert.description];
 			alertDTData.push(alertDT);
 		}
-		$('#serverStatsHistory').DataTable( {
-				height : '450px',
-				data: alertDTData,
-				autoWidth : false,
-				"dom": '<"top"i>rt<"bottom"lp><"clear">',
-				"bInfo" : false,
-				"processing": true,
-				columns: [
-					{ 
-						title: "Severity", 
-						width: "8%",
-						className : 'dt-center',
-					},
-					{ 
-						title: "Time",
-						width: "30%"
-					},
-					{	
-						title: "Description",
-						width: "62%"
-					},
-				],
-				columnDefs: [
-					{
-						targets: 1,
-						render : function( data, type, row ) {
-							return (new Date(data)).toLocaleString();
+		if ( !$('#serverStatsHistory').hasClass('dataTable') ) {
+			window.serverStatsHistoryTable = $('#serverStatsHistory').DataTable( {
+					height : '450px',
+					data: alertDTData,
+					autoWidth : false,
+					"dom": '<"top"i>rt<"bottom"lp><"clear">',
+					"bInfo" : false,
+					"processing": true,
+					columns: [
+						{ 
+							title: "Severity", 
+							width: "8%",
+							className : 'dt-center',
 						},
-					},
-					{
-						targets: 2,
-						render : $.fn.dataTable.render.ellipsis(30)
-					},
-					{
-						targets: 0,
-						render : function(data, type, row){
-							return '<span class="label label-danger">CRITICAL</span>';
+						{ 
+							title: "Time",
+							width: "30%"
+						},
+						{	
+							title: "Description",
+							width: "62%"
+						},
+					],
+					columnDefs: [
+						{
+							targets: 1,
+							render : function( data, type, row ) {
+								return (new Date(data)).toLocaleString();
+							},
+						},
+						{
+							targets: 2,
+							render : $.fn.dataTable.render.ellipsis(30)
+						},
+						{
+							targets: 0,
+							render : function(data, type, row){
+								return '<span class="label label-danger">CRITICAL</span>';
+							}
 						}
-					}
-				  ],
-				scrollY:        '140px',
-				scrollCollapse: true,
-				paging:         false
-			} );
+					  ],
+					scrollY:        '140px',
+					scrollCollapse: true,
+					paging:         false
+				} );
+				
+				
 			
 			
-		
-		
-		$('#serverStatsHistory tbody td').each(function(index){
-			$this = $(this);
-			var titleVal = $this.text();
-			if (typeof titleVal === "string" && titleVal !== '') {
-			  $this.attr('title', titleVal);
-			}
-		});
+			$('#serverStatsHistory tbody td').each(function(index){
+				$this = $(this);
+				var titleVal = $this.text();
+				if (typeof titleVal === "string" && titleVal !== '') {
+				  $this.attr('title', titleVal);
+				}
+			});
+		}else{
+			
+			window.serverStatsHistoryTable.clear().rows.add(alertDTData).draw();
+		}
 	};
 	
 	onError = function(jqXHR, textStatus, errorThrown) {
