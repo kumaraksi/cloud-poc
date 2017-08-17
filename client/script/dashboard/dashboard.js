@@ -299,7 +299,7 @@ function updateLocationTree() {
         utils.initializeMenu('side-menu');
         updateServerList();
         updateCameraList();
-        updateEvents();
+        updateAlerts();
 		
 		$('#location-sidebar a').on('click', function(event) {
             //console.info(event);
@@ -313,7 +313,7 @@ function updateLocationTree() {
 				window.currentSelectedLocationUID = selectedLocationUID;
 				updateServerList();
 				updateCameraList();
-				updateEvents();
+				updateAlerts();
 				//Set Location UID And Refersh Everything
 			}
         });

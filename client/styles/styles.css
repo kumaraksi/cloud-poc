@@ -570,3 +570,19 @@ td.table-label
 #tabContent .panel-footer {
     background: #585858;
 }
+
+
+
+/* DataTable */
+
+
+.dataTable .label{
+	min-width: 80px;
+    display: inline-block;
+}
+
+.dataTable th.dt-center,
+.dataTable td.dt-center{
+	text-align: center !important;
+	
+}
