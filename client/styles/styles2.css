@@ -35,3 +35,23 @@
 #serverStatsHistory tr td{
 	font-size : 10px;
 }
+
+
+
+#cameraStatsHistory.dataTable .label{
+	min-width: 30px !important;
+	font-size: 7px !important;
+}
+
+#cameraStatsHistory.dataTable .datetime{
+	font-size: 10px !important;
+}
+
+#cameraStatsHistory.dataTable .description{
+	font-size: 10px !important;
+}
+
+
+#serverErrorsPanel{
+	padding-top:5px !important;
+}

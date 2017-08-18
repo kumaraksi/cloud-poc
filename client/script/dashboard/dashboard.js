@@ -39,6 +39,7 @@ function updateServerList() {
             return;
         }
         var servers = data.data.items;
+        /*servers.push(servers[0]);
         servers.push(servers[0]);
         servers.push(servers[0]);
         servers.push(servers[0]);
@@ -47,8 +48,7 @@ function updateServerList() {
         servers.push(servers[0]);
         servers.push(servers[0]);
         servers.push(servers[0]);
-        servers.push(servers[0]);
-        servers.push(servers[0]);
+        servers.push(servers[0]);*/
 
         window.allServers = servers;
 
@@ -69,7 +69,7 @@ function updateServerList() {
                 panelCss = 'panel-success';
             }
             //Fake Data
-            switch (index) {
+            /*switch (index) {
                 case 1:
                     serverName = serverName + '_warning';
                     deviceState = 'warning';
@@ -86,7 +86,7 @@ function updateServerList() {
                     serverName = serverName + '_softdeleted';
                     deviceState = 'soft_deleted';
                     break;
-            }
+            }*/
 
 
 
@@ -162,6 +162,7 @@ function updateCameraList() {
 
 
         var cameras = data.data.items;
+        /*cameras.push(cameras[0]);
         cameras.push(cameras[0]);
         cameras.push(cameras[0]);
         cameras.push(cameras[0]);
@@ -173,8 +174,7 @@ function updateCameraList() {
         cameras.push(cameras[0]);
         cameras.push(cameras[0]);
         cameras.push(cameras[0]);
-        cameras.push(cameras[0]);
-        cameras.push(cameras[0]);
+        cameras.push(cameras[0]);*/
 
         window.allCameras = cameras;
         var cameraListStr = "";
@@ -404,7 +404,9 @@ $('#tabList a').click(function(e) {
 });
 
 
-function getServerStatusAlertFilters(device){
+
+
+function getStatusAlertFilters(device){
 	var ts = Math.round(new Date().getTime());
 	var tsYesterday = ts - (24 * 3600 * 1000);
 	 var deviceRef = {
@@ -434,9 +436,99 @@ function getServerStatusAlertFilters(device){
 	return filterData;
 }
 
+
+function updateCameraStatusHistoryTable(){
+	var url = utils.getBaseUrl() + 'alert/getAlerts';
+	var filterData = getStatusAlertFilters(window.selectedDevice);
+	var onSuccess = function(data, textStatus, jqXHR) {
+        data = JSON.parse(data);
+        console.info(data);
+		var alertList = data.data.items;
+        
+		var alertDTData = [];
+		
+		
+		var totalAlerts = alertList.length;
+		
+		var alert, alertTime,alertDT, tempTime;
+		for(var i=0; i < totalAlerts; i++){
+			alert = alertList[i];
+			alertTime = new Date(alert.alertTime);
+			tempTime = (new Date(alert.firstEventGenTime)).toLocaleString()
+			alertDT = [alert.severity, tempTime, alert.description];
+			alertDTData.push(alertDT);
+		}
+		if ( !$('#cameraStatsHistory').hasClass('dataTable') ) {
+			window.cameraStatsHistoryTable = $('#cameraStatsHistory').DataTable( {
+					data: alertDTData,
+					autoWidth : false,
+					"dom": '<"top"i>rt<"bottom"lp><"clear">',
+					"bInfo" : false,
+					"processing": true,
+					columns: [
+						{ 
+							title: "Severity", 
+							width: "8%",
+							className : 'dt-center',
+						},
+						{ 
+							title: "Time",
+							width: "15%"
+						},
+						{	
+							title: "Description",
+							width: "77%"
+						},
+					],
+					columnDefs: [
+						{
+							targets: 1,
+							render : $.fn.dataTable.render.ellipsis(15),
+							className : 'datetime'
+						},
+						{
+							targets: 2,
+							render : $.fn.dataTable.render.ellipsis(20),
+							className : 'description'
+						},
+						{
+							targets: 0,
+							render : function(data, type, row){
+								return '<span class="label label--danger label--tiny">CRITICAL</span>';
+							}
+						}
+					  ],
+					scrollY:        '155px',
+					scrollCollapse: true,
+					paging:         false
+				} );
+				
+				
+			
+			
+			$('#cameraStatsHistory tbody td').each(function(index){
+				$this = $(this);
+				var titleVal = $this.text();
+				if (typeof titleVal === "string" && titleVal !== '') {
+				  $this.attr('title', titleVal);
+				}
+			});
+		}else{
+			
+			window.cameraStatsHistoryTable.clear().rows.add(alertDTData).draw();
+		}
+	};
+	
+	onError = function(jqXHR, textStatus, errorThrown) {
+		 console.warn(errorThrown);
+	};
+	
+	 utils.sendPost(url, filterData, onSuccess, onError);
+}
+
 function updateServerStatusHistoryTable(){
 	var url = utils.getBaseUrl() + 'alert/getAlerts';
-	var filterData = getServerStatusAlertFilters(window.selectedDevice);
+	var filterData = getStatusAlertFilters(window.selectedDevice);
 	var onSuccess = function(data, textStatus, jqXHR) {
         data = JSON.parse(data);
         console.info(data);
@@ -574,6 +666,7 @@ $('#cameraDetails').on('shown.bs.modal', function() {
     };
     cameraDetailTemplateStr = cameraDetailTemplateStr.formatUnicorn(cameraDetailsJSON);
     this.innerHTML = cameraDetailTemplateStr;
+	updateCameraStatusHistoryTable();
 });
 
 
