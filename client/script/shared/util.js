@@ -286,6 +286,22 @@ var utils = (function() {
 		};
 	}
 
+	function bytesToSize(bytes) {
+	    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+	    if (bytes == 0) return 'n/a';
+	    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+	    if (i == 0) return bytes + ' ' + sizes[i];
+	    return (bytes / Math.pow(1024, i)).toFixed(1) + ' ' + sizes[i];
+	};
+
+	function convertToBytes(value,unit) {
+	    var sizes = ['bytes', 'K', 'M', 'G', 'T'];
+	    if (value == 0) return 'n/a';
+	    var i = sizes.indexOf(unit);
+	    if (i == 0) return value + ' ' + sizes[i];
+	    return (value * Math.pow(1024, i)).toFixed(1);
+	};
+
     return {
         templateLoader: templateLoader,
         initializeMaterialDesign: initializeMaterialDesign,
@@ -296,6 +312,8 @@ var utils = (function() {
 		getBaseUrl : getBaseUrl,
 		setBaseUrl : setBaseUrl,
 		clearBaseUrl : clearBaseUrl,
-		logOut : logOut
+		logOut : logOut,
+		bytesToSize: bytesToSize,
+		convertToBytes: convertToBytes
     }
 })();

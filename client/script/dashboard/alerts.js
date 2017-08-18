@@ -224,13 +224,13 @@ function updateAlerts(){
 								case "device_vs_camera":
 								case "device_vs_camera_ip":
 								case "device_vs_camera_analog":
-									return '<span class="label label-primary">CAMERA</span>';
+									return '<span class="label label-camera">CAMERA</span>';
 									break;
 								case "device_vs_server":
-									return '<span class="label label-success">SERVER</span>';
+									return '<span class="label label-server">SERVER</span>';
 									break;
 								case "device_vs_encoder":
-									return '<span class="label label-primary">ENCODER</span>';
+									return '<span class="label label-encoder">ENCODER</span>';
 									break;
 								default :
 									return '<span class="label label-primary">'+data+'</span>';

@@ -179,17 +179,18 @@ h6,
 
 .list-group.stat-list .row-content .progress {
     margin-bottom: 5px;
+    height: 5px;
 }
 
 .list-group.stat-list .progress .progress-bar,
 .list-group.stat-list .progress .progress-bar.progress-bar-default {
-    background: #fff;
-    border: 1px solid #ccc;
+    background: #607D8B;
 }
 
 .list-group.stat-list .progress {
-    background: #607D8B;
-}
+    background: #fff;
+    border: 1px solid #ccc;
+    }
 
 .text-default,
 .text-default:hover,
@@ -718,4 +719,71 @@ button.btn.btn--primary-ghost {
 }
 table.table.service-table tr td {
     padding: 14px 20px 13px 10px;
+}
+div#alertFilters .form-group input,
+div#alertFilters .form-group select{
+    height: 25px;
+}
+
+
+div#alertFilters .form-group .checkbox label,div#alertFilters .form-group .radio label,div#alertFilters .form-group label{
+    font-size:12px;
+    color: #049fd9;
+}
+
+div#alertFilters .form-control{
+    font-size:12px;
+    line-height: 1;
+}
+
+.alertFilters-wrapper label,
+.alertSeverityFilter-wrapper label{
+    margin-top:16px;
+    margin-bottom:0px;
+    height :10px
+}
+span.label.label-camera {
+    background: #AD1457;
+}
+
+span.label.label-server {
+    background: #3F51B5;
+}
+
+span.label.label-encoder {
+    background: #0097A7;   
+}
+
+div.connectedServerAddress {
+    width: 100%;
+    clear: both;
+    text-align: center;
+    height: 40px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 12px 0px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.device-card-name.camera-card-name,
+.device-card-name.server-card-name
+ {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.status-table td span.not_applicable {
+    padding: 0.4em .6em .5em;
+    font-size: 0.95rem;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background-color: #795548;
+    /* letter-spacing: 1px; */
+    idth: 75px;
+    display: inline-block;
 }

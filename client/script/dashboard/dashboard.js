@@ -2,6 +2,8 @@ utils.initializeMaterialDesign();
 
 utils.initializeMenu('side-menu');
 
+$('#connectedServerAddress').text(localStorage.getItem('serverHostName'));
+
 window.erverTemplateStr = "<div class='col-md-4'><div class='panel panel-default'><div class='panel-body'><div class='row'><div class='col-md-9'><span class='pull-left'><i class='material-icons'>developer_board</i></span><span>  CPU</span></div><div class='col-md-3'>{0}</div></div><div class='row'><div class='col-md-9'><span class='pull-left'><i class='material-icons'>memory</i></span><span>  memory</span></div><div class='col-md-3'>{1}</div></div><div class='row'><div class='col-md-9'><span class='pull-left'><i class='material-icons'>move_to_inbox</i></span><span>  memory</span></div><div class='col-md-3'>{2}</div></div></div><a href='#'><div class='panel-footer'><span class='pull-left'>{4}</span><span class='pull-right'><i class='fa fa-circle'></i></span><div class='clearfix'></div></div></a></div></div>";
 
 function updateServerList() {
@@ -17,7 +19,7 @@ function updateServerList() {
                 "sortOrder": "ASC"
             },
             "byLocationUids": [window.currentSelectedLocationUID],
-            "includeSubLocations": false,
+            "includeSubLocations": false
             //"byVsomUid": "09bebf28-dcc6-4d2c-aabc-d16700d4c756"
         }
     };
@@ -68,6 +70,24 @@ function updateServerList() {
             if (deviceState == 'ok') {
                 panelCss = 'panel-success';
             }
+            var cpu = 100 - parseInt(server.freeCpu);
+            var usedMemory = parseInt(server.usedMemory);
+            var totalMemory = parseInt(server.totalMemory);
+            var memory = usedMemory/totalMemory*100;
+            var usedStorage = 0;
+            var totalStorage = 0;
+            var partitions = server.serverConfig.partitions;
+            partitions.forEach(function(space, index) {
+                var length = space.used.length;
+                var unit  = space.used.slice(length-1);
+                var amount = space.used.substr(0,length-1)*1;
+                usedStorage += utils.convertToBytes(amount,unit)*1;
+                var length = space.size.length;
+                var unit  = space.size.slice(length-1);
+                var amount = space.size.substr(0,length-1)*1;
+                totalStorage += utils.convertToBytes(amount,unit)*1;
+            });
+            var storage = usedStorage/totalStorage*100;
             //Fake Data
             /*switch (index) {
                 case 1:
@@ -87,10 +107,25 @@ function updateServerList() {
                     deviceState = 'soft_deleted';
                     break;
             }*/
+            usedStorage = utils.bytesToSize(usedStorage);
+            totalStorage = utils.bytesToSize(totalStorage);
+            server.usedStorage = usedStorage;
+            server.totalStorage = totalStorage;
+            var serverData = {
+                panelCss: panelCss,
+                index : index,
+                serverName : serverName,
+                deviceState : deviceState,
+                cpu:cpu,
+                memory: memory,
+                usedMemory: usedMemory,
+                totalMemory: totalMemory,
+                sotrage: storage,
+                usedStorage: usedStorage,
+                totalStorage: totalStorage
+            }
 
-
-
-            serverListStr += serverTemplateStr.formatUnicorn(panelCss, index, serverName, deviceState);
+            serverListStr += serverTemplateStr.formatUnicorn(serverData);
 
 
             //serverListStr += window.erverTemplateStr.formatUnicorn(adminState, totalPhysicalMemory, numberOfLogicalCores, serverName);
@@ -135,6 +170,7 @@ function updateCameraList() {
             },
             "byLocationUids": [window.currentSelectedLocationUID],
             "includeSubLocations": false,
+            "byAdminStates" : ['pre_provisioned','enabled','disabled']
             //"byVsomUid": "09bebf28-dcc6-4d2c-aabc-d16700d4c756"
         }
     };
@@ -351,8 +387,7 @@ function getDeviceStatus() {
             if (window.selectedDevice.objectType === "device_vs_server") {
 				$('#fullScreenLoader').hide();
                 $('#serverDetails').modal({
-                    show: true,
-                    backdrop: 'static'
+                    show: true
                 });
                 var serverStatusTemplate = $('#serverStatusTemplate');
                 var serverStatusTemplateStr = serverStatusTemplate.html();
@@ -396,8 +431,7 @@ function getCameraCDPNeighbours() {
             if (window.selectedDevice.objectType === "device_vs_camera_ip") {
                 window.selectedDevice.cameraCDPNeighbours = data.data[0];
                 $('#cameraDetails').modal({
-                    show: true,
-                    backdrop: 'static'
+                    show: true
                 });
             }
         }
@@ -438,9 +472,9 @@ function getStatusAlertFilters(device){
 				"name": "alertTime",
 				"sortOrder": "DESC"
 			},
-			//"bySeverity" : ["CRITICAL"],
+			"bySeverity" : ["CRITICAL"],
 			"byDeviceRefs": [deviceRef],
-			//"byAfterAlertTimeUTC": tsYesterday
+			"byAfterAlertTimeUTC": tsYesterday
 		}
 	};
 	
@@ -648,7 +682,11 @@ $('#serverDetails').on('shown.bs.modal', function() {
         metadataServerVersion: server.motionMetadataService.softwareVersion,
         metadataServerActive: server.motionMetadataService.serviceActivationState,
         vsomVersion: server.vsomService.softwareVersion,
-        vsomActive: server.vsomService.serviceActivationState
+        vsomActive: server.vsomService.serviceActivationState,
+        usedMemory:server.usedMemory,
+        totalMemory: server.totalMemory,
+        usedStorage:server.usedStorage,
+        totalStorage: server.totalStorage
     };
     serverDetailTemplateStr = serverDetailTemplateStr.formatUnicorn(serverDetailsJSON);
     this.innerHTML = serverDetailTemplateStr;
