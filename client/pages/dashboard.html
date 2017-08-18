@@ -155,12 +155,13 @@
 							</div>
 						</div>
 						<div role="tabpanel" class="tab-pane fade" id="alerts">
-							<div class="row table-filter cui" id="alertFilters">
+							<div class="well" id="alertFilters">
+							<div class="row table-filter" id="alerts">
 								<div class="col-sm-6">
-									<div class="form-group">
-										<div class="form-group__text">
-											<input type="text" class="form-control" id="alertSearchFilter">
+									<div class="form-group has-info">
+										<div class="form-group__text alertSearchFilter-wrapper">
 											<label for="alertSearchFilter" class="control-label">Enter Search Text Here</label>
+											<input type="text" class="form-control" id="alertSearchFilter">
 										</div>
 									</div>
 								</div>
@@ -168,29 +169,30 @@
 									
 								</div>
 								<div class="col-sm-2">
-									<div class="form-group">
-										<div class="form-group__text">
+									<div class="form-group has-info">
+										<div class="form-group__text alertFilters-wrapper">
+											<label for="alertTimeFilter">Time</label>
 											<select class="select form-control" id="alertTimeFilter">
 												<option selected value="24">Last 24 Hours</option>
 												<option value="0">All</option>
 											</select>
-											<label for="alertTimeFilter">Time</label>
 										</div>
 									</div>
 								</div>
 								<div class="col-sm-2">
-									<div class="form-group">
-										<div class="form-group__text">
+									<div class="form-group has-info">
+										<div class="form-group__text alertSeverityFilter-wrapper">
+											<label for="alertSeverityFilter">Severity</label>
 											<select class="select form-control" id="alertSeverityFilter">
 												<option selected value="0">All</option>
 												<option value="CRITICAL">Critical</option>
 												<option value="WARNING">Warning</option>
 												<option value="INFO">Info</option>
 											</select>
-											<label for="alertSeverityFilter">Severity</label>
 										</div>
 									</div>
-								</div>
+								</div>								
+							</div>
 								<!--<div class="col-sm-3">
 									<label for="alertCurrentStatusFilter">Current Status</label>
 									<select class="select form-control" id="alertCurrentStatusFilter">
@@ -451,38 +453,38 @@
 											<tbody>
 												<tr>
 													<td>Reachability</td>
-													<td>
+													<td class="text-right">
 														<span class="{networkConnectivityState}">{networkConnectivityState}</span>
 													</td>
 												</tr>
 
 												<tr>
 													<td>Streaming</td>
-													<td>
+													<td class="text-right">
 														<span class="{streamingstate}">{streamingstate}</span>
 													</td>
 												</tr>
 												<tr>
 													<td>Recording</td>
-													<td>
+													<td class="text-right">
 														<span class="{recordingState}">{recordingState}</span>
 													</td>
 												</tr>
 												<tr>
 													<td>Configuration</td>
-													<td>
+													<td class="text-right">
 														<span class="{configState}">{configState}</span>
 													</td>
 												</tr>
 												<tr>
 													<td>Hardware</td>
-													<td>
+													<td class="text-right">
 														<span class="{hardwareState}">{hardwareState}</span>
 													</td>
 												</tr>
 												<tr>
 													<td>Software</td>
-													<td>
+													<td class="text-right"">
 														<span class="{softwareState}">{softwareState}</span>
 													</td>
 												</tr>
@@ -504,43 +506,43 @@
 											<thead>
 												<th>Name</th>
 												<th>Version</th>
-												<th>Active</th>
+												<th class="text-center">Active</th>
 											</thead>
 											<tbody>
 												<tr>
-													<td>Video Surveillance Federator</td>
+													<td title="Video Surveillance Federator">VSF</td>
 													<td>{vsfVersion}</td>
-													<td>
-														<span class="status-icon {vsfActive}"><i class="fa fa-check-square-o fa-2x"></i></span>
+													<td class="text-center">
+														<span class="status-icon {vsfActive}"><i class="fa fa-check-square-o fa-lg"></i></span>
 													</td>
 												</tr>
 
 												<tr>
 													<td>Maps Server</td>
 													<td>{mapServerVersion}</td>
-													<td>
-														<span class="status-icon {mapServerActive}"><i class="fa fa-check-square-o fa-2x"></i></span>
+													<td class="text-center">
+														<span class="status-icon {mapServerActive}"><i class="fa fa-check-square-o fa-lg"></i></span>
 													</td>
 												</tr>
 												<tr>
 													<td>Metadata Server</td>
 													<td>{metadataServerVersion}</td>
-													<td>
-														<span class="status-icon {metadataServerActive}"><i class="fa fa-check-square-o fa-2x"></i></span>
+													<td class="text-center">
+														<span class="status-icon {metadataServerActive}"><i class="fa fa-check-square-o fa-lg"></i></span>
 													</td>
 												</tr>
 												<tr>
 													<td>Media Server</td>
 													<td>{umsVersion}</td>
-													<td>
-														<span class="status-icon {umsActive}"><i class="fa fa-check-square-o fa-2x"></i></span>
+													<td class="text-center">
+														<span class="status-icon {umsActive}"><i class="fa fa-check-square-o fa-lg"></i></span>
 													</td>
 												</tr>
 												<tr>
-													<td>Video Surveillance Operations Manager</td>
+													<td title="Video Surveillance Operations Manager">VSOM</td>
 													<td>{vsomVersion}</td>
-													<td>
-														<span class="status-icon {vsomActive}"><i class="fa fa-check-square-o fa-2x"></i></span>
+													<td class="text-center">
+														<span class="status-icon {vsomActive}"><i class="fa fa-check-square-o fa-lg"></i></span>
 													</td>
 												</tr>
 											</tbody>
@@ -553,7 +555,7 @@
 				</div>
 			</div>
 			<div class="modal-footer cui">
-				<button type="button" class="btn btn--primary-ghost" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn--primary-ghost btn--small" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
@@ -643,38 +645,38 @@
 											<tbody>
 												<tr>
 													<td>Reachability</td>
-													<td>
+													<td class="text-right">
 														<span class="{networkConnectivityState}">{networkConnectivityState}</span>
 													</td>
 												</tr>
 
 												<tr>
 													<td>Streaming</td>
-													<td>
+													<td class="text-right">
 														<span class="{streamingstate}">{streamingstate}</span>
 													</td>
 												</tr>
 												<tr>
 													<td>Recording</td>
-													<td>
+													<td class="text-right">
 														<span class="{recordingState}">{recordingState}</span>
 													</td>
 												</tr>
 												<tr>
 													<td>Configuration</td>
-													<td>
+													<td class="text-right">
 														<span class="{configState}">{configState}</span>
 													</td>
 												</tr>
 												<tr>
 													<td>Hardware</td>
-													<td>
+													<td class="text-right">
 														<span class="{hardwareState}">{hardwareState}</span>
 													</td>
 												</tr>
 												<tr>
 													<td>Software</td>
-													<td>
+													<td class="text-right">
 														<span class="{softwareState}">{softwareState}</span>
 													</td>
 												</tr>
@@ -693,7 +695,7 @@
 				</div>
 			</div>
 			<div class="modal-footer cui">
-				<button type="button" class="btn btn--primary-ghost" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn--primary-ghost btn--small" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>

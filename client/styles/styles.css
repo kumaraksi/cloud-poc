@@ -394,10 +394,8 @@ td.table-label
 }
 
 .status-table td span.ok {
-    /* display: inline; */
     padding: .2em .6em .3em;
     font-size: 1.3rem;
-    /* font-weight: bold; */
     line-height: 1;
     color: #fff;
     text-align: center;
@@ -413,7 +411,7 @@ td.table-label
 .status-table td span.critical {
     display: inline-block;
     padding: .2em .6em .3em;
-    font-size: 75%;
+    font-size: 1.2rem;
     font-weight: bold;
     line-height: 1;
     color: #fff;
@@ -423,6 +421,7 @@ td.table-label
     border-radius: .25em;
     background-color: #f44336;
     min-width:75px;
+    letter-spacing:1.2px;
 }
 
 .jumbotron.jumbotron-sm {
@@ -437,6 +436,7 @@ td.table-label
 .cui .jumbotron.jumbotron-sm {
     background: #e9e9e9;
     border: 1px solid #d0d0d0;
+    margin-bottom: 15px;
 }
  
  
@@ -617,7 +617,7 @@ div#cameraDetails.modal {
 }
 
 .cui .jumbotron.jumbotron-sm table.table--nostripes {
-    font-size: 13px;
+    font-size: 12px;
     line-height: 2.5;
     width: 100%;
 }
@@ -640,7 +640,7 @@ h3.modal-title {
     width: 93%;
     line-height: 2;
     margin: 10px;
-    font-size: 1.5rem;
+    font-size: 12px;
     box-sizing: border-box;
 }
 
@@ -653,7 +653,7 @@ div#cameraStatusTemplate .panel__header,
 div#serverStatusTemplate .panel__header,
 div#serverErrorsPanel .panel__header,
 div#servicePanel .panel__header{
-    background: #03A9F4;
+    background: #049fd9;
     line-height: 3rem;
     padding: 5px 10px;
     font-size: 16px;
@@ -663,7 +663,7 @@ div#cameraStatusTemplate .panel__body,
 div#serverStatusTemplate .panel__body,
 div#servicePanel .panel__body,
 div#serverErrorsPanel .panel__body{
-    box-shadow: 0px -3px 0px 0px #03A9F4 inset;
+    box-shadow: 0px -3px 0px 0px #049fd9 inset;
     background: #f5f5f5;
     border: 1px solid #D0D0D0;
     padding: 0px 0px;
@@ -671,8 +671,8 @@ div#serverErrorsPanel .panel__body{
 }
 
 div#servicePanel table, div#serverErrorsPanel table, div#cameraStatusTemplate table{
-    font-size: 10px;
-    line-height: 3;
+    font-size: 12px;
+    line-height: 2;
 }
 div#servicePanel table tr td,
 div#cameraStatusTemplate table tr td,
@@ -687,13 +687,35 @@ div#serverErrorsPanel .panel__body {
 }
 
 div#servicePanel {
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .service-table.table tr, .service-table.table td, .service-table.table th {
-    padding: 12px 5px;
+    padding: 10px 5px;
 }
 #serverErrorsPanel table span.label {
-    font-size: 10px;
+    font-size: 8px;
+    padding-top: 6px;
+    letter-spacing: 1px;
+    height: 10px;
+}
+
+.modal .modal-header {
+    padding-top: 15px;
+}
+
+.modal .modal-content .modal-body {
     padding-top: 10px;
+}
+
+.service-table.table th {
+    padding: 4px 5px !important;
+}
+button.btn.btn--primary-ghost {
+    font-size: 1rem;
+    right: 17px;
+    bottom: 5px;
+}
+table.table.service-table tr td {
+    padding: 14px 20px 13px 10px;
 }
