@@ -55,3 +55,27 @@
 #serverErrorsPanel{
 	padding-top:5px !important;
 }
+
+
+
+
+
+/*Full Screen Spinner*/
+
+
+ /* Spinner */
+ 
+ .full-screen-spinner{
+	top: 42vh;
+	position: absolute;
+	left: 112vh;
+}
+
+ 
+ .full-screen-showbox {
+  z-index: 100000;
+}
+
+ 
+ 
+ /* Spinner */

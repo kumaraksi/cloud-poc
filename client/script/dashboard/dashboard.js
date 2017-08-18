@@ -338,13 +338,18 @@ function getDeviceStatus() {
             "refVsomUid": device.vsomUid
         }
     };
+	
+	
+	$('#fullScreenLoader').show();
 
     onSuccess = function(data, textStatus, jqXHR) {
+		
         data = JSON.parse(data);
         console.info(data);
 
         if (data.data.totalRows != 0) {
             if (window.selectedDevice.objectType === "device_vs_server") {
+				$('#fullScreenLoader').hide();
                 $('#serverDetails').modal({
                     show: true,
                     backdrop: 'static'
@@ -364,6 +369,7 @@ function getDeviceStatus() {
     }
 
     onError = function(jqXHR, textStatus, errorThrown) {
+		$('#fullScreenLoader').hide();
         console.warn(errorThrown);
     }
     utils.sendPost(url, filterData, onSuccess, onError);
@@ -382,6 +388,7 @@ function getCameraCDPNeighbours() {
     };
 
     onSuccess = function(data, textStatus, jqXHR) {
+		$('#fullScreenLoader').hide();
         data = JSON.parse(data);
         console.info(data);
 
@@ -394,6 +401,10 @@ function getCameraCDPNeighbours() {
                 });
             }
         }
+    }
+	onError = function(jqXHR, textStatus, errorThrown) {
+		$('#fullScreenLoader').hide();
+        console.warn(errorThrown);
     }
     utils.sendPost(url, filterData, onSuccess, onError);
 }
