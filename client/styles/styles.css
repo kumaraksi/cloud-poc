@@ -1,5 +1,60 @@
+@font-face {
+  font-family: 'CiscoSans';
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/CiscoSans/CiscoSansTTExtraLight.eot");
+  src: url("../fonts/CiscoSans/CiscoSansTTExtraLight.eot?#iefix") format("embedded-opentype"), url("../fonts/CiscoSans/CiscoSansTTExtraLight.woff2") format("woff2"), url("../fonts/CiscoSans/CiscoSansTTExtraLight.woff") format("woff"), url("../fonts/CiscoSans/CiscoSansTTExtraLight.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+@font-face {
+  font-family: 'CiscoSans';
+  font-style: oblique;
+  font-weight: 100;
+  src: url("../fonts/CiscoSans/CiscoSansTTExtraLightOblique.eot");
+  src: url("../fonts/CiscoSans/CiscoSansTTExtraLightOblique.eot?#iefix") format("embedded-opentype"), url("../fonts/CiscoSans/CiscoSansTTExtraLightOblique.woff2") format("woff2"), url("../fonts/CiscoSans/CiscoSansTTExtraLightOblique.woff") format("woff"), url("../fonts/CiscoSans/CiscoSansTTExtraLightOblique.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+@font-face {
+  font-family: 'CiscoSans';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/CiscoSans/CiscoSansTTLight.eot");
+  src: url("../fonts/CiscoSans/CiscoSansTTLight.eot?#iefix") format("embedded-opentype"), url("../fonts/CiscoSans/CiscoSansTTLight.woff2") format("woff2"), url("../fonts/CiscoSans/CiscoSansTTLight.woff") format("woff"), url("../fonts/CiscoSans/CiscoSansTTLight.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+@font-face {
+  font-family: 'CiscoSans';
+  font-style: oblique;
+  font-weight: 300;
+  src: url("../fonts/CiscoSans/CiscoSansTTLightOblique.eot");
+  src: url("../fonts/CiscoSans/CiscoSansTTLightOblique.eot?#iefix") format("embedded-opentype"), url("../fonts/CiscoSans/CiscoSansTTLightOblique.woff2") format("woff2"), url("../fonts/CiscoSans/CiscoSansTTLightOblique.woff") format("woff"), url("../fonts/CiscoSans/CiscoSansTTLightOblique.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+@font-face {
+  font-family: 'CiscoSans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/CiscoSans/CiscoSansTTRegular.eot");
+  src: url("../fonts/CiscoSans/CiscoSansTTRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/CiscoSans/CiscoSansTTRegular.woff2") format("woff2"), url("../fonts/CiscoSans/CiscoSansTTRegular.woff") format("woff"), url("../fonts/CiscoSans/CiscoSansTTRegular.ttf") format("truetype");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000; }
+
+
 body {
     overflow: hidden;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4 {
+    font-family: "CiscoSans", "Arial", sans-serif !important; 
+    font-weight: 300;
 }
 
 .login-card-header {
@@ -8,8 +63,8 @@ body {
 }
 
 #location-sidebar {
-    min-height: 100vh;
-    background: #efefef;
+    min-height: 97vh;
+    background: #049fd9;
 }
 
 #settingsDropdown {
@@ -17,24 +72,51 @@ body {
 }
 
 #serverTab {
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 .tab-content {
-    height: 82vh;
     border: 1px solid #eee;
     padding: 15px;
     overflow: auto;
-    max-height: 82vh;
+    height : 91vh;
 }
 
+
+.sidebar h2.page-title {
+    text-align: center;
+    color: #ddd;
+    width:90%;
+    margin:20px 0px;
+}
+.navbar-default.sidebar {
+    background: #34adde;
+}
+
+.page-title h2 {
+    color: #fff;
+    font-size: 22px;
+    letter-spacing: 0px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.sidebar div.page-title {
+    background: #34adde;
+    width: 90%;
+    text-align: center;
+    padding: 10px;
+    /* word-spacing: 5px; */
+}
 #serverTab li.active a {
-    color: #555 !important;
     cursor: default !important;
-    background-color: #fff !important;
-    border: 1px solid #ddd !important;
     border-bottom-color: transparent !important;
     border-radius: 0px !important;
+    /* background: #34adde !important; */
+    -webkit-box-shadow: 0 -5px 0 #ffffff inset;
+    box-shadow: 0 -5px 0 #34adde  inset;
+    text-decoration: none;
+    color: unset;
 }
 
 .list-group .list-group-item .row-picture i,
@@ -97,17 +179,18 @@ body {
 
 .list-group.stat-list .row-content .progress {
     margin-bottom: 5px;
+    height: 5px;
 }
 
 .list-group.stat-list .progress .progress-bar,
 .list-group.stat-list .progress .progress-bar.progress-bar-default {
-    background: #fff;
-    border: 1px solid #ccc;
+    background: #607D8B;
 }
 
 .list-group.stat-list .progress {
-    background: #607D8B;
-}
+    background: #fff;
+    border: 1px solid #ccc;
+    }
 
 .text-default,
 .text-default:hover,
@@ -119,91 +202,110 @@ body {
 .row.server-list,
 .row.camera-list,
 {
-	margin : 0px !important;
+    margin : 0px !important;
 }
 
 .row.server-list .status-icon.ok .fa.fa-circle,
 .row.camera-list .status-icon.ok .fa.fa-circle
 {
-	color : green;
+    color : #6cc04a;
 }
 
 .row.server-list .status-icon.soft_deleted .fa.fa-circle,
 .row.camera-list .status-icon.soft_deleted .fa.fa-circle
 {
-	color : black;
+    color : black;
 }
 
 .row.server-list .status-icon.disabled .fa.fa-circle,
 .row.camera-list .status-icon.disabled .fa.fa-circle,
 .row.camera-list .status-icon.pre_provisioned .fa.fa-circle
 {
-	color : grey;
+    color : grey;
 }
 
 .row.server-list .status-icon.warning .fa.fa-circle,
 .row.camera-list .status-icon.warning .fa.fa-circle
 {
-	color : orange;
+    color : #ff7300;
 }
 .row.server-list .status-icon.critical .fa.fa-circle,
 .row.camera-list .status-icon.critical .fa.fa-circle
 {
-	color : red;
+    color : #cf2030;
 }
 
 
 .nav-tabs{
-	background: #4fc0e9 !important;
+    background: #fff!important;
 }
 
 
 
 #location-sidebar a.selected{
-	background-color: #4fc0e9;
-	color: white;
+    background-color: #fff;
+    color: #049fd9;
+}
+.sidebar .nav > li > a {
+    color: #fff;
 }
 
-
 .camera-list .material-icons{
-	background-color: lightseagreen  !important;
+    background-color: #64bbe3 !important;
 }
 
 .camera-list .list-group-item-heading{
-	font-size: 11px !important;
+    font-size: 11px !important;
 }
 .camera-list .list-group-item-text.large{
-	font-weight: 400;
-	font-size: 14px !important;
+    font-weight: 400;
+    font-size: 14px !important;
 }
 
 
 .server-list .material-icons{
-	background-color: lightseagreen !important;
+    background-color: #64bbe3 !important;
 }
 
 .server-list .list-group-item-heading{
-	font-size: 11px !important;
+    font-size: 11px !important;
 }
 .server-list .list-group-item-text.large{
-	font-weight: 400;
-	font-size: 14px !important;
+    font-weight: 400;
+    font-size: 14px !important;
 }
 
 .nav.nav-tabs > li > a{
-	padding : 12px 45px;
+    padding: 12px 40px;
+    color: #34adde !important;
 }
 
 .nav.sidebar > li > a{
-	padding : 13px 15px;
+    padding : 13px 15px;
 }
 
 .sidebar-nav .fa.fa-sitemap.fa-fw{
-	    margin-right: 5px;
+    margin-left: -10px;
+    margin-right: 5px;
+}
+
+.sidebar-nav a.selected .fa.arrow{
+    padding: 3px;
+    border: 1px #f2f2f2;
+    border-style: double;
+    border-radius: 5px;
+}
+
+.sidebar-nav a .fa.arrow{
+    padding: 3px;
+    border: 1px #f2f2f2;
+    border-style: double;
+    border-radius: 5px;
 }
 
 .device-card-name{
-	font-weight: 300 !important;
+    font-weight: 300 !important;
+    color: #fff;
 }
 
 
@@ -214,32 +316,45 @@ body {
 }
 
 .container{
-	Padding: 0px !important;
+    Padding: 0px !important;
 }
 
 .camera-list .well{
-	padding: 0px !important;
+    padding: 0px !important;
 }
 
 .server-list .well{
-	padding: 0px !important;
+    padding: 0px !important;
 }
-
+.well{
+    -webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
+    box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
+}
 .server-list .well{
-	-webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
-	box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
+    -webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
+    box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
 }
 .camera-list .well{
-	-webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
-	box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
+    -webkit-box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
+    box-shadow : 0 1px 5px 0 rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0) !important;
 }
 
 table.server-table .status-icon.activated .fa.fa-circle,
-table.service-table .status-icon.activated .fa.fa-circle,
+table.service-table .status-icon.activated .fa.fa-check-square-o,
 table.camera-table .status-icon.activated .fa.fa-circle,
 .status-icon.server-status.ok .fa.fa-circle
 {
-    color : green;
+    color : #6cc04a;
+}
+
+.status-icon.server-status.critical .fa.fa-circle
+{
+    color : #cf2030;
+}
+
+.status-icon.server-status.warning .fa.fa-circle
+{
+    color : #ff7300;
 }
 
 table.server-table .status-icon.deactivated,
@@ -259,27 +374,45 @@ table.table-small{
 
 td.table-label
 {
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .status-table td span.warning {
-    display: inline;
+    /* display: inline; */
     padding: .2em .6em .3em;
-    font-size: 75%;
-    font-weight: bold;
+    font-size: 1.3rem;
+    /* font-weight: bold; */
     line-height: 1;
     color: #fff;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: .25em;
-    background-color: #f0ad4e;
+    background-color: #ff7300;
+    letter-spacing: 1.3px;
+    width: 75px;
+    display: inline-block;
+}
+
+.status-table td span.ok {
+    padding: .2em .6em .3em;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background-color: #6cc04a;
+    letter-spacing: 1.3px;
+    width: 75px;
+    display: inline-block;
 }
 
 .status-table td span.critical {
-    display: inline;
+    display: inline-block;
     padding: .2em .6em .3em;
-    font-size: 75%;
+    font-size: 1.2rem;
     font-weight: bold;
     line-height: 1;
     color: #fff;
@@ -288,10 +421,370 @@ td.table-label
     vertical-align: baseline;
     border-radius: .25em;
     background-color: #f44336;
+    min-width:75px;
+    letter-spacing:1.2px;
 }
 
 .jumbotron.jumbotron-sm {
-    padding-top: 5px;
-    padding-bottom: 10px;
-    padding-left: 10px;
+    /* padding-top: 5px; */
+    /* padding-bottom: 10px; */
+    padding: 15px 5px 15px 15px;
+    -webkit-box-shadow: 0.5rem 0 #049fd9 inset;
+    box-shadow: 0.5rem 0 #049fd9 inset;
  }
+ 
+ 
+.cui .jumbotron.jumbotron-sm {
+    background: #e9e9e9;
+    border: 1px solid #d0d0d0;
+    margin-bottom: 15px;
+}
+ 
+ 
+ 
+ 
+ /* Spinner */
+ 
+ .showbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20%;
+}
+
+.loader {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+}
+.loader:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.circular {
+  animation: rotate 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+  stroke-linecap: round;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+@keyframes color {
+  100%,
+  0% {
+    stroke: #d62d20;
+  }
+  40% {
+    stroke: #0057e7;
+  }
+  66% {
+    stroke: #008744;
+  }
+  80%,
+  90% {
+    stroke: #ffa700;
+  }
+}
+
+ 
+ 
+ /* Spinner */
+ 
+ 
+ 
+/* Clean Scrollbar*/
+
+/* 
+   It's pure CSS. 
+   Since a quick google search will confirm people going crazy about Mac OS Lion scrollbars...
+   this has no fade-out effect.
+  
+   In Mac OS Lion, the lowest common denominator is always showing scrollbars by a setting.
+   So, this fits that lowest common denominator.
+
+   Facebook, lifehacker, and Google have all basically taken this approach. Of course Google uses incredibly ugly square scrollbars, but so be it.
+   Also, in regards to the fade in/out effect, this may just be one reason why soo many people outraged (and still hide) the ticker.
+
+   Ending note: I recommend this for non-lion users. As a lion user, I prefer my fading out scrollbars. If you sniff a UA of mac os lion, don't add this css.
+*/
+ 
+
+/* Turn on custom 8px wide scrollbar */
+::-webkit-scrollbar {
+  width: 4px; /* 1px wider than Lion. */
+  /* This is more usable for users trying to click it. */
+  background-color: rgba(0,0,0,0);
+  -webkit-border-radius: 100px;
+}
+/* hover effect for both scrollbar area, and scrollbar 'thumb' */
+::-webkit-scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+}
+
+/* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
+::-webkit-scrollbar-thumb:vertical {
+  /* This is the EXACT color of Mac OS scrollbars. 
+     Yes, I pulled out digital color meter */
+  background: rgba(0,0,0,0.5);
+  -webkit-border-radius: 100px;
+}
+::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(0,0,0,0.61); /* Some darker color when you click it */
+  -webkit-border-radius: 100px;
+}
+
+
+/* Clean Scrollbar*/
+
+.sidebar .nav-second-level li a {
+    color: #fff;
+}
+
+.sidebar .nav-second-level li a:hover {
+    color: #049fd9;
+    background-color:#e9e9e9
+    
+}
+.sidebar li.active a {
+    color: #fff;
+}
+.sidebar li.active a:hover {
+    color: #049fd9;
+}
+
+.nav.nav-tabs .badge {
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #777;
+    float: right;
+}
+
+#tabContent .panel-footer {
+    background: #585858;
+}
+
+
+/* DataTable */
+
+
+.dataTable .label{
+    min-width: 80px;
+    display: inline-block;
+}
+
+.dataTable th.dt-center,
+.dataTable td.dt-center{
+    text-align: center !important;
+}
+    
+div#serverDetails.modal,
+div#cameraDetails.modal {
+    background: rgba(0,0,0,0.5);
+}
+
+.cui .jumbotron.jumbotron-sm table.table--nostripes {
+    font-size: 12px;
+    line-height: 2.5;
+    width: 100%;
+}
+
+.cui .jumbotron.jumbotron-sm .page__title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.text-cui-info {
+    color: #049fd9;
+}
+
+h3.modal-title {
+    font-size: 2.5rem;
+}
+
+#serverStatusTemplate table.status-table,
+#cameraStatusTemplate table.status-table {
+    width: 93%;
+    line-height: 2;
+    margin: 10px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+div#serverStatusTemplate,div#servicePanel,div#serverErrorsPanel,div#cameraStatusTemplate
+ {
+    padding: 0px;
+}
+
+div#cameraStatusTemplate .panel__header,
+div#serverStatusTemplate .panel__header,
+div#serverErrorsPanel .panel__header,
+div#servicePanel .panel__header{
+    background: #049fd9;
+    line-height: 3rem;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+div#cameraStatusTemplate .panel__body,
+div#serverStatusTemplate .panel__body,
+div#servicePanel .panel__body,
+div#serverErrorsPanel .panel__body{
+    box-shadow: 0px -3px 0px 0px #049fd9 inset;
+    background: #f5f5f5;
+    border: 1px solid #D0D0D0;
+    padding: 0px 0px;
+    box-sizing: border-box;
+}
+
+div#servicePanel table, div#serverErrorsPanel table, div#cameraStatusTemplate table{
+    font-size: 12px;
+    line-height: 2;
+}
+div#servicePanel table tr td,
+div#cameraStatusTemplate table tr td,
+div#serverErrorsPanel table tr td {
+ table tr td
+    padding: 8px;
+}
+div#servicePanel .panel__body,
+div#cameraStatusTemplate .panel__body,
+div#serverErrorsPanel .panel__body {
+    padding-bottom: 5px;
+}
+
+div#servicePanel {
+    margin-top: 15px;
+}
+
+.service-table.table tr, .service-table.table td, .service-table.table th {
+    padding: 10px 5px;
+}
+#serverErrorsPanel table span.label {
+    font-size: 8px;
+    padding-top: 6px;
+    letter-spacing: 1px;
+    height: 10px;
+}
+
+.modal .modal-header {
+    padding-top: 15px;
+}
+
+.modal .modal-content .modal-body {
+    padding-top: 10px;
+}
+
+.service-table.table th {
+    padding: 4px 5px !important;
+}
+button.btn.btn--primary-ghost {
+    font-size: 1rem;
+    right: 17px;
+    bottom: 5px;
+}
+table.table.service-table tr td {
+    padding: 14px 20px 13px 10px;
+}
+div#alertFilters .form-group input,
+div#alertFilters .form-group select{
+    height: 25px;
+}
+
+
+div#alertFilters .form-group .checkbox label,div#alertFilters .form-group .radio label,div#alertFilters .form-group label{
+    font-size:12px;
+    color: #049fd9;
+}
+
+div#alertFilters .form-control{
+    font-size:12px;
+    line-height: 1;
+}
+
+.alertFilters-wrapper label,
+.alertSeverityFilter-wrapper label{
+    margin-top:16px;
+    margin-bottom:0px;
+    height :10px
+}
+span.label.label-camera {
+    background: #AD1457;
+}
+
+span.label.label-server {
+    background: #3F51B5;
+}
+
+span.label.label-encoder {
+    background: #0097A7;   
+}
+
+div.connectedServerAddress {
+    width: 100%;
+    clear: both;
+    text-align: center;
+    height: 40px;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 12px 0px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.device-card-name.camera-card-name,
+.device-card-name.server-card-name
+ {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.status-table td span.not_applicable {
+    padding: 0.4em .6em .5em;
+    font-size: 0.95rem;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    background-color: #795548;
+    /* letter-spacing: 1px; */
+    idth: 75px;
+    display: inline-block;
+}
+a#logOutBtn:hover {color: #049fd9;}

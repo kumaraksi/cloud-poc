@@ -30,7 +30,8 @@
         "metisMenu": "metismenu#^2.7.0",
         "mustache.js": "mustache#^2.3.0",
         "font-awesome": "^4.7.0",
-        "bootstrap-material-design": "^4.0.2"
+        "bootstrap-material-design": "^4.0.2",
+		"dropdown.js": "0.0.2dev"
     },
     "resolutions": {
         "bootstrap": "^3.3.7"

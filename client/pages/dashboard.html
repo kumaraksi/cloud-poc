@@ -7,1024 +7,757 @@
 <!--<![endif]-->
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+    <title>Cisco VSM</title>
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- Bootstrap Core CSS -->
-    <link href="../../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
+	<!-- Bootstrap Core CSS -->
+	<link href="../../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
 
-    <!-- MetisMenu CSS -->
-    <link href="../../bower_components/metisMenu/dist/metisMenu.css" rel="stylesheet" type="text/css">
+	<!-- MetisMenu CSS -->
+	<link href="../../bower_components/metisMenu/dist/metisMenu.css" rel="stylesheet" type="text/css">
 
-    <!-- Custom Fonts -->
-    <link href="../../bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+	<!-- Custom Fonts -->
+	<link href="../../bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 
-    <!--Material Design CSS  -->
-    <link href="../external-libs/bootstrap-material-design/dist/css/bootstrap-material-design.css" rel="stylesheet" type="text/css">
-    <link href="../external-libs/bootstrap-material-design/dist/css/ripples.css" rel="stylesheet" type="text/css">
+	<!--Material Design CSS  -->
+	<link href="../external-libs/bootstrap-material-design/dist/css/bootstrap-material-design.css" rel="stylesheet" type="text/css">
+	<link href="../external-libs/bootstrap-material-design/dist/css/ripples.css" rel="stylesheet" type="text/css">
 
-    <!-- Custom CSS -->
-    <link href="./../styles/sb-admin-2.css" rel="stylesheet" type="text/css">
-    <link href="./../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="../../bower_components/dropdown.js/jquery.dropdown.css" rel="stylesheet" type="text/css">
+	<link href="./../styles/sb-admin-2.css" rel="stylesheet" type="text/css">
 
+	<link href="./../css/cui-standard.min.css" rel="stylesheet" type="text/css">
 
-    <link href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="../../bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.css" rel="stylesheet" type="text/css">
+	<!-- Custom CSS -->
+	<link href="./../styles/sb-admin-2.css" rel="stylesheet" type="text/css">
+	<link href="./../styles/styles.css" rel="stylesheet" type="text/css">
+	<link href="./../styles/styles2.css" rel="stylesheet" type="text/css">
+
+	<link href="../../bower_components/datatables.net-bs/css/dataTables.bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="../../bower_components/datatables.net-responsive-bs/css/responsive.bootstrap.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-    <!-- Modal -->
+	<!-- Modal -->
     <!--[if lt IE 7]>
-	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a class="text-default" href="#">upgrade your browser</a> to improve your experience.</p>
+	<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
-    <div id="container" class="container">
-        <nav class="navbar navbar-info navbar-static-top" role="navigation" style="margin-bottom: 0; min-height:0px !important; height:0px;">
+	<div id="container" class="container">
+		<nav class="navbar navbar-info navbar-static-top" role="navigation" style="margin-bottom: 0; min-height:0px !important; height:0px;">
 
-            <!-- /.navbar-header -->
-
-
-            <div class="navbar-default sidebar" role="navigation" id="location-sidebar" style="margin-top:10px;">
-
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
-
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist" id="serverTab">
-                        <li role="presentation" class="active"><a href="#server" aria-controls="server" role="tab" data-toggle="tab">Server <span id="serverCountBadge" class="badge">--</span></a></li>
-                        <li role="presentation"><a href="#camera" aria-controls="camera" role="tab" data-toggle="tab">Camera <span id="cameraCountBadge" class="badge">--</span></a></li>
-                        <li role="presentation"><a href="#encoder" aria-controls="encoder" role="tab" data-toggle="tab">Encoder <span class="badge">0</span></a></li>
-                        <li role="presentation"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events <span class="badge">42</span></a></li>
-                        <li class="dropdown" style="float:right">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-target="#" aria-expanded="false">Admin <span class="caret"></span><div class="ripple-container"></div></a>
-                            <ul class="dropdown-menu dropdown-user" style="margin-left: -55px;">
-                                <li><a class="text-default" href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                                </li>
-                                <li><a class="text-default" href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li><a id="logOutBtn" href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane active" id="server">
-                            <div class="row server-list" id="serverList">
-
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="camera">
-                            <div class="row camera-list" id="cameraList">
-
-                            </div>
-
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="encoder">
-                            <div class="col-md-12">
-                                <div class="bs-component">
-                                    <div class="well well-lg">
-                                        No Encoders Under Current Location
-                                    </div>
-                                    <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div role="tabpanel" class="tab-pane" id="events">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                <thead>
-                                    <tr>
-                                        <th>Rendering engine</th>
-                                        <th>Browser</th>
-                                        <th>Platform(s)</th>
-                                        <th>Engine version</th>
-                                        <th>CSS grade</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">4</td>
-                                        <td class="center">X</td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.0</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">5</td>
-                                        <td class="center">C</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 5.5</td>
-                                        <td>Win 95+</td>
-                                        <td class="center">5.5</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 6</td>
-                                        <td>Win 98+</td>
-                                        <td class="center">6</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 7</td>
-                                        <td>Win XP SP2+</td>
-                                        <td class="center">7</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="even gradeA">
-                                        <td>Trident</td>
-                                        <td>AOL browser (AOL desktop)</td>
-                                        <td>Win XP</td>
-                                        <td class="center">6</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.0</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.7</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 1.5</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 2.0</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Firefox 3.0</td>
-                                        <td>Win 2k+ / OSX.3+</td>
-                                        <td class="center">1.9</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Camino 1.0</td>
-                                        <td>OSX.2+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Camino 1.5</td>
-                                        <td>OSX.3+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Netscape 7.2</td>
-                                        <td>Win 95+ / Mac OS 8.6-9.2</td>
-                                        <td class="center">1.7</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Netscape Browser 8</td>
-                                        <td>Win 98SE+</td>
-                                        <td class="center">1.7</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Netscape Navigator 9</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.0</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td class="center">1</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.1</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td class="center">1.1</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.2</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td class="center">1.2</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.3</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td class="center">1.3</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.4</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td class="center">1.4</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.5</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td class="center">1.5</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.6</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td class="center">1.6</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.7</td>
-                                        <td>Win 98+ / OSX.1+</td>
-                                        <td class="center">1.7</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Mozilla 1.8</td>
-                                        <td>Win 98+ / OSX.1+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Seamonkey 1.1</td>
-                                        <td>Win 98+ / OSX.2+</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Gecko</td>
-                                        <td>Epiphany 2.20</td>
-                                        <td>Gnome</td>
-                                        <td class="center">1.8</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Webkit</td>
-                                        <td>Safari 1.2</td>
-                                        <td>OSX.3</td>
-                                        <td class="center">125.5</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Webkit</td>
-                                        <td>Safari 1.3</td>
-                                        <td>OSX.3</td>
-                                        <td class="center">312.8</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Webkit</td>
-                                        <td>Safari 2.0</td>
-                                        <td>OSX.4+</td>
-                                        <td class="center">419.3</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Webkit</td>
-                                        <td>Safari 3.0</td>
-                                        <td>OSX.4+</td>
-                                        <td class="center">522.1</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Webkit</td>
-                                        <td>OmniWeb 5.5</td>
-                                        <td>OSX.4+</td>
-                                        <td class="center">420</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Webkit</td>
-                                        <td>iPod Touch / iPhone</td>
-                                        <td>iPod</td>
-                                        <td class="center">420.1</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Webkit</td>
-                                        <td>S60</td>
-                                        <td>S60</td>
-                                        <td class="center">413</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Presto</td>
-                                        <td>Opera 7.0</td>
-                                        <td>Win 95+ / OSX.1+</td>
-                                        <td class="center">-</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Presto</td>
-                                        <td>Opera 7.5</td>
-                                        <td>Win 95+ / OSX.2+</td>
-                                        <td class="center">-</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Presto</td>
-                                        <td>Opera 8.0</td>
-                                        <td>Win 95+ / OSX.2+</td>
-                                        <td class="center">-</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Presto</td>
-                                        <td>Opera 8.5</td>
-                                        <td>Win 95+ / OSX.2+</td>
-                                        <td class="center">-</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Presto</td>
-                                        <td>Opera 9.0</td>
-                                        <td>Win 95+ / OSX.3+</td>
-                                        <td class="center">-</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Presto</td>
-                                        <td>Opera 9.2</td>
-                                        <td>Win 88+ / OSX.3+</td>
-                                        <td class="center">-</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Presto</td>
-                                        <td>Opera 9.5</td>
-                                        <td>Win 88+ / OSX.3+</td>
-                                        <td class="center">-</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Presto</td>
-                                        <td>Opera for Wii</td>
-                                        <td>Wii</td>
-                                        <td class="center">-</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Presto</td>
-                                        <td>Nokia N800</td>
-                                        <td>N800</td>
-                                        <td class="center">-</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Presto</td>
-                                        <td>Nintendo DS browser</td>
-                                        <td>Nintendo DS</td>
-                                        <td class="center">8.5</td>
-                                        <td class="center">C/A<sup>1</sup>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeC">
-                                        <td>KHTML</td>
-                                        <td>Konqureror 3.1</td>
-                                        <td>KDE 3.1</td>
-                                        <td class="center">3.1</td>
-                                        <td class="center">C</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>KHTML</td>
-                                        <td>Konqureror 3.3</td>
-                                        <td>KDE 3.3</td>
-                                        <td class="center">3.3</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>KHTML</td>
-                                        <td>Konqureror 3.5</td>
-                                        <td>KDE 3.5</td>
-                                        <td class="center">3.5</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeX">
-                                        <td>Tasman</td>
-                                        <td>Internet Explorer 4.5</td>
-                                        <td>Mac OS 8-9</td>
-                                        <td class="center">-</td>
-                                        <td class="center">X</td>
-                                    </tr>
-                                    <tr class="gradeC">
-                                        <td>Tasman</td>
-                                        <td>Internet Explorer 5.1</td>
-                                        <td>Mac OS 7.6-9</td>
-                                        <td class="center">1</td>
-                                        <td class="center">C</td>
-                                    </tr>
-                                    <tr class="gradeC">
-                                        <td>Tasman</td>
-                                        <td>Internet Explorer 5.2</td>
-                                        <td>Mac OS 8-X</td>
-                                        <td class="center">1</td>
-                                        <td class="center">C</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Misc</td>
-                                        <td>NetFront 3.1</td>
-                                        <td>Embedded devices</td>
-                                        <td class="center">-</td>
-                                        <td class="center">C</td>
-                                    </tr>
-                                    <tr class="gradeA">
-                                        <td>Misc</td>
-                                        <td>NetFront 3.4</td>
-                                        <td>Embedded devices</td>
-                                        <td class="center">-</td>
-                                        <td class="center">A</td>
-                                    </tr>
-                                    <tr class="gradeX">
-                                        <td>Misc</td>
-                                        <td>Dillo 0.8</td>
-                                        <td>Embedded devices</td>
-                                        <td class="center">-</td>
-                                        <td class="center">X</td>
-                                    </tr>
-                                    <tr class="gradeX">
-                                        <td>Misc</td>
-                                        <td>Links</td>
-                                        <td>Text only</td>
-                                        <td class="center">-</td>
-                                        <td class="center">X</td>
-                                    </tr>
-                                    <tr class="gradeX">
-                                        <td>Misc</td>
-                                        <td>Lynx</td>
-                                        <td>Text only</td>
-                                        <td class="center">-</td>
-                                        <td class="center">X</td>
-                                    </tr>
-                                    <tr class="gradeC">
-                                        <td>Misc</td>
-                                        <td>IE Mobile</td>
-                                        <td>Windows Mobile 6</td>
-                                        <td class="center">-</td>
-                                        <td class="center">C</td>
-                                    </tr>
-                                    <tr class="gradeC">
-                                        <td>Misc</td>
-                                        <td>PSP browser</td>
-                                        <td>PSP</td>
-                                        <td class="center">-</td>
-                                        <td class="center">C</td>
-                                    </tr>
-                                    <tr class="gradeU">
-                                        <td>Other browsers</td>
-                                        <td>All others</td>
-                                        <td>-</td>
-                                        <td class="center">-</td>
-                                        <td class="center">U</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id='serverTemplate' style='display:none'>
-        <div class="col-md-3">
-            <div class="well">
-                <div class="panel {0}">
-                    <div class="panel-body">
-                        <div class="list-group stat-list" id="server">
-                            <div class="list-group-item">
-                                <div class="row-action-primary">
-                                    <i class="material-icons">developer_board</i>
-                                </div>
-                                <div class="row-content">
-                                    <h4 class="list-group-item-heading">CPU</h4>
-
-                                    <p class="list-group-item-text large">33%</p>
-                                </div>
-                            </div>
-                            <div class="list-group-separator"></div>
-                            <div class="list-group-item">
-                                <div class="row-action-primary">
-                                    <i class="material-icons">memory</i>
-                                </div>
-                                <div class="row-content">
-                                    <h4 class="list-group-item-heading">Memory</h4>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar" style="width: 20%"></div>
-                                    </div>
-                                    <p class="list-group-item-text pull-right">2 GB / 8 GB</p>
-                                </div>
-                            </div>
-                            <div class="list-group-separator"></div>
-                            <div class="list-group-item">
-                                <div class="row-action-primary">
-                                    <i class="material-icons">storage</i>
-                                </div>
-                                <div class="row-content">
-                                    <h4 class="list-group-item-heading">Storage</h4>
-                                    <div class="progress progress-striped active">
-                                        <div class="progress-bar" style="width: 50%"></div>
-                                    </div>
-                                    <p class="list-group-item-text pull-right">1 TB / 2TB</p>
-                                </div>
-                            </div>
-                            <div class="list-group-separator"></div>
-                        </div>
-                    </div>
-                    <a server-index="{1}" class="text-default serverDetailsBtn" href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left device-card-name">{2}</span>
-                            <span class="pull-right status-icon {3}"><i class="fa fa-circle"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id='cameraTemplate' style='display:none'>
-        <div class="col-md-3">
-            <div class="well">
-                <div class="panel {0}">
-                    <div class="panel-body">
-                        <div class="list-group stat-list" id="server">
-                            <div class="list-group-item">
-                                <div class="row-action-primary">
-                                    <i class="material-icons">info</i>
-                                </div>
-                                <div class="row-content">
-                                    <h4 class="list-group-item-heading">IP Address</h4>
-
-                                    <p class="list-group-item-text large">{4}</p>
-                                </div>
-                            </div>
-                            <div class="list-group-separator"></div>
-                            <div class="list-group-item">
-                                <div class="row-action-primary">
-                                    <i class="material-icons">label</i>
-                                </div>
-                                <div class="row-content">
-                                    <h4 class="list-group-item-heading">Model</h4>
-                                    <p class="list-group-item-text large">{5}</p>
-                                </div>
-                            </div>
-                            <div class="list-group-separator"></div>
-                            <div class="list-group-item">
-                                <div class="row-action-primary">
-                                    <i class="material-icons">group_work</i>
-                                </div>
-                                <div class="row-content">
-                                    <h4 class="list-group-item-heading">Managed By</h4>
-                                    <p class="list-group-item-text large">{6}</p>
-                                </div>
-                            </div>
-                            <div class="list-group-separator"></div>
-                        </div>
-                    </div>
-                    <a camera-index="{1}" class="text-default cameraDetailsBtn" href="#">
-                        <div class="panel-footer">
-                            <span class="pull-left device-card-name">{2}</span>
-                            <span class="pull-right status-icon {3}"><i class="fa fa-circle"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="locationTreeTemplate" style="display:none">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav in" id="side-menu">
-                <li>
-                    <a href="#" class="text-default"><i class="fa fa-sitemap fa-fw"></i>System<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li>
-                            <a class="text-default" href="#">Mumbai</a>
-                        </li>
-                        <li>
-                            <a class="text-default" href="#">Thane</a>
-                        </li>
-                        <li>
-                            <a class="text-default" href="#">Pune <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level collapse">
-                                <li>
-                                    <a class="text-default" href="#">Baner</a>
-                                </li>
-                                <li>
-                                    <a class="text-default" href="#">Pashan</a>
-                                </li>
-                                <li>
-                                    <a class="text-default" href="#">Kothrud</a>
-                                </li>
-                                <li>
-                                    <a class="text-default" href="#">Camp</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-third-level -->
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-            </ul>
-        </div>
-
-    </div>
+			<!-- /.navbar-header -->
 
 
-    <div id="emptyDeviceDiv" style="display:none">
-        <div class="col-md-12">
-            <div class="bs-component">
-                <div class="well well-lg">
-                    {0}
-                </div>
-                <div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
-            </div>
-        </div>
-    </div>
+			<div class="navbar-default sidebar" role="navigation" style="margin-top:0px;">
+				<div class="page-title">
+					<h2>Video Surveillance Manager</h2>
+				</div>
+				<div class="connectedServerAddress" id="connectedServerAddress"></div>
+				<div id="location-sidebar"></div>
+				<!-- /.sidebar-collapse -->
+			</div>
+			<!-- /.navbar-static-side -->
+		</nav>
 
-    <div class="modal" id="serverDetails">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 class="modal-title text-info">{serverName}</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="jumbotron jumbotron-sm">
-                                <h4>Configuration</h4>
-                                <table class="table table-hover table-condensed no-border table-small">
-                                    <tbody>
-                                        <tr>
-                                            <td class="table-label">Type</td>
-                                            <td>{serverType}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table-label">Model</td>
-                                            <td>{serverModel}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table-label">Number of CPUs</td>
-                                            <td>{cpuNum}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table-label">Total Memory</td>
-                                            <td>{totalMemory}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table-label">Raid Controller</td>
-                                            <td>{raidControllers}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table-label">Operating System</td>
-                                            <td>{os}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="table-label">Storage</td>
-                                            <td>{storage}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="panel panel-default" id="serverStatusTemplate">
-                                <div class="panel-heading">
-                                    <span class="pull-left device-card-name">Server Status</span>
-                                    <span class="pull-right status-icon server-status {aggregateState}"><i class="fa fa-circle"></i></span>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="panel-body">
-                                    <table class="table table-hover status-table table-small">
-                                        <tbody>
-                                            <tr>
-                                                <td>Reachability</td>
-                                                <td>
-                                                    <span class="{reachabilityState}">{reachabilityState}</span>
-                                                </td>
-                                            </tr>
+		<div id="page-wrapper">
+			<div class="row">
+				<div class="col-lg-12">
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist" id="serverTab">
+						<li role="presentation" class="active">
+							<a href="#server" aria-controls="server" role="tab" data-toggle="tab" style="width:175px">Server <span id="serverCountBadge" class="badge">0</span></a>
+						</li>
+						<li role="presentation">
+							<a href="#camera" aria-controls="camera" role="tab" data-toggle="tab" style="width:175px">Camera <span id="cameraCountBadge" class="badge">0</span></a>
+						</li>
+						<li role="presentation">
+							<a href="#encoder" aria-controls="encoder" role="tab" data-toggle="tab" style="width:175px">Encoder <span class="badge">0</span></a>
+						</li>
+						<li role="presentation">
+							<a href="#alerts" aria-controls="alerts" role="tab" data-toggle="tab" style="width:175px">Alerts <span id="alertTableCountBadge" class="badge">0</span></a>
 
-                                            <tr>
-                                                <td>Streaming</td>
-                                                <td>
-                                                    <span class="{streamingstate}">{streamingstate}</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Recording</td>
-                                                <td>
-                                                    <span class="{recordingState}">{recordingState}</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Configuration</td>
-                                                <td>
-                                                    <span class="{configState}">{configState}</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hardware</td>
-                                                <td>
-                                                    <span class="{hardwareState}">{hardwareState}</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Software</td>
-                                                <td>
-                                                    <span class="{softwareState}">{softwareState}</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <span class="pull-left device-card-name">Services</span>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="panel-body">
-                                    <table class="table table-hover service-table table-condensed table-small">
-                                        <thead>
-                                            <th>Name</th>
-                                            <th>Version</th>
-                                            <th>Active</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Video Surveillance Federator</td>
-                                                <td>{vsfVersion}</td>
-                                                <td>
-                                                    <span class="status-icon {vsfActive}"><i class="fa fa-circle"></i></span>
-                                                </td>
-                                            </tr>
+						</li>
 
-                                            <tr>
-                                                <td>Maps Server</td>
-                                                <td>{mapServerVersion}</td>
-                                                <td>
-                                                    <span class="status-icon {mapServerActive}"><i class="fa fa-circle"></i></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Metadata Server</td>
-                                                <td>{metadataServerVersion}</td>
-                                                <td>
-                                                    <span class="status-icon {metadataServerActive}"><i class="fa fa-circle"></i></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Media Server</td>
-                                                <td>{umsVersion}</td>
-                                                <td>
-                                                    <span class="status-icon {umsActive}"><i class="fa fa-circle"></i></span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Video Surveillance Operations Manager</td>
-                                                <td>{vsomVersion}</td>
-                                                <td>
-                                                    <span class="status-icon {vsomActive}"><i class="fa fa-circle"></i></span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4"></div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+						
+						<li class="dropdown" style="float:right">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" data-target="#" aria-expanded="false">Admin <span class="caret"></span><div class="ripple-container"></div></a>
+							<ul class="dropdown-menu dropdown-user" style="margin-left: -55px;">
 
-    <div class="modal" id="cameraDetails">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title text-info">{cameraName}</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <span class="pull-left device-card-name">Configuration</span>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="panel-body">
-                                    <table class="table table-hover table-condensed no-border table-small">
-                                        <tbody>
-                                            <tr>
-                                                <td class="table-label">Vendor</td>
-                                                <td>{vendor}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">Model</td>
-                                                <td>{modelName}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">Reported Vendor</td>
-                                                <td>{vendorNameFromDevice}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">Reported Model</td>
-                                                <td>{modelNameFromDevice}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">Serial Number</td>
-                                                <td>{serialNo}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">Firmware Version</td>
-                                                <td>{firmwareVersion}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">Port Id</td>
-                                                <td>{portId}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">Device Id</td>
-                                                <td>{deviceId}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">Device Address</td>
-                                                <td>{deviceAddress}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">Device Address</td>
-                                                <td>{deviceModel}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">SDK Version</td>
-                                                <td>{SDKVersion}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">Hardware id</td>
-                                                <td>{hardwareid}</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="table-label">MAC Address</td>
-                                                <td>{macaddress}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="panel panel-default" id="cameraStatusTemplate">
-                                        <div class="panel-heading">
-                                            <span class="pull-left device-card-name">Camera Status</span>
-                                            <span class="pull-right status-icon server-status {aggregateState}"><i class="fa fa-circle"></i></span>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="panel-body">
-                                            <table class="table table-hover status-table table-small">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Reachability</td>
-                                                        <td>
-                                                            <span class="{reachabilityState}">{reachabilityState}</span>
-                                                        </td>
-                                                    </tr>
+								<li><a id="logOutBtn" href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown" id="alertCountBadge" style="float:right" >
+							<!--<a href="#alerts" aria-controls="alerts" role="tab" data-toggle="tab" style="width:175px">Alerts <span id="alertCountBadge" class="badge">0</span></a>-->
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="padding 12 0px !important;">
+								<span  class="badge">
+									<b>
+										<i class="fa fa-bell"></i>
+										<span class="alert-badge-count" id="alertCountBadgeCount">0</span>
+									</b>
 
-                                                    <tr>
-                                                        <td>Streaming</td>
-                                                        <td>
-                                                            <span class="{streamingstate}">{streamingstate}</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Recording</td>
-                                                        <td>
-                                                            <span class="{recordingState}">{recordingState}</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Configuration</td>
-                                                        <td>
-                                                            <span class="{configState}">{configState}</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Hardware</td>
-                                                        <td>
-                                                            <span class="{hardwareState}">{hardwareState}</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Software</td>
-                                                        <td>
-                                                            <span class="{softwareState}">{softwareState}</span>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
+								</span>
+								
+							</a>
+							<!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								<i class="fa fa-bell"></i> <b class="caret"></b>
+							</a>-->
+							
+						</li>
+					</ul>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+					<!-- Tab panes -->
+					<div class="tab-content" id="tabContent">
+						<div role="tabpanel" class="tab-pane active fade in" id="server">
+							<div class="row server-list" id="serverList">
 
-    <!--jquery JS  -->
-    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+							</div>
+							<div id="serverEmptyList" style="display:none">
+								<div class="col-md-12">
+									<div class="bs-component">
+										<div class="well well-lg">
+											No Servers Under Current Location
+										</div>
+										<div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="camera">
+							<div class="row camera-list" id="cameraList">
 
-    <!--bootstrap JS  -->
-    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+							</div>
+							<div id="cameraEmptyList" style="display:none">
+								<div class="col-md-12">
+									<div class="bs-component">
+										<div class="well well-lg">
+											No Cameras Under Current Location
+										</div>
+										<div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="encoder">
+							<div class="col-md-12">
+								<div class="bs-component">
+									<div class="well well-lg">
+										No Encoders Under Current Location
+									</div>
+									<div id="source-button" class="btn btn-primary btn-xs" style="display: none;">&lt; &gt;</div>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="alerts">
+							<div class="well well-sm" id="alertFilters">
+							<div class="row table-filter" id="alerts">
+								<div class="col-sm-6">
+									<div class="form-group has-info">
+										<div class="form-group__text alertSearchFilter-wrapper">
+											<label for="alertSearchFilter" class="control-label">Enter Search Text Here</label>
+											<input type="text" class="form-control" id="alertSearchFilter">
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-2">
+									
+								</div>
+								<div class="col-sm-2">
+									<div class="form-group has-info">
+										<div class="form-group__text has -info alertFilters-wrapper">
+											<label for="alertTimeFilter" class="has-info">Time</label>
+											<select class="select form-control" id="alertTimeFilter">
+												<option selected value="24">Last 24 Hours</option>
+												<option value="0">All</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-2">
+									<div class="form-group has-info">
+										<div class="form-group__text alertSeverityFilter-wrapper">
+											<label for="alertSeverityFilter" class="has-info">Severity</label>
+											<select class="select form-control" id="alertSeverityFilter">
+												<option selected value="0">All</option>
+												<option value="CRITICAL">Critical</option>
+												<option value="WARNING">Warning</option>
+												<option value="INFO">Info</option>
+											</select>
+										</div>
+									</div>
+								</div>								
+							</div>
+								<!--<div class="col-sm-3">
+									<label for="alertCurrentStatusFilter">Current Status</label>
+									<select class="select form-control" id="alertCurrentStatusFilter">
+										<option selected value="allHealth">All Health</option>
+										<option value="currentHealth">Affecting Current Status</option>
+									</select>
+								</div>
+							-->
 
-    <!--mustache JS  -->
-    <script src="../../bower_components/mustache.js/mustache.js"></script>
 
-    <!--metisMenu JS  -->
-    <script src="../../bower_components/metisMenu/dist/metisMenu.js"></script>
+						</div>
+						<table width="100%" class="table table-striped table-bordered table-hover" id="alertsTable">
 
-    <!--Custom JS  -->
-    <script src="../../bower_components/tether/dist/js/tether.js"></script>
+						</table>
+					</div>
+				</div>
 
-    <!--DataTable JS  -->
-    <script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-    <!--DataTable JS  -->
-    <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <!--DataTable JS  -->
-    <!--<script src="../../bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>-->
-    <!--DataTable JS  -->
-    <!--<script src="../../bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.min.js"></script>-->
-    <script src="../../bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+			</div>
+		</div>
+	</div>
+</div>
 
-    <script src="../external-libs/bootstrap-material-design/dist/js/ripples.js"></script>
-    <script src="../external-libs/bootstrap-material-design/dist/js/material.js"></script>
-    <script src="./../script/main.js"></script>
-    <script src="./../script/shared/util.js"></script>
-    <script src="./../script/dashboard/dashboard.js"></script>
-    <script src="./../script/dashboard/events.js"></script>
+<div id='serverTemplate' style='display:none'>
+	<div class="col-md-3">
+		<div class="well">
+			<div class="panel {panelCss}">
+				<div class="panel-body">
+					<div class="list-group stat-list" id="server">
+						<div class="list-group-item" title="Used CPU">
+							<div class="row-action-primary">
+								<i class="material-icons">developer_board</i>
+							</div>
+							<div class="row-content">
+								<h4 class="list-group-item-heading">CPU</h4>
+
+								<p class="list-group-item-text large">{cpu}%</p>
+							</div>
+						</div>
+						<div class="list-group-separator"></div>
+						<div class="list-group-item" title="used memory / total memory">
+							<div class="row-action-primary">
+								<i class="material-icons">memory</i>
+							</div>
+							<div class="row-content">
+								<h4 class="list-group-item-heading">Memory</h4>
+								<div class="progress progress-striped active">
+									<div class="progress-bar" style="width: {memory}%"></div>
+								</div>
+								<p class="list-group-item-text pull-right">{usedMemory} / {totalMemory}</p>
+							</div>
+						</div>
+						<div class="list-group-separator"></div>
+						<div class="list-group-item" title = "used storage / total storage">
+							<div class="row-action-primary">
+								<i class="material-icons">storage</i>
+							</div>
+							<div class="row-content">
+								<h4 class="list-group-item-heading">Storage</h4>
+								<div class="progress progress-striped active">
+									<div class="progress-bar" style="width: {storage}%"></div>
+								</div>
+								<p class="list-group-item-text pull-right">{usedStorage} / {totalStorage}</p>
+							</div>
+						</div>
+						<div class="list-group-separator"></div>
+					</div>
+				</div>
+				<a server-index="{index}" class="serverDetailsBtn" href="#">
+					<div class="panel-footer" title="{serverName}">
+						<span class="pull-left device-card-name server-card-name">{serverName}</span>
+						<span class="pull-right status-icon {deviceState}"><i class="fa fa-circle"></i></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id='cameraTemplate' style='display:none'>
+	<div class="col-md-3">
+		<div class="well">
+			<div class="panel {0}">
+				<div class="panel-body">
+					<div class="list-group stat-list" id="server">
+						<div class="list-group-item">
+							<div class="row-action-primary">
+								<i class="material-icons">info</i>
+							</div>
+							<div class="row-content">
+								<h4 class="list-group-item-heading">IP Address</h4>
+
+								<p class="list-group-item-text large">{4}</p>
+							</div>
+						</div>
+						<div class="list-group-separator"></div>
+						<div class="list-group-item">
+							<div class="row-action-primary">
+								<i class="material-icons">label</i>
+							</div>
+							<div class="row-content">
+								<h4 class="list-group-item-heading">Model</h4>
+								<p class="list-group-item-text large">{5}</p>
+							</div>
+						</div>
+						<div class="list-group-separator"></div>
+						<div class="list-group-item">
+							<div class="row-action-primary">
+								<i class="material-icons">group_work</i>
+							</div>
+							<div class="row-content">
+								<h4 class="list-group-item-heading">Managed By</h4>
+								<p class="list-group-item-text large">{6}</p>
+							</div>
+						</div>
+						<div class="list-group-separator"></div>
+					</div>
+				</div>
+				<a camera-index="{1}" class="cameraDetailsBtn" href="#">
+					<div class="panel-footer" title="{2}">
+						<span class="pull-left device-card-name camera-card-name">{2}</span>
+						<span class="pull-right status-icon {3}"><i class="fa fa-circle"></i></span>
+						<div class="clearfix"></div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="locationTreeTemplate" style="display:none">
+	<div class="sidebar-nav navbar-collapse">
+		<ul class="nav in" id="side-menu">
+			<li>
+				<a href="#" ><i class="fa fa-sitemap fa-fw"></i>System<span class="fa arrow"></span></a>
+				<ul class="nav nav-second-level collapse">
+					<li>
+						<a  href="#">Mumbai</a>
+					</li>
+					<li>
+						<a  href="#">Thane</a>
+					</li>
+					<li>
+						<a  href="#">Pune <span class="fa arrow"></span></a>
+						<ul class="nav nav-third-level collapse">
+							<li>
+								<a  href="#">Baner</a>
+							</li>
+							<li>
+								<a  href="#">Pashan</a>
+							</li>
+							<li>
+								<a  href="#">Kothrud</a>
+							</li>
+							<li>
+								<a  href="#">Camp</a>
+							</li>
+						</ul>
+						<!-- /.nav-third-level -->
+					</li>
+				</ul>
+				<!-- /.nav-second-level -->
+			</li>
+		</ul>
+	</div>
+
+</div>
+
+
+<div id="loader" style="display:none">
+	<div class="col-md-12" style="height:573px">
+		<div class="showbox">
+			<div class="loader">
+				<svg class="circular" viewBox="25 25 50 50">
+					<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+				</svg>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div id="fullScreenLoader" class="full-screen-spinner" style="display:none">
+
+	<div class="full-screen-showbox showbox">
+		<div class="loader">
+			<svg class="circular" viewBox="25 25 50 50">
+				<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+			</svg>
+		</div>
+	</div>
+	<div class="modal-backdrop in" id="loaderBackdrop"></div>
+
+</div>
+
+<div class="modal" id="serverDetails">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 class="modal-title text-cui-info">{serverName}</h3>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-7 cui">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="jumbotron jumbotron-sm">
+									<h4 class="page__title">Configuration</h4>
+									<table class="table--nostripes">
+										<tbody>
+											<tr>
+												<td class="table-label">Type</td>
+												<td>{serverType}</td>
+											</tr>
+											<tr>
+												<td class="table-label">Model</td>
+												<td>{serverModel}</td>
+											</tr>
+											<tr>
+												<td class="table-label">Number of CPUs</td>
+												<td>{cpuNum}</td>
+											</tr>
+											<tr>
+												<td class="table-label">Raid Controller</td>
+												<td>{raidControllers}</td>
+											</tr>
+											<tr>
+												<td class="table-label">Operating System</td>
+												<td>{os}</td>
+											</tr>
+											<tr title="Used Memory / Total Memory">
+												<td class="table-label">Memory</td>
+												<td>{usedMemory} / {totalMemory}</td>
+											</tr>
+											<tr title="Used Storage / Total Storage">
+												<td class="table-label">Storage</td>
+												<td>{usedStorage} / {totalStorage}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>                        			
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="panel" id="serverErrorsPanel">
+									<div class="panel__header">
+										<span class="pull-left device-card-name">Status History</span>
+										<div class="clearfix"></div>
+									</div>
+									<div class="panel__body">
+										<table width="100%" class="table" id="serverStatsHistory">
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-5 cui">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="panel" id="serverStatusTemplate">
+									<div class="panel__header">
+										<span class="pull-left device-card-name">Server Status</span>
+										<span class="pull-right status-icon server-status {aggregateState}"><i class="fa fa-circle"></i></span>
+										<div class="clearfix"></div>
+									</div>
+									<div class="panel__body">
+										<table class="table__nostripes status-table">
+											<tbody>
+												<tr>
+													<td>Reachability</td>
+													<td class="text-right">
+														<span class="{networkConnectivityState}">{networkConnectivityState}</span>
+													</td>
+												</tr>
+
+												<tr>
+													<td>Streaming</td>
+													<td class="text-right">
+														<span class="{streamingstate}">{streamingstate}</span>
+													</td>
+												</tr>
+												<tr>
+													<td>Recording</td>
+													<td class="text-right">
+														<span class="{recordingState}">{recordingState}</span>
+													</td>
+												</tr>
+												<tr>
+													<td>Configuration</td>
+													<td class="text-right">
+														<span class="{configState}">{configState}</span>
+													</td>
+												</tr>
+												<tr>
+													<td>Hardware</td>
+													<td class="text-right">
+														<span class="{hardwareState}">{hardwareState}</span>
+													</td>
+												</tr>
+												<tr>
+													<td>Software</td>
+													<td class="text-right"">
+														<span class="{softwareState}">{softwareState}</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>                        			
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="panel" id="servicePanel">
+									<div class="panel__header">
+										<span class="pull-left device-card-name">Services</span>
+										<div class="clearfix"></div>
+									</div>
+									<div class="panel__body">
+										<table class="table service-table">
+											<thead>
+												<th>Name</th>
+												<th>Version</th>
+												<th class="text-center">Active</th>
+											</thead>
+											<tbody>
+												<tr>
+													<td title="Video Surveillance Federator">VSF</td>
+													<td>{vsfVersion}</td>
+													<td class="text-center">
+														<span class="status-icon {vsfActive}"><i class="fa fa-check-square-o fa-lg"></i></span>
+													</td>
+												</tr>
+
+												<tr>
+													<td>Maps Server</td>
+													<td>{mapServerVersion}</td>
+													<td class="text-center">
+														<span class="status-icon {mapServerActive}"><i class="fa fa-check-square-o fa-lg"></i></span>
+													</td>
+												</tr>
+												<tr>
+													<td>Metadata Server</td>
+													<td>{metadataServerVersion}</td>
+													<td class="text-center">
+														<span class="status-icon {metadataServerActive}"><i class="fa fa-check-square-o fa-lg"></i></span>
+													</td>
+												</tr>
+												<tr>
+													<td>Media Server</td>
+													<td>{umsVersion}</td>
+													<td class="text-center">
+														<span class="status-icon {umsActive}"><i class="fa fa-check-square-o fa-lg"></i></span>
+													</td>
+												</tr>
+												<tr>
+													<td title="Video Surveillance Operations Manager">VSOM</td>
+													<td>{vsomVersion}</td>
+													<td class="text-center">
+														<span class="status-icon {vsomActive}"><i class="fa fa-check-square-o fa-lg"></i></span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>                        			
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer cui">
+				<button type="button" class="btn btn--primary-ghost btn--small" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="cameraDetails">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 class="modal-title text-cui-info">{cameraName}</h3>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-7 cui">
+						<div class="jumbotron jumbotron-sm">
+							<h4 class="page__title">Configuration</h4>
+							<table class="table--nostripes">
+								<tbody>
+									<tr>
+										<td class="table-label">Vendor</td>
+										<td>{vendor}</td>
+									</tr>
+									<tr>
+										<td class="table-label">Model</td>
+										<td>{modelName}</td>
+									</tr>
+									<tr>
+										<td class="table-label">Reported Vendor</td>
+										<td>{vendorNameFromDevice}</td>
+									</tr>
+									<tr>
+										<td class="table-label">Reported Model</td>
+										<td>{modelNameFromDevice}</td>
+									</tr>
+									<tr>
+										<td class="table-label">Serial Number</td>
+										<td>{serialNo}</td>
+									</tr>
+									<tr>
+										<td class="table-label">Firmware Version</td>
+										<td>{firmwareVersion}</td>
+									</tr>
+									<tr>
+										<td class="table-label">Port Id</td>
+										<td>{portId}</td>
+									</tr>
+									<tr>
+										<td class="table-label">Device Id</td>
+										<td>{deviceId}</td>
+									</tr>
+									<tr>
+										<td class="table-label">Device Address</td>
+										<td>{deviceAddress}</td>
+									</tr>
+									<tr>
+										<td class="table-label">Device Address</td>
+										<td>{deviceModel}</td>
+									</tr>
+									<tr>
+										<td class="table-label">SDK Version</td>
+										<td>{SDKVersion}</td>
+									</tr>
+									<tr>
+										<td class="table-label">Hardware id</td>
+										<td>{hardwareid}</td>
+									</tr>
+									<tr>
+										<td class="table-label">MAC Address</td>
+										<td>{macaddress}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>   
+					</div>
+					<div class="col-md-5 cui">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="panel" id="cameraStatusTemplate">
+									<div class="panel__header">
+										<span class="pull-left device-card-name">Camera Status</span>
+										<span class="pull-right status-icon server-status {aggregateState}"><i class="fa fa-circle"></i></span>
+										<div class="clearfix"></div>
+									</div>
+									<div class="panel__body">
+										<table class="table--nostripes status-table">
+											<tbody>
+												<tr>
+													<td>Reachability</td>
+													<td class="text-right">
+														<span class="{networkConnectivityState}">{networkConnectivityState}</span>
+													</td>
+												</tr>
+
+												<tr>
+													<td>Streaming</td>
+													<td class="text-right">
+														<span class="{streamingstate}">{streamingstate}</span>
+													</td>
+												</tr>
+												<tr>
+													<td>Recording</td>
+													<td class="text-right">
+														<span class="{recordingState}">{recordingState}</span>
+													</td>
+												</tr>
+												<tr>
+													<td>Configuration</td>
+													<td class="text-right">
+														<span class="{configState}">{configState}</span>
+													</td>
+												</tr>
+												<tr>
+													<td>Hardware</td>
+													<td class="text-right">
+														<span class="{hardwareState}">{hardwareState}</span>
+													</td>
+												</tr>
+												<tr>
+													<td>Software</td>
+													<td class="text-right">
+														<span class="{softwareState}">{softwareState}</span>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="panel" id="serverErrorsPanel">
+									<div class="panel__header">
+										<span class="pull-left device-card-name">Status History</span>
+										<div class="clearfix"></div>
+									</div>
+									<div class="panel__body">
+										<table width="100%" class="table" id="cameraStatsHistory">
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer cui">
+				<button type="button" class="btn btn--primary-ghost btn--small" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--jquery JS  -->
+<script src="../../bower_components/jquery/dist/jquery.js"></script>
+
+<!--bootstrap JS  -->
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!--mustache JS  -->
+<script src="../../bower_components/mustache.js/mustache.js"></script>
+
+<!--metisMenu JS  -->
+<script src="../../bower_components/metisMenu/dist/metisMenu.js"></script>
+
+<!--Custom JS  -->
+<script src="../../bower_components/tether/dist/js/tether.js"></script>
+
+<!--DataTable JS  -->
+<script src="../../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<!--DataTable JS  -->
+<script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!--DataTable JS  -->
+<!--<script src="../../bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>-->
+<!--DataTable JS  -->
+<!--<script src="../../bower_components/datatables.net-responsive-bs/js/responsive.bootstrap.min.js"></script>-->
+<script src="../../bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<!-- <script src="../../bower_components/dropdown.js/jquery.dropdown.js"></script> -->
+
+<script src="../external-libs/bootstrap-material-design/dist/js/ripples.js"></script>
+<script src="../external-libs/bootstrap-material-design/dist/js/material.js"></script>
+<script src="./../script/main.js"></script>
+<script src="./../script/shared/util.js"></script>
+<script src="./../script/dashboard/dashboard.js"></script>
+<script src="./../script/dashboard/alerts.js"></script>
 </body>
 
 </html>
