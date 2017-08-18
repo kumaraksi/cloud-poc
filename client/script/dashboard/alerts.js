@@ -242,7 +242,10 @@ function updateAlerts(){
 				  ],
 				//scrollY:        '68vh',
 				//scrollCollapse: true,
-				paging:         false
+				paging:         false,
+                "language": {
+                    "emptyTable": "No records available"
+                }
 			} );
 			
 			

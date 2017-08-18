@@ -545,7 +545,10 @@ function updateCameraStatusHistoryTable(){
 					  ],
 					scrollY:        '155px',
 					scrollCollapse: true,
-					paging:         false
+					paging:         false,
+                    "language": {
+                        "emptyTable": "No records available"
+                    }
 				} );
 				
 				
@@ -634,7 +637,10 @@ function updateServerStatusHistoryTable(){
 					  ],
 					scrollY:        '140px',
 					scrollCollapse: true,
-					paging:         false
+					paging:         false,
+                    "language": {
+                        "emptyTable": "No records available"
+                    }                    
 				} );
 				
 				

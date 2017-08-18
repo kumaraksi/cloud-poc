@@ -31,7 +31,7 @@ var utils = (function() {
 		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 	}
 	
-	window.LOGIN_PAGE = "/"+extractFolderFromPath(1)+'/client/pages/login-cisco.html';
+	window.LOGIN_PAGE = "/"+extractFolderFromPath(1)+'/client/pages/login.html';
 	window.DASHBOARD_PAGE = "/"+extractFolderFromPath(1)+'/client/pages/dashboard.html';
 	
 	if(getCookie('CSRF_TOKEN') == ''){

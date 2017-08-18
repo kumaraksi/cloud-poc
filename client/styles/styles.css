@@ -787,3 +787,4 @@ div.connectedServerAddress {
     idth: 75px;
     display: inline-block;
 }
+a#logOutBtn:hover {color: #049fd9;}

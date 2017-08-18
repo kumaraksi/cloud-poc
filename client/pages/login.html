@@ -1,70 +1,122 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+<!doctype html>
+<html class="cui" lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap Core CSS -->
-    <link href="../../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css">
-
-    <!-- Custom Fonts -->
-    <link href="../../bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
-
-    <!--Material Design CSS  -->
-    <link href="../external-libs/bootstrap-material-design/dist/bootstrap-material-design.css" rel="stylesheet" type="text/css">
-
-    <!-- Custom CSS -->
-    <link href="./../styles/sb-admin-2.css" rel="stylesheet" type="text/css">
-    <link href="./../styles/styles.css" rel="stylesheet" type="text/css">
-
+    <title>Cisco VSM</title>
+    <link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
+    <link rel="stylesheet" href="../css/cui-standard.min.css">
+    <style>
+        .bg-image {
+            background: url(../img/splash-default.jpg);
+            background-size: cover;
+            -webkit-filter: blur(3px);
+            -moz-filter: blur(3px);
+            -o-filter: blur(3px);
+            -ms-filter: blur(3px);
+            filter: blur(3px);
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        div#login-panel {
+            margin-top: 25vh;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .25);
+            /* border: 1px solid #ddd; */
+        }
+        
+        #login-panel .logo-panel {
+            position: absolute;
+            height: 100%;
+        }
+        
+        #login-panel .form-panel {
+            left: 50%;
+        }
+        
+        #login-panel .form-group {
+            margin-top: 30px;
+        }
+        
+        button#loginBtn {
+            margin-top: 15px;
+            max-width: 100%;
+            /* margin-right: 10.5px; */
+            width: 100%;
+        }
+        
+        p.cisco-logo {
+            font-size: 72px;
+            text-align: center;
+        }
+        
+        .logo-panel .panel-body {
+            margin-top: 40px;
+        }
+        
+        .logo-panel .panel-body h2 {
+            display: block;
+            text-align: center;
+            bottom: 20px;
+        }
+        
+        .panel.panel--blue.col-md-6.logo-panel.panel--loose {
+            padding: 30px;
+        }
+    </style>
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
-    <div id="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading login-card-header">
-                        <h2 class="panel-title">Please Sign In</h2>
-                    </div>
-                    <div class="panel-body">
-                        <div role="form">
-                            <fieldset>
-                                <div class="form-group has-info">
-                                    <input id="hostNameField" class="form-control" style="padding-left:10px" placeholder="IP Address" name="ip" type="text" value='10.65.158.230' autofocus>
+    <div class="content-fluid">
+        <main>
+            <div class="bg-image"></div>
+            <div class="content">
+                <div class="container">
+                    <div class="col-md-6 col-md-offset-3" id="login-panel">
+                        <div class="row">
+                            <div class="panel panel--blue col-md-6 logo-panel panel--loose">
+                                <div class=".panel__header login-card-header">
+                                    <p class="cisco-logo"><i class="icon-cisco"></i></p>
                                 </div>
-                                <div class="form-group has-info">
-                                    <input id="userNameField" class="form-control" style="padding-left:10px" placeholder="User Name" name="uname" type="text"  value='admin' autofocus>
+                                <div class="panel-body">
+                                    <h2>Video Surveillance Manager</h2>
                                 </div>
-                                <div class="form-group has-info">
-                                    <input id="passwordField" class="form-control" style="padding-left:10px" placeholder="Password" name="password" type="password" value="Admin123">
+                            </div>
+                            <div class="form-panel panel panel--loose col-md-6">
+                                <div class=".panel__header login-card-header">
+                                    <h4 class="panel-title">Sign In</h4>
                                 </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <button id="loginBtn" class="btn btn-lg btn-info btn-block btn-raised">Login</button>
-								<!--<a href="./dashboard.html" class="btn btn-lg btn-info btn-block btn-raised">Login</a>-->
-                            </fieldset>
+                                <div class="panel-body">
+                                    <div role="form">
+                                        <div class="form-group">
+                                            <div class="form-group__text">
+                                                <input id="hostNameField" class="form-control" style="padding-left:10px" placeholder="IP Address" name="ip" type="text" value='10.65.158.229' autofocus>
+                                                <label for="hostNameField">IP / Hostname</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-group__text">
+                                                <input id="userNameField" placeholder="Username" name="uname" type="text" value='admin' autofocus>
+                                                <label for="userNameField">Username</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-group__text">
+                                                <input id="passwordField" placeholder="IP Address" name="password" type="password" value='Admin123' autofocus>
+                                                <label for="passwordField">Password</label>
+                                            </div>
+                                        </div>
+                                        <button id="loginBtn" class="btn btn--primary">Login</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
-
-
-
     <!--jquery JS  -->
     <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 
@@ -74,12 +126,13 @@
     <!--Material Design JS  -->
     <script src="../../bower_components/tether/dist/js/tether.js"></script>
     <script src="../external-libs//bootstrap-material-design/dist/js/ripples.js"></script>
-	<script src="../external-libs//bootstrap-material-design/dist/js/material.js"></script>
-    
+    <script src="../external-libs//bootstrap-material-design/dist/js/material.js"></script>
+
 
     <!--Custom JS  -->
     <script src="./../script/shared/util.js"></script>
     <script src="./../script/login.js"></script>
+
 </body>
 
 </html>
