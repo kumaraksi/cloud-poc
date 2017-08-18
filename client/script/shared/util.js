@@ -1,13 +1,52 @@
 var utils = (function() {
 	
+	var randomString = function(length) {
+		var text = "";
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		for(var i = 0; i < length; i++) {
+			text += possible.charAt(Math.floor(Math.random() * possible.length));
+		}
+		return text;
+	}
+	function getCookie(cname) {
+		var name = cname + "=";
+		var decodedCookie = decodeURIComponent(document.cookie);
+		var ca = decodedCookie.split(';');
+		for(var i = 0; i <ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+	
+	function setCookie(cname, cvalue, exdays) {
+		var d = new Date();
+		d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		var expires = "expires="+ d.toUTCString();
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+	
 	window.LOGIN_PAGE = "/"+extractFolderFromPath(1)+'/client/pages/login-cisco.html';
 	window.DASHBOARD_PAGE = "/"+extractFolderFromPath(1)+'/client/pages/dashboard.html';
 	
-    window.CSRF_TOKEN = Math.random().toString(36);
-    window.JSESSIONID = Math.random().toString(36);
-	document.cookie = "CSRF_TOKEN="+CSRF_TOKEN+"; expires=Thu, 18 Dec 2018 12:00:00 UTC; path=/";
-    document.cookie = "JSESSIONID="+JSESSIONID+"; expires=Thu, 18 Dec 2018 12:00:00 UTC; path=/";
-    
+	if(getCookie('CSRF_TOKEN') == ''){
+		window.CSRF_TOKEN = randomString(36);
+		setCookie('CSRF_TOKEN', window.CSRF_TOKEN, 10);
+	}else{
+		window.CSRF_TOKEN = getCookie('CSRF_TOKEN');
+	}
+	
+	if(getCookie('JSESSIONID') == ''){
+		window.JSESSIONID = randomString(36);
+		setCookie('JSESSIONID', window.JSESSIONID, 10);
+	}else{
+		window.JSESSIONID = getCookie('JSESSIONID');
+	}
 	
 	String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
 	function () {
@@ -65,14 +104,30 @@ var utils = (function() {
 	
 	
 	function sendPost(url, data, onSuccess, onError) {
+		var onSuccessParent = function(data, textStatus, jqXHR ) {
+			onSuccess(data, textStatus, jqXHR);
+		};
+		
+		var onErrorParent = function(data, textStatus, jqXHR ) {
+			console.info(data, textStatus, jqXHR);
+			switch(data.status){
+				case 403:
+					window.location = window.LOGIN_PAGE;
+					break;
+			}
+			onError(data, textStatus, jqXHR);
+			
+		}
+		
+		
 		data = JSON.stringify(data);
 		$.ajax({
 			type: "POST",
 			url: url,
 			data: data,
 			contentType: "application/json; charset=utf-8",
-			success: onSuccess,
-			error: onError,
+			success: onSuccessParent,
+			error: onErrorParent,
 			xhrFields: {
 			  withCredentials: true
 		   },
