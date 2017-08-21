@@ -472,8 +472,9 @@ function getStatusAlertFilters(device){
 				"name": "alertTime",
 				"sortOrder": "DESC"
 			},
-			"bySeverity" : ["CRITICAL"],
+			//"bySeverity" : ["CRITICAL", "WARNING", "INFO"],
 			"byDeviceRefs": [deviceRef],
+			"currentHealth" : true,
 			"byAfterAlertTimeUTC": tsYesterday
 		}
 	};
@@ -539,7 +540,19 @@ function updateCameraStatusHistoryTable(){
 						{
 							targets: 0,
 							render : function(data, type, row){
-								return '<span class="label label--danger label--tiny">CRITICAL</span>';
+									switch(data){
+										case "CRITICAL":
+											return '<span class="label label--danger label--tiny">CRITICAL</span>';
+											break;
+										case "INFO":
+											return '<span class="label label--info label--tiny">INFO</span>';
+											break;
+										case "WARNING":
+											return '<span class="label label--warning label--tiny">WARNING</span>';
+											break;
+										default :
+											return '<span class="label label--primary label--tiny">'+data+'</span>';
+								}
 							}
 						}
 					  ],
@@ -626,12 +639,24 @@ function updateServerStatusHistoryTable(){
 						},
 						{
 							targets: 2,
-							render : $.fn.dataTable.render.ellipsis(30)
+							render : $.fn.dataTable.render.ellipsis(50)
 						},
 						{
 							targets: 0,
 							render : function(data, type, row){
-								return '<span class="label label--danger label--tiny">CRITICAL</span>';
+								switch(data){
+										case "CRITICAL":
+											return '<span class="label label--danger label--tiny">CRITICAL</span>';
+											break;
+										case "INFO":
+											return '<span class="label label--info label--tiny">INFO</span>';
+											break;
+										case "WARNING":
+											return '<span class="label label--warning label--tiny">WARNING</span>';
+											break;
+										default :
+											return '<span class="label label--primary label--tiny">'+data+'</span>';
+								}
 							}
 						}
 					  ],
