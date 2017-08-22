@@ -107,6 +107,11 @@ function updateServerList() {
                     deviceState = 'soft_deleted';
                     break;
             }*/
+			usedMemory = utils.convertToBytes(usedMemory,'M');
+			usedMemory = utils.bytesToSize(usedMemory);
+			totalMemory = utils.convertToBytes(totalMemory,'M');
+			totalMemory = utils.bytesToSize(totalMemory);
+			
             usedStorage = utils.bytesToSize(usedStorage);
             totalStorage = utils.bytesToSize(totalStorage);
             server.usedStorage = usedStorage;
@@ -697,6 +702,12 @@ $('#serverDetails').on('shown.bs.modal', function() {
         window.serverDetailsOriginalTemplate = $('#serverDetails')[0].innerHTML;
     }
     var serverDetailTemplateStr = $('#serverDetails')[0].innerHTML;
+	
+	server.usedMemory = utils.convertToBytes(server.usedMemory,'M');
+	server.usedMemory = utils.bytesToSize(server.usedMemory);
+	server.totalMemory = utils.convertToBytes(server.totalMemory,'M');
+	server.totalMemory = utils.bytesToSize(server.totalMemory);
+	
     var serverDetailsJSON = {
         serverName: server.name,
         serverType: server.umsService.umsRedundancyConfig.serverRoleType,
