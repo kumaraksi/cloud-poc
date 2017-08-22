@@ -107,11 +107,13 @@ function updateServerList() {
                     deviceState = 'soft_deleted';
                     break;
             }*/
-			usedMemory = utils.convertToBytes(usedMemory,'M');
+			/*usedMemory = utils.convertToBytes(usedMemory,'M');
 			usedMemory = utils.bytesToSize(usedMemory);
 			totalMemory = utils.convertToBytes(totalMemory,'M');
 			totalMemory = utils.bytesToSize(totalMemory);
-			
+			*/
+			usedMemory += ' MB';
+			totalMemory += ' MB';
             usedStorage = utils.bytesToSize(usedStorage);
             totalStorage = utils.bytesToSize(totalStorage);
             server.usedStorage = usedStorage;
@@ -703,10 +705,13 @@ $('#serverDetails').on('shown.bs.modal', function() {
     }
     var serverDetailTemplateStr = $('#serverDetails')[0].innerHTML;
 	
-	server.usedMemory = utils.convertToBytes(server.usedMemory,'M');
-	server.usedMemory = utils.bytesToSize(server.usedMemory);
-	server.totalMemory = utils.convertToBytes(server.totalMemory,'M');
-	server.totalMemory = utils.bytesToSize(server.totalMemory);
+	/*var usedMemory = utils.convertToBytes(server.usedMemory,'M');
+	usedMemory = utils.bytesToSize(usedMemory);
+	var totalMemory = utils.convertToBytes(server.totalMemory,'M');
+	totalMemory = utils.bytesToSize(totalMemory);
+	*/
+	var usedMemory = server.usedMemory + ' MB';
+	var totalMemory = server.totalMemory + ' MB';
 	
     var serverDetailsJSON = {
         serverName: server.name,
@@ -727,8 +732,8 @@ $('#serverDetails').on('shown.bs.modal', function() {
         metadataServerActive: server.motionMetadataService.serviceActivationState,
         vsomVersion: server.vsomService.softwareVersion,
         vsomActive: server.vsomService.serviceActivationState,
-        usedMemory: server.usedMemory,
-        totalMemory: server.totalMemory,
+        usedMemory: usedMemory,
+        totalMemory: totalMemory,
         usedStorage: server.usedStorage,
         totalStorage: server.totalStorage
     };
